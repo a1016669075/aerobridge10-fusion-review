@@ -1,16 +1,24 @@
 {
   "status": "PUBLIC_PROGRESS_SNAPSHOT",
-  "files": 10996,
-  "content_bytes": 469397458,
-  "content_MiB": 447.65229988098145,
+  "files": 12558,
+  "content_bytes": 380008356,
+  "content_MiB": 362.4042091369629,
   "groups": {
     "(root)": {
       "files": 1,
-      "bytes": 11961
+      "bytes": 16468
     },
     "candidate_domain_recon": {
       "files": 16,
       "bytes": 1503915
+    },
+    "compact_building_tensor": {
+      "files": 23,
+      "bytes": 5090993
+    },
+    "compact_graph_tensor": {
+      "files": 16,
+      "bytes": 3988840
     },
     "compact_missing_core": {
       "files": 45,
@@ -38,27 +46,43 @@
     },
     "evaluation": {
       "files": 1,
-      "bytes": 21345
+      "bytes": 24326
     },
     "event_comparison": {
-      "files": 1053,
-      "bytes": 19711740
+      "files": 1253,
+      "bytes": 10812961
+    },
+    "graph_connectivity_probe": {
+      "files": 9,
+      "bytes": 865559
+    },
+    "latest_input_review": {
+      "files": 25,
+      "bytes": 10391388
     },
     "method_guide": {
       "files": 1,
-      "bytes": 11117
+      "bytes": 15888
     },
     "native_reference": {
       "files": 1,
       "bytes": 227715
+    },
+    "native_relative_texture": {
+      "files": 20,
+      "bytes": 5938061
+    },
+    "native_texture_semantic": {
+      "files": 21,
+      "bytes": 6059737
     },
     "paper_figures": {
       "files": 379,
       "bytes": 126738329
     },
     "presentation": {
-      "files": 9207,
-      "bytes": 232950182
+      "files": 10455,
+      "bytes": 120113022
     },
     "recon_prominence": {
       "files": 20,
@@ -99,20 +123,20 @@
   },
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 29,
-    "main_tiles": 9204,
+    "main_methods": 33,
+    "main_tiles": 10452,
     "event_dates": 50,
-    "event_methods": 20,
-    "event_tiles": 1050,
+    "event_methods": 24,
+    "event_tiles": 1250,
     "latest_seasonal_sheets": 30
   },
-  "html_pages": 25,
-  "local_references": 898,
+  "html_pages": 31,
+  "local_references": 1071,
   "missing_references": 0,
   "syntax": "all staged external and inline JavaScript passed node --check",
   "windows_absolute_paths_remaining": 0,
   "credential_pattern_matches": 0,
-  "unchanged_binary_assets": 10887,
+  "unchanged_binary_assets": 12417,
   "metadata_cleanups": [
     {
       "file": "compact_missing_core/full_scene_review/SELECTED_SIX.csv",
@@ -121,6 +145,16 @@
     },
     {
       "file": "compact_tensor_guard/evaluation/ORIGINAL30.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "native_relative_texture/evaluation/ORIGINAL30_PROBABILITY.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "native_texture_semantic/evaluation/ORIGINAL30_PROBABILITY.csv",
       "field": "combined_path",
       "action": "removed local source-path column"
     },
@@ -151,6 +185,5 @@
     }
   ],
   "scientific_arrays_included": false,
-  "git_actions": true,
-  "publication_note": "Ongoing 6-hour task:29 methods,20 event methods,and30 latest seasonal comparison sheets; PNG originals remain local."
+  "git_actions": true
 }

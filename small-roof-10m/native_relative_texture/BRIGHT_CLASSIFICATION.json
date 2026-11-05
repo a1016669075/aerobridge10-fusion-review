@@ -1,0 +1,279 @@
+{
+  "relative_TRAIN_bright_weak_labels": {
+    "n": 25000,
+    "roads": 4574,
+    "buildings": 20426,
+    "confusion_rows_actual_road_building": [
+      [
+        4170,
+        404
+      ],
+      [
+        8193,
+        12233
+      ]
+    ],
+    "accuracy": 0.65612,
+    "balanced_accuracy": 0.75528412500662,
+    "ROC_AUC": 0.8451032363521016,
+    "brier": 0.1880424836124842,
+    "mean_p_building_road": 0.40239030770418166,
+    "mean_p_building_building": 0.5976652988393981
+  },
+  "first_absolute_TRAIN_bright_weak_labels": {
+    "n": 25000,
+    "roads": 4574,
+    "buildings": 20426,
+    "confusion_rows_actual_road_building": [
+      [
+        263,
+        4311
+      ],
+      [
+        100,
+        20326
+      ]
+    ],
+    "accuracy": 0.82356,
+    "balanced_accuracy": 0.5263015928625823,
+    "ROC_AUC": 0.8227495063499022,
+    "brier": 0.12404556765357931,
+    "mean_p_building_road": 0.6457926845111953,
+    "mean_p_building_building": 0.796741947663971
+  },
+  "relative_TRAIN_bright_road": {
+    "n": 4574,
+    "roads": 4574,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        4170,
+        404
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.9116746829908177,
+    "balanced_accuracy": 0.9116746829908177,
+    "ROC_AUC": null,
+    "brier": 0.16797474857323963,
+    "mean_p_building_road": 0.40239030770418166,
+    "mean_p_building_building": null
+  },
+  "first_absolute_TRAIN_bright_road": {
+    "n": 4574,
+    "roads": 4574,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        263,
+        4311
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.057498906864888503,
+    "balanced_accuracy": 0.057498906864888503,
+    "ROC_AUC": null,
+    "brier": 0.425958061991348,
+    "mean_p_building_road": 0.6457926845111953,
+    "mean_p_building_building": null
+  },
+  "relative_TRAIN_bright_building": {
+    "n": 20426,
+    "roads": 0,
+    "buildings": 20426,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        8193,
+        12233
+      ]
+    ],
+    "accuracy": 0.5988935670224224,
+    "balanced_accuracy": 0.5988935670224224,
+    "ROC_AUC": null,
+    "brier": 0.19253625723774145,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.5976652988393981
+  },
+  "first_absolute_TRAIN_bright_building": {
+    "n": 20426,
+    "roads": 0,
+    "buildings": 20426,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        100,
+        20326
+      ]
+    ],
+    "accuracy": 0.9951042788602761,
+    "balanced_accuracy": 0.9951042788602761,
+    "ROC_AUC": null,
+    "brier": 0.05643821677230279,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.796741947663971
+  },
+  "relative_HOLDOUT_bright_weak_labels": {
+    "n": 18847,
+    "roads": 2760,
+    "buildings": 16087,
+    "confusion_rows_actual_road_building": [
+      [
+        2213,
+        547
+      ],
+      [
+        6480,
+        9607
+      ]
+    ],
+    "accuracy": 0.6271555154666525,
+    "balanced_accuracy": 0.6995009360335063,
+    "ROC_AUC": 0.7269556478676183,
+    "brier": 0.2123970086357554,
+    "mean_p_building_road": 0.4541902495748557,
+    "mean_p_building_building": 0.563374054463635
+  },
+  "first_absolute_HOLDOUT_bright_weak_labels": {
+    "n": 18847,
+    "roads": 2760,
+    "buildings": 16087,
+    "confusion_rows_actual_road_building": [
+      [
+        63,
+        2697
+      ],
+      [
+        39,
+        16048
+      ]
+    ],
+    "accuracy": 0.8548310075874145,
+    "balanced_accuracy": 0.5102008845922038,
+    "ROC_AUC": 0.8743802944676726,
+    "brier": 0.0999804342396449,
+    "mean_p_building_road": 0.6552950938443566,
+    "mean_p_building_building": 0.824998175379718
+  },
+  "relative_HOLDOUT_bright_road": {
+    "n": 2760,
+    "roads": 2760,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        2213,
+        547
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.8018115942028986,
+    "balanced_accuracy": 0.8018115942028986,
+    "ROC_AUC": null,
+    "brier": 0.21201848434865622,
+    "mean_p_building_road": 0.4541902495748557,
+    "mean_p_building_building": null
+  },
+  "first_absolute_HOLDOUT_bright_road": {
+    "n": 2760,
+    "roads": 2760,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        63,
+        2697
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.02282608695652174,
+    "balanced_accuracy": 0.02282608695652174,
+    "ROC_AUC": null,
+    "brier": 0.4371835174909484,
+    "mean_p_building_road": 0.6552950938443566,
+    "mean_p_building_building": null
+  },
+  "relative_HOLDOUT_bright_building": {
+    "n": 16087,
+    "roads": 0,
+    "buildings": 16087,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        6480,
+        9607
+      ]
+    ],
+    "accuracy": 0.5971902778641138,
+    "balanced_accuracy": 0.5971902778641138,
+    "ROC_AUC": null,
+    "brier": 0.2124619509514385,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.563374054463635
+  },
+  "first_absolute_HOLDOUT_bright_building": {
+    "n": 16087,
+    "roads": 0,
+    "buildings": 16087,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        39,
+        16048
+      ]
+    ],
+    "accuracy": 0.9975756822278858,
+    "balanced_accuracy": 0.9975756822278858,
+    "ROC_AUC": null,
+    "brier": 0.04212747782927638,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.824998175379718
+  },
+  "ALL_map231": {
+    "n": 231,
+    "p_building_mean": 0.42073948140020323,
+    "classified_building_fraction": 0.12121212121212122,
+    "mean_tensor_recovery": 0.15428423392120014,
+    "mean_relative_recovery": 0.08772418860549398,
+    "max_further_drop_vs_tensor": 0.47500066505308425
+  },
+  "HOLDOUT_map231": {
+    "n": 68,
+    "p_building_mean": 0.4566414260940792,
+    "classified_building_fraction": 0.27941176470588236,
+    "mean_tensor_recovery": 0.13897843611090033,
+    "mean_relative_recovery": 0.07378106718595664,
+    "max_further_drop_vs_tensor": 0.25625039996961974
+  },
+  "TRAIN_map231": {
+    "n": 163,
+    "p_building_mean": 0.40576198300030414,
+    "classified_building_fraction": 0.05521472392638037,
+    "mean_tensor_recovery": 0.16066947472549695,
+    "mean_relative_recovery": 0.09354095091548502,
+    "max_further_drop_vs_tensor": 0.47500066505308425
+  },
+  "validation_note": "Exploratory reuse of the same held-out sites after observing first classifier failure; not a new independent validation."
+}

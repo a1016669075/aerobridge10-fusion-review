@@ -1,0 +1,83 @@
+{
+  "original30": {
+    "n": 30,
+    "zero_fraction": 21,
+    "zero_fraction_exact_tensor": true,
+    "additional_objects": 7,
+    "COMPACT_extra_mean": 0.9093408278945845,
+    "TENSOR_extra_mean": 0.4913540623519378,
+    "candidate_extra_mean": 0.5449087623743071,
+    "extra_vs_tensor_mean": 0.05355470002236924,
+    "extra_vs_tensor_max": 0.6963823075312767
+  },
+  "pixel_groups": {
+    "all": {
+      "n": 4171,
+      "changed_vs_tensor": 1359,
+      "extra_sum": 143.2911619488054,
+      "extra_max": 1.76538308848248,
+      "compact_drop_sum": 2245.203310989674,
+      "tensor_refund_sum": 855.8202614290079,
+      "new_refund_sum": 712.5290994802024,
+      "refund_fraction": 0.31735615923625343
+    },
+    "original_map231": {
+      "n": 231,
+      "changed_vs_tensor": 14,
+      "extra_sum": 0.3812616919155468,
+      "extra_max": 0.0753038585237284,
+      "compact_drop_sum": 95.8297459877106,
+      "tensor_refund_sum": 35.63965803579723,
+      "new_refund_sum": 35.258396343881685,
+      "refund_fraction": 0.3679274736719358
+    },
+    "event_map106": {
+      "n": 106,
+      "changed_vs_tensor": 5,
+      "extra_sum": 0.05363344830010759,
+      "extra_max": 0.0435482836657286,
+      "compact_drop_sum": 34.03976532956179,
+      "tensor_refund_sum": 12.585581040985254,
+      "new_refund_sum": 12.531947592685146,
+      "refund_fraction": 0.36815611010695753
+    },
+    "building_proxy": {
+      "n": 726,
+      "changed_vs_tensor": 562,
+      "extra_sum": 104.16791459558922,
+      "extra_max": 1.76538308848248,
+      "compact_drop_sum": 463.7337637741275,
+      "tensor_refund_sum": 177.00951505835724,
+      "new_refund_sum": 72.84160046276797,
+      "refund_fraction": 0.15707633593452813
+    }
+  },
+  "small_by_group": {
+    "EVENT_DATE_TRANSFER": {
+      "mean_extra_vs_tensor": 0.0027766246093298363,
+      "mean_extra_vs_reopen": 0.0233771999017452,
+      "mean_COMPACT_extra": 0.03174146201010288
+    },
+    "FIXED36": {
+      "mean_extra_vs_tensor": 0.0,
+      "mean_extra_vs_reopen": 0.011938887821516678,
+      "mean_COMPACT_extra": 0.020195710455902738
+    },
+    "SEASONAL120": {
+      "mean_extra_vs_tensor": 0.0018964830578110123,
+      "mean_extra_vs_reopen": 0.017849400193515018,
+      "mean_COMPACT_extra": 0.026364296855590646
+    }
+  },
+  "locked_roads": {
+    "n": 106,
+    "max_abs_core_delta_vs_tensor": 0.0,
+    "max_abs_contrast_delta_vs_tensor": 0.0
+  },
+  "industrial_control": {
+    "n": 125,
+    "max_abs_core_delta_vs_tensor": 0.0,
+    "max_abs_near_delta_vs_tensor": 0.0,
+    "max_abs_contrast_delta_vs_tensor": 0.0
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "TRAIN_all_weak_labels": {
+    "n": 111079,
+    "roads": 58071,
+    "buildings": 53008,
+    "confusion_rows_actual_road_building": [
+      [
+        47961,
+        10110
+      ],
+      [
+        17021,
+        35987
+      ]
+    ],
+    "accuracy": 0.7557504118690301,
+    "balanced_accuracy": 0.7524001495460585,
+    "ROC_AUC": 0.8481570219632313,
+    "brier": 0.17068414469912896,
+    "mean_p_building_road": 0.3822970102274532,
+    "mean_p_building_building": 0.6252574446682564
+  },
+  "TRAIN_bright_weak_labels": {
+    "n": 25004,
+    "roads": 4576,
+    "buildings": 20428,
+    "confusion_rows_actual_road_building": [
+      [
+        264,
+        4312
+      ],
+      [
+        100,
+        20328
+      ]
+    ],
+    "accuracy": 0.8235482322828347,
+    "balanced_accuracy": 0.5263985329336808,
+    "ROC_AUC": 0.8227533279086294,
+    "brier": 0.12406456579264243,
+    "mean_p_building_road": 0.6457527880448484,
+    "mean_p_building_building": 0.7967219198281261
+  },
+  "TRAIN_bright_road": {
+    "n": 4576,
+    "roads": 4576,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        264,
+        4312
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.057692307692307696,
+    "balanced_accuracy": 0.057692307692307696,
+    "ROC_AUC": null,
+    "brier": 0.42590910249574765,
+    "mean_p_building_road": 0.6457527880448484,
+    "mean_p_building_building": null
+  },
+  "TRAIN_bright_building": {
+    "n": 20428,
+    "roads": 0,
+    "buildings": 20428,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        100,
+        20328
+      ]
+    ],
+    "accuracy": 0.9951047581750538,
+    "balanced_accuracy": 0.9951047581750538,
+    "ROC_AUC": null,
+    "brier": 0.05644949824058598,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.7967219198281261
+  },
+  "HOLDOUT_all_weak_labels": {
+    "n": 70487,
+    "roads": 31072,
+    "buildings": 39415,
+    "confusion_rows_actual_road_building": [
+      [
+        25545,
+        5527
+      ],
+      [
+        13194,
+        26221
+      ]
+    ],
+    "accuracy": 0.7344049257309858,
+    "balanced_accuracy": 0.743688578163546,
+    "ROC_AUC": 0.8354029305458971,
+    "brier": 0.17160771272234404,
+    "mean_p_building_road": 0.3804956928493598,
+    "mean_p_building_building": 0.6352476589169445
+  },
+  "HOLDOUT_bright_weak_labels": {
+    "n": 18852,
+    "roads": 2760,
+    "buildings": 16092,
+    "confusion_rows_actual_road_building": [
+      [
+        63,
+        2697
+      ],
+      [
+        39,
+        16053
+      ]
+    ],
+    "accuracy": 0.8548695098663271,
+    "balanced_accuracy": 0.5102012612262101,
+    "ROC_AUC": 0.8742195014535984,
+    "brier": 0.09999508369875224,
+    "mean_p_building_road": 0.6552950938443566,
+    "mean_p_building_building": 0.8249319492772623
+  },
+  "HOLDOUT_bright_road": {
+    "n": 2760,
+    "roads": 2760,
+    "buildings": 0,
+    "confusion_rows_actual_road_building": [
+      [
+        63,
+        2697
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "accuracy": 0.02282608695652174,
+    "balanced_accuracy": 0.02282608695652174,
+    "ROC_AUC": null,
+    "brier": 0.4371835174909484,
+    "mean_p_building_road": 0.6552950938443566,
+    "mean_p_building_building": null
+  },
+  "HOLDOUT_bright_building": {
+    "n": 16092,
+    "roads": 0,
+    "buildings": 16092,
+    "confusion_rows_actual_road_building": [
+      [
+        0,
+        0
+      ],
+      [
+        39,
+        16053
+      ]
+    ],
+    "accuracy": 0.9975764354958986,
+    "balanced_accuracy": 0.9975764354958986,
+    "ROC_AUC": null,
+    "brier": 0.042162615561388235,
+    "mean_p_building_road": null,
+    "mean_p_building_building": 0.8249319492772623
+  },
+  "ALL_map231": {
+    "n": 231,
+    "p_building_mean": 0.5596449727051941,
+    "classified_building_fraction": 0.8051948051948052,
+    "mean_tensor_recovery": 0.15428423392120014,
+    "mean_texture_recovery": 0.06577896608895265,
+    "max_further_drop_vs_tensor": 0.5525195449540732
+  },
+  "HOLDOUT_map231": {
+    "n": 68,
+    "p_building_mean": 0.5785743093232638,
+    "classified_building_fraction": 0.8823529411764706,
+    "mean_tensor_recovery": 0.13897843611090033,
+    "mean_texture_recovery": 0.05642929903298891,
+    "max_further_drop_vs_tensor": 0.3912890195590855
+  },
+  "TRAIN_map231": {
+    "n": 163,
+    "p_building_mean": 0.5517480715393736,
+    "classified_building_fraction": 0.7730061349693251,
+    "mean_tensor_recovery": 0.16066947472549695,
+    "mean_texture_recovery": 0.06967944068898659,
+    "max_further_drop_vs_tensor": 0.5525195449540732
+  }
+}

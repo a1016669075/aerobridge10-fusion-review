@@ -1,0 +1,7 @@
+COMPACT_BUILDING_TENSOR：真实建筑覆盖仲裁张量保护，唯一预定候选
+只操作 COMPACT_MISSING_CORE 相对 REFERENCE_STATE_REOPEN 的新增可见光扣量。令该扣量为delta>=0，现有冻结tensor coherence为t。
+120四季与50事件的真实Overture建筑覆盖为f，保护权重 w=t*(1-f)，输出 Xp=COMPACT+delta*w。不加入新强度或阈值。f=0精确旧TENSOR，f=1保留COMPACT新增处理。仅试独立建筑覆盖能否减轻有方向屋顶被过度保护。
+旧36场的fraction包含extended材料支持，不能冒充纯建筑；全部精确保持旧TENSOR，标记NO_PURE_BUILDING_BRANCH。
+fraction必须来自已存在30址OVERTURE_BUILDINGS_20261021.geojson的精确投影union-cell相交cache，校验source、shape、transform、crs、cached f与实际输入相等；来源不合停止对应组，不用extended替代。2026轮廓不等于2019–2021同期真实建筑或屋顶身份。
+0拟合、0下载。原156+event50各一次冻结头推理；原valid、NIR、不新增COMPACT的位置、此前DOMAIN/REOPEN已处理位置精确不变。
+比较COMPACT/TENSOR/本候选，报告原30对象、地图线相交格和工业外观控制的收益/代价，至少6个真实同限图。道路/建筑同格相交将重新加强扣量，是必须保留的不利结果；21个f=0对象无法因该机制得到更强缓解。不生成其它候选。

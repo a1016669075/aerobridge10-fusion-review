@@ -1,0 +1,13 @@
+相对原生纹理 + 高亮困难负例：唯一有限后续（运行前锁定）
+
+第一支native_texture_semantic完整保留：总体留出分数尚可，但高亮道路97.72%判为建筑，不能作为成功方案。本支检验亮度捷径，既有留出结果已经用于提出本支，故同10地点留出明确为探索性复用，不是新的独立检验。
+
+不改地图标签条件、20训练/10留出地点、seed20261105、每址每类1000上限和ExtraTrees超参；只把两类训练与留出标签同时限制到原输入bright定义：原X三可见均值>=.16，NDVI<=.35。建筑fraction>=.8且道路交长0；道路交长>=5m且fraction==0。先记录真实类别样本数量，确认两类都存在再拟合一次。
+
+由第一支28特征按同一函数转换为23项：删4个绝对波段与VIS_mean；NDVI和三带谱形保留；梯度幅度除以max(本格VIS,.02)；3/7邻域均值除以max(本格VIS,.02)；std与中心差除以max(对应邻域均值,.02)；梯度能量除以max(对应邻域均值,.02)^2；方向、coherence、有效比例原样保留。无额外特征、无阈值扫描。
+
+唯一分类器：ExtraTreesClassifier(n_estimators=128,max_depth=12,min_samples_leaf=20,class_weight='balanced',random_state=20261105,n_jobs=2)。一次输入分类器拟合、零PM头拟合。输入同函数用于训练/全部像元，仍在原156+event50各做一次冻结头推理。
+
+唯一候选COMPACT_RELATIVE_TEXTURE：coherence缓存已经乘有效梯度占比，保护权重C*(1-Pbuilding_relative)；只对COMPACT相对REFERENCE_STATE_REOPEN新增VIS扣量退回。NIR、原valid、更早处理保持；不高于旧EXPAND。旧36场只有迁移推理，无地图弱标签验证。
+
+同时保留COMPACT、TENSOR、第一支TEXTURE和本支RELATIVE对照；报告同高亮留出、原231地图交格、原30小对象、工业/道路/日期与固定七图。模型仅本地。该后续完成后不再扫描类似分类器。

@@ -1,0 +1,15 @@
+原生光谱图随机游走：单一输入诊断，运行前固定，0拟合、0PM、0新Xp。
+
+理论核验：Grady, Random Walks for Image Segmentation, TPAMI 2006, DOI10.1109/TPAMI.2006.233；官方scikit-image random_walker文档。以图拉普拉斯L=D-W的Dirichlet问题求首次到达建筑/道路种子的概率：L_UU p_U=-L_US p_S，建筑种子p=1，道路种子p=0。缺测像元从图删除。
+https://scikit-image.org/docs/0.25.x/api/skimage.segmentation.html#skimage.segmentation.random_walker
+https://leogrady.net/wp-content/uploads/2017/01/grady2006random.pdf
+
+固定至多12景：先周口S16_2021-05-24、济宁S24_2021-05-24、永州S30_2020-02-17三个既有风险场，再按原DIAGNOSED_30_RESPONSE.csv的priority顺序补足不同场景，不看新结果换例。旧36无纯建筑/道路双种子，本批不处理WINDOW_B，明确NO_PURE_MAP_SEEDS。
+
+节点是原valid且四带finite的真实10m像元，边仅原格网四邻接；跨缺测无边。邻域路径可跨多步传播，没有另加远距离跳边。四带向量按L2归一成单位谱形u，不用绝对亮度。唯一边权w=exp(-||u_i-u_j||²/0.02)+1e-10。0.02对应余弦0.99时权重e^-1，沿用原map guard相似度上段的尺度，不扫描；1e-10仅相邻有效节点的数值小正量，不连接缺测。
+
+建筑弱种子：真实Overture fraction10>=0.8且实际道路交长为0。道路弱种子：道路交长>=5m且fraction10为0。两类均排除本次COMPACT全部diag_eligible像元（包括未真正改变者）。核实种子∩目标为空。种子不是2021等历史日期真值。
+
+逐原valid四连通块：两类种子齐全才算竞争概率；只一种子输出相应常数并标ONE_CLASS_SEED；无种子留NaN标NO_SEED，禁止填邻域类别。稀疏直接解一次。概率不是新拟合概率校准。
+
+输出12场输入概率数组/摘要，原30可用子集与三个风险点、新旧局部概率对比、至少4个预定场输入图。只读旧PM/输入缓存，不调用PM头、不生成处理候选，不据亮度高或PM输出挑点。说明道路/屋顶光谱相近、混合像元与非同期种子可能导致扩散误入。

@@ -1,0 +1,5 @@
+COMPACT_GRAPH_TENSOR：唯一预定候选，156原场+50事件，一次冻结PM头推理，0拟合。
+沿用graph_connectivity_probe/PLAN.txt和graph_probability函数：原有效10m四邻接、单位四波段谱形、w=exp(-||ui-uj||²/.02)+1e-10、2026真实建筑/道路互斥种子、所有COMPACT diag_eligible目标从种子剔除。12景已算概率复用并核对种子/valid/target；其余170可用地图场同函数，无新参数或种子筛选。
+仅双种子类别齐全的有效连通块使用权重t*(1-p建筑)，只回退COMPACT相对REFERENCE_STATE_REOPEN新增可见光扣量。单类/无种子块保持原TENSOR，不把常数当新证据；旧36无纯建筑/道路种子，也精确保留TENSOR并NO_PURE_MAP_SEEDS。此前作用、NIR、valid不变，不新增目标，不取各方法PM最小值。
+固定图：周口5/24r4c8、济宁5/24r84c47、永州2/17r89c93；原30 priority11阳泉9/07对象158（低图概率风险）、priority6大庆9/15对象74、priority12济南5/29对象11。全部评价对象用原bright_masks重新label，不与DOMAIN白材料对象ID混用。保持原全景RAW P2-P98色限，同支持RGB并列。
+评价原30、原231地图交格、旧道路工业与25事件；既有两次输入分类器拟合总数不变。地图弱种子/非同期/光谱混合限制保留，不宣称真实PM精度提升。本支完成后不扫参数。
