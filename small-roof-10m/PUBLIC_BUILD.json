@@ -1,12 +1,12 @@
 {
-  "status": "PUBLIC_PROGRESS_SNAPSHOT",
-  "files": 12558,
-  "content_bytes": 380008356,
-  "content_MiB": 362.4042091369629,
+  "status": "PUBLIC_RESULT_SNAPSHOT",
+  "files": 12981,
+  "content_bytes": 418725230,
+  "content_MiB": 399.3274974822998,
   "groups": {
     "(root)": {
       "files": 1,
-      "bytes": 16468
+      "bytes": 19714
     },
     "candidate_domain_recon": {
       "files": 16,
@@ -32,6 +32,10 @@
       "files": 23,
       "bytes": 5319047
     },
+    "cs_consistent_state": {
+      "files": 14,
+      "bytes": 1711260
+    },
     "cs_structure_revisit": {
       "files": 20,
       "bytes": 4491136
@@ -46,15 +50,27 @@
     },
     "evaluation": {
       "files": 1,
-      "bytes": 24326
+      "bytes": 25059
     },
     "event_comparison": {
-      "files": 1253,
-      "bytes": 10812961
+      "files": 1303,
+      "bytes": 11214635
     },
     "graph_connectivity_probe": {
       "files": 9,
       "bytes": 865559
+    },
+    "graph_fixed_seed_probe": {
+      "files": 3,
+      "bytes": 11802
+    },
+    "graph_seasonal_review": {
+      "files": 33,
+      "bytes": 31305956
+    },
+    "graph_transfer_diagnosis": {
+      "files": 11,
+      "bytes": 1863837
     },
     "latest_input_review": {
       "files": 25,
@@ -62,7 +78,7 @@
     },
     "method_guide": {
       "files": 1,
-      "bytes": 15888
+      "bytes": 18090
     },
     "native_reference": {
       "files": 1,
@@ -81,8 +97,8 @@
       "bytes": 126738329
     },
     "presentation": {
-      "files": 10455,
-      "bytes": 120113022
+      "files": 10767,
+      "bytes": 123529186
     },
     "recon_prominence": {
       "files": 20,
@@ -123,20 +139,21 @@
   },
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 33,
-    "main_tiles": 10452,
+    "main_methods": 34,
+    "main_tiles": 10764,
     "event_dates": 50,
-    "event_methods": 24,
-    "event_tiles": 1250,
-    "latest_seasonal_sheets": 30
+    "event_methods": 25,
+    "event_tiles": 1300,
+    "latest_seasonal_sheets": 30,
+    "graph_seasonal_sheets": 30
   },
-  "html_pages": 31,
-  "local_references": 1071,
+  "html_pages": 35,
+  "local_references": 1139,
   "missing_references": 0,
   "syntax": "all staged external and inline JavaScript passed node --check",
   "windows_absolute_paths_remaining": 0,
   "credential_pattern_matches": 0,
-  "unchanged_binary_assets": 12417,
+  "unchanged_binary_assets": 12822,
   "metadata_cleanups": [
     {
       "file": "compact_missing_core/full_scene_review/SELECTED_SIX.csv",
@@ -185,5 +202,5 @@
     }
   ],
   "scientific_arrays_included": false,
-  "git_actions": true
+  "git_actions": false
 }

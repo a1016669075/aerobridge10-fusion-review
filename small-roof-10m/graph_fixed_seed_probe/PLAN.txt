@@ -1,0 +1,7 @@
+输入反事实：只做已锁S17_zibo_1635A、S03_daqing_1793A、S13_yangquan_1742A的四季，共24次图求解，0拟合、0PM推理，不新建PM候选，不改任何原数组。
+两组各12次，沿用同一graph_connectivity_probe.graph_probability四邻接/四带单位谱形/边权/线性求解参数：
+A COMMON_DOMAIN_DAILY_SEEDS：四季原valid交集作固定图域；各日本来的图弱种子原样限制到该交集，原本对当日COMPACT目标的排除保留。
+B COMMON_DOMAIN_FIXED_SEEDS：同A图域，真实地图道路>=5m且buildingfraction=0作道路种子，真实buildingfraction>=.8且road=0作建筑种子；同时排除四季COMPACT target并集，四季使用完全同一组种子。
+原图O使用已有缓存，0重算。O→A的差异同时包含图域缩小、域外路径及域外种子删除，不全归因种子；A→B只改变同一域内的种子集合，不改同日边权；B四季差异只来自本日输入单位谱形的邻接权重（图域和种子固定），仍不对应真实材料/污染真值。
+比较掩膜从既有graph_transfer_diagnosis规则固定：四季共同valid、原图四季双类连通、四季从未作种子的target并集；进一步要求A/B四季均双类连通，报告因此损失的格数。不给单类常数概率作‘稳定’成绩。
+汇总四季概率极差、每组相对原值差、三定位格逐季读数；不因结果改范围、阈值、例子或参数。17:00前收口。
