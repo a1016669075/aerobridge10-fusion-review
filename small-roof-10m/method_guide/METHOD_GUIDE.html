@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>反演方法看图指南 · AeroBridge10</title>
+<style>
+:root{color-scheme:light;--ink:#172a3a;--muted:#526272;--line:#dce4eb;--blue:#1c5e88}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:var(--ink);font:15px/1.65 "Microsoft YaHei","PingFang SC",sans-serif}
+main{max-width:1160px;margin:26px auto;padding:30px 38px;background:white;border:1px solid var(--line);border-radius:12px}
+h1{font-size:29px;margin:0 0 8px;line-height:1.3}h2{font-size:19px;margin:24px 0 9px}p{margin:8px 0}.meta,.small{color:var(--muted);font-size:13px}.lead{border-left:4px solid var(--blue);padding:9px 15px;background:#edf5fb;margin:16px 0}.formula{font-family:Consolas,monospace;white-space:normal;font-size:14px}.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;background:#edf2f6}th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}th:first-child{width:16%}th:nth-child(2){width:47%}th:nth-child(3){width:37%}td strong{color:var(--blue)}code{font:12px/1.5 Consolas,monospace;overflow-wrap:anywhere}.flow{background:#f7f9fc;border:1px solid var(--line);padding:12px 16px;line-height:1.9}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid h2{margin-top:18px}ul{padding-left:21px;margin:8px 0}li{margin:6px 0}details{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;color:var(--blue)}.sources{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.sources p{margin:7px 0}
+@media(max-width:700px){main{margin:0;padding:22px 18px;border-radius:0}h1{font-size:24px}.grid{grid-template-columns:1fr;gap:0}table{min-width:780px}}
+@media print{body{background:white;font-size:10pt}main{border:0;margin:0;padding:0;max-width:none}table{font-size:9pt}th,td{padding:7px}h1{font-size:21pt}h2{font-size:13pt}.meta,.small{font-size:9pt}details{display:none}.flow,thead{break-inside:avoid}tr{break-inside:avoid}}
+</style>
+<main>
+<p class="meta">AeroBridge10 · 2026-11-05 · 按实际源码整理，本页没有新增计算</p>
+<h1>这些反演图分别是怎样得到的？</h1>
+<div class="lead"><b>共同做法：先调整卫星输入，再用同一个 PM 模型反演。</b><br>
+输入 X 是原生 10 m 的蓝、绿、红、近红外四波段。候选方法只调整前三个可见光波段；近红外、有效像元范围及 PM 头保持不变。<br>
+<span class="formula">PM = B58 + 固定截距 + β蓝·X′蓝 + β绿·X′绿 + β红·X′红 + β近红外·X近红外</span><br>
+<span class="small">这里各方法的比较没有重新训练 PM 头。部分方法复用以前训练的语义分类器及材料先验；不应写成“整个系统从未训练”。它们属于输入端变换，不是对已经输出的 PM 图再平滑、改色或手画道路。</span></div>
+
+<div class="scroll"><table>
+<thead><tr><th>看图名称</th><th>新增什么信息，怎样修改 X</th><th>主要收益与代价</th></tr></thead>
+<tbody>
+<tr><td><strong>RAW</strong><br>原始反演</td><td>使用未做本轮亮地表修正的四波段 X，直接进入原 PM 头。无新增特征或处理。</td><td>保留原有细节；亮地表对可见光输入的贡献也容易进入 PM 高值。</td></tr>
+<tr><td><strong>B-Gaussian / EXPAND</strong><br>旧基线</td><td><b>B-Gaussian：</b>将四波段与原生 20 m 的两条 SWIR 波段组成 20 m 六波段信息，结合面积比例、材料协方差和同日周边参照，估计可扣除的材料分量，再按面积映射到 10 m 可见光输入，并加参照下限约束。<br><b>EXPAND：</b>在这条旧链及局部亮峰处理之后，用白材料谱相似度、既有语义概率、10 m 周边非亮地物参照补扣异常亮尾；线形保护减弱细长结构的扣量。本文 EXPAND 指 <code>EXPAND_LINE_TAIL</code>。</td><td>先压制明显亮屋顶，再补处理部分漏掉的亮点。Gaussian 是周边参照的加权方法，<b>不是直接模糊 PM 图</b>。小目标可能因 20 m 混合、面积比例、局部参照或保护约束而残留。</td></tr>
+<tr><td><strong>DOMAIN</strong><br>原生 10 m 候选区域</td><td>从原 X 的亮度、低植被指数和白材料谱形找候选；在候选区域内找局部显著峰并扩展成核心，避免非候选地物连接峰。用同日真实 10 m 参照限定可见光扣量。当前展示的 <code>DOMAIN_CONTEXT_MAP</code> 另含不足参照的匹配搜索，以及已有真实道路线与输入连续性保护；旧 36 场无地图，不执行地图保护。</td><td>能定位一些旧方法遗漏的小峰，并兼顾线形细节；显著性不足、缺乏可靠参照、低置信度或保护较强的目标仍可能不动。地图相交也可能是屋顶与道路混合像元。</td></tr>
+<tr><td><strong>COMPACT</strong><br>紧凑对象补漏</td><td>在 DOMAIN 系列已有结果上，只补“完全没有原峰核心”的小型紧凑候选：完整连通对象最大边小于 9 格、不过度细长、不贴边或缺测。参照仍来自实际同日非亮、非植被像元，目标与参照都读冻结 EXPAND 输入状态；保留材料、路径与地图权重。对应 <code>COMPACT_MISSING_CORE</code>。</td><td>补到不够突出、但形状紧凑的小白点；原来已处理的位置保持不变。<b>紧凑阈值碎片可能属于连续浅条</b>，因此新增处理仍可能压低道路附近或工业区的局部纹理。</td></tr>
+<tr><td><strong>PATH</strong><br>连续路径保护</td><td>从原 X 沿四个方向检查亮度连续长度与方向差异，得到几何保护权重。只退回 COMPACT <b>新增</b>扣量中的一部分，不改变更早的 DOMAIN 作用。权重不是道路分类概率，也没有手动指定道路位置。</td><td>减少部分连续线条被额外削弱；短线、断线或不符合亮度连续条件的道路仍可能漏保。连续排列屋顶也会被保护，使屋顶缓解略变弱。</td></tr>
+<tr><td><strong>TENSOR</strong><br>局部方向一致性保护</td><td>对原四波段的有效梯度计算 9×9 邻域结构张量，用方向一致性×有效梯度比例作为权重；独立从 COMPACT 退回新增扣量。对应 <code>COMPACT_TENSOR_GUARD</code>，<b>没有先经过 PATH</b>。</td><td>可保护非水平、非竖直的局部连续纹理；也会保护屋顶边缘。当前结果比 PATH 撤回更多新增扣量，结构恢复更明显，但小亮点缓解损失也更多。</td></tr>
+<tr><td><strong>CS_VALIDITY</strong><br>有效域直径形态法</td><td>独立从 EXPAND 出发：用 10 m 材料方向的灰度直径开运算识别小亮结构，按形态背景、周边逐带下限和语义置信度扣可见光。相比 <code>CS_DIAMETER</code>，唯一变化是缺测处不再用最近邻亮度填补，避免填补值把小目标连接成大目标。</td><td>小亮目标整体处理较强，部分缺测边界恢复作用；全有效场与原 CS 完全一致。<b>没有叠加 DOMAIN / COMPACT / PATH / TENSOR</b>，额外支路也没有新增道路保护，已出现道路交格与控制区局部削减加重的例子。</td></tr>
+</tbody></table></div>
+
+<h2>方法之间的关系</h2>
+<div class="flow">
+旧输入链：RAW → B-Gaussian（有界版本）→ 亮峰补偿 → EXPAND<br>
+主分支：EXPAND → DOMAIN＋参照搜索＋地图保护 → 参照状态补开 → COMPACT<br>
+保护比较：COMPACT → <b>PATH</b>；COMPACT → <b>TENSOR</b>（两条平行支路）<br>
+独立比较：EXPAND → <b>CS_VALIDITY</b><br>
+<span class="small">“参照状态补开”仅处理同一组参照在原始状态下没有可扣超额、而在 EXPAND 状态下有正超额的位置。图中不存在把所有候选依次叠加或取最低 PM 的总融合结果。</span>
+</div>
+
+<div class="grid"><section>
+<h2>10 m 与 20 m 各在哪里？</h2>
+<ul><li><b>真实 10 m：</b>蓝、绿、红、近红外输入；后续小对象定位、局部参照、路径与张量特征。已在使用 10 m 信息。</li>
+<li><b>仍有 20 m：</b>旧 Gaussian 的 SWIR 与六波段推断、参照格网；其高斯权重标准差为 5 个 20 m 格，即约 100 m，参照不是“20 m 纯地表真值”。20 m 参照映射成 10 m 数组不会增加新信息。</li>
+<li><b>QA 仍受源分类尺度影响：</b>沿用原有效掩膜；源 SCL 分类是 20 m，映射到 10 m 不会变成 10 m 云检测。Gaussian 还要求对应 20 m 单元完整有效。新方法不填补原空白。</li></ul>
+</section><section>
+<h2>fraction10 并非统一的“建筑真值”</h2>
+<ul><li><b>四季 120 场：</b>30 地点均读取 Overture 建筑多边形与原生 10 m 像元的真实面积交比。它是轮廓覆盖比例，仍可能漏建筑或存在时相差异。</li>
+<li><b>旧 36 场：</b>打包字段等于 <code>extended_fraction10</code>。岳阳、曲靖是 Overture＋既有固定地表候选的并集；北京 A/B 来自 EcoVision class5；鞍山仅 Overture。不能把所有值统称纯建筑面积或独立真值。</li>
+<li><b>语义概率是另一项：</b>已有分类器给出建筑、道路、植被、其他概率。DOMAIN 取面积比例与建筑概率中的较大者构成置信度；两项都可能不准。</li></ul>
+</section></div>
+<p class="small"><b>论文中的准确表述：</b>这些图展示输入端亮地表干扰缓解与细节保留的权衡。道路更清楚、小亮峰更低，均不能单凭图像等同于真实 10 m PM 误差已改善；当前这些候选也没有解决 B58 的事件背景偏差。</p>
+
+<details><summary>源码依据（相对目录，仅供方法追溯）</summary><div class="sources">
+<p>本轮目录 = AeroBridge10_SMALL_ROOF_6H_20261105。共同 PM 头和输入来源：common.py；DOMAIN：candidate_domain_recon/transform.py、actual_context_reference/run.py、domain_context_map/run.py；补漏：reference_state_reopen/run.py、compact_missing_core/run.py。</p>
+<p>两条保护分支：compact_path_continuity/api.py；tensor_line_context/api.py → compact_tensor_guard/api.py。独立 CS：compact_structure/run.py → cs_validity_aware/run.py。</p>
+<p>旧 Gaussian：AeroBridge10_NEW_METHODS_12H_20261103/spectral_competition/common.py 的 prepare、primary_geometry，以及 kernel.py 的 apply；原生多分辨率输入：同目录项目下 multispectral_inventory/source_api.py。</p>
+<p>EXPAND：AeroBridge10_BRIGHT_REFINEMENT_20261104/support_expansion/run.py 的 calculate。旧 36 打包与扩展几何：AeroBridge10_B_ERASE_FUSION_20261104/inputs/pack_inputs.py；AeroBridge10_NEW_METHODS_12H_20261103/fraction_only_control/surface_union/GEOMETRY_SOURCES.json。</p>
+<p>四季 120：AeroBridge10_SEASONAL_CASES_20261105/pipeline/adapter.py 的 load_geometry、geometry_from_geojson、pack_and_run；OUTPUT_INDEX.csv 的 geometry_path；geometry/各站/QUERY_LOCK.json。原有效掩膜继承：AeroBridge10_ROOF_DAY_20261025/paired_temporal/common_support.py 的 load_window；原源窗口 sidecar 的 bands.scl.native_resolution。</p>
+</div></details>
+</main>
+</html>

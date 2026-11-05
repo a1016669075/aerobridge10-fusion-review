@@ -1,12 +1,12 @@
 {
   "status": "PUBLIC_PROGRESS_SNAPSHOT",
-  "files": 10964,
-  "content_bytes": 438428303,
-  "content_MiB": 418.11781215667725,
+  "files": 10996,
+  "content_bytes": 469397458,
+  "content_MiB": 447.65229988098145,
   "groups": {
     "(root)": {
       "files": 1,
-      "bytes": 11198
+      "bytes": 11961
     },
     "candidate_domain_recon": {
       "files": 16,
@@ -44,6 +44,10 @@
       "files": 1053,
       "bytes": 19711740
     },
+    "method_guide": {
+      "files": 1,
+      "bytes": 11117
+    },
     "native_reference": {
       "files": 1,
       "bytes": 227715
@@ -67,6 +71,10 @@
     "residual_small_roof_priority": {
       "files": 11,
       "bytes": 1266556
+    },
+    "seasonal_latest_review": {
+      "files": 31,
+      "bytes": 30957275
     },
     "tensor_line_context": {
       "files": 21,
@@ -95,15 +103,16 @@
     "main_tiles": 9204,
     "event_dates": 50,
     "event_methods": 20,
-    "event_tiles": 1050
+    "event_tiles": 1050,
+    "latest_seasonal_sheets": 30
   },
-  "html_pages": 23,
-  "local_references": 864,
+  "html_pages": 25,
+  "local_references": 898,
   "missing_references": 0,
   "syntax": "all staged external and inline JavaScript passed node --check",
   "windows_absolute_paths_remaining": 0,
   "credential_pattern_matches": 0,
-  "unchanged_binary_assets": 10857,
+  "unchanged_binary_assets": 10887,
   "metadata_cleanups": [
     {
       "file": "compact_missing_core/full_scene_review/SELECTED_SIX.csv",
@@ -142,7 +151,6 @@
     }
   ],
   "scientific_arrays_included": false,
-  "git_actions": false,
-  "root_entry": "index.html",
-  "entry_case_normalized": true
+  "git_actions": true,
+  "publication_note": "Ongoing 6-hour task:29 methods,20 event methods,and30 latest seasonal comparison sheets; PNG originals remain local."
 }
