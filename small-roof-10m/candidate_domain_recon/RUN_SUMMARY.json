@@ -1,0 +1,72 @@
+{
+  "method": "CANDIDATE_DOMAIN_RECON",
+  "original_cases": 156,
+  "event_cases": 50,
+  "fullvalid_original": 54,
+  "fullvalid_events": 14,
+  "fullvalid_original_unchanged": 4,
+  "fullvalid_events_unchanged": 4,
+  "original_changed_scenes": 145,
+  "event_changed_scenes": 45,
+  "original_mean_extra_drop": 0.000676741864413835,
+  "original_max_pixel_drop": 4.652153338512619,
+  "original_max_pixel_rise": -0.0,
+  "edge_mean_drop": 0.0007770312328373442,
+  "checks": "NIR, original support, invalid exact; candidate-domain marker is the only change",
+  "small_objects_and_locked_rois": {
+    "input_small_objects": 14958,
+    "small_object_mean_extra_drop": 0.04091220036816889,
+    "small_objects_lower": 670,
+    "small_objects_higher": 0,
+    "max_small_object_rise": -0.0,
+    "N1": {
+      "case": "S07_jining_3678A_2021-02-23",
+      "object_id": 136,
+      "n": 1,
+      "new_mean": 70.47773066764012,
+      "old_mean": 73.53596827768088,
+      "extra_drop": 3.058237610040763,
+      "old_contrast": 6.699253752438466,
+      "new_contrast": 3.641016142397703,
+      "new_supported": 1.0,
+      "old_supported": 0.0,
+      "missing_edge_fraction": 0.0
+    },
+    "N2": {
+      "case": "S19_dandong_1601A_2019-10-03",
+      "object_id": 33,
+      "n": 4,
+      "new_mean": 26.897289157858797,
+      "old_mean": 26.897289157858797,
+      "extra_drop": 0.0,
+      "old_contrast": 3.607428046468762,
+      "new_contrast": 3.607428046468762,
+      "new_supported": 1.0,
+      "old_supported": 1.0,
+      "missing_edge_fraction": 1.0
+    },
+    "road_RAW_positive_pairs": 83,
+    "new_road_reversals_vs_validity": 0,
+    "road_contrast_change_min": 0.0,
+    "road_contrast_change_max": 0.030150413494961725,
+    "road_internal_gradient_MAE_vs_validity": 0.0,
+    "local_control_contrast_change_min": 0.0,
+    "local_control_contrast_change_max": 0.0
+  },
+  "event_transfer": {
+    "CANDIDATE_DOMAIN_RECON": {
+      "pairs": 25,
+      "event_RMSE": 77.41934976758449,
+      "event_MAE": 50.76105409988645,
+      "same_direction": 23
+    },
+    "VALIDITY_AWARE_RECON": {
+      "pairs": 25,
+      "event_RMSE": 77.4194751568005,
+      "event_MAE": 50.76122444049131,
+      "same_direction": 23
+    },
+    "maximum_incremental_event_change": 0.0010553023644348514
+  },
+  "new_fits": 0
+}

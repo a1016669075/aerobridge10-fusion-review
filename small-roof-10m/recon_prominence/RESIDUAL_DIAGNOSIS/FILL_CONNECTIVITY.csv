@@ -1,0 +1,9 @@
+case,row,col,domain,n,height,width,filled_invalid
+S19_dandong_1601A_2019-10-03,31,86,filled,85,11,13,57
+S19_dandong_1601A_2019-10-03,31,86,valid_only,3,3,1,0
+S19_dandong_1601A_2019-10-03,31,87,filled,111,12,19,76
+S19_dandong_1601A_2019-10-03,31,87,valid_only,4,3,2,0
+S19_dandong_1601A_2019-10-03,32,86,filled,58,9,11,41
+S19_dandong_1601A_2019-10-03,32,86,valid_only,1,1,1,0
+S19_dandong_1601A_2019-10-03,33,86,filled,82,10,13,56
+S19_dandong_1601A_2019-10-03,33,86,valid_only,2,2,1,0

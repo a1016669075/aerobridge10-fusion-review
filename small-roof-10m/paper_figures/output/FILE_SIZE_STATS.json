@@ -1,0 +1,26 @@
+{
+  "candidate": "DOMAIN_CONTEXT_MAP",
+  "images": 186,
+  "png_total_bytes": 96995857,
+  "thumbnail_total_bytes": 29581049,
+  "groups": {
+    "single": {
+      "count": 156,
+      "png_bytes": 67225275,
+      "thumbnail_bytes": 23777347,
+      "png_min_bytes": 359290,
+      "png_median_bytes": 412793.0,
+      "png_max_bytes": 839055
+    },
+    "four_seasons": {
+      "count": 30,
+      "png_bytes": 29770582,
+      "thumbnail_bytes": 5803702,
+      "png_min_bytes": 868062,
+      "png_median_bytes": 1001969.0,
+      "png_max_bytes": 1101475
+    }
+  },
+  "png_total_MiB": 92.50245761871338,
+  "thumbnail_total_MiB": 28.210686683654785
+}

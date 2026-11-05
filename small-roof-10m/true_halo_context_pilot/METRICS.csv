@@ -1,0 +1,3 @@
+case,valid,deficient_cores,halo_supported,supported_with_external_donors,long_boundary_veto,external_donor_union,halo_vs_inner_changed,halo_vs_inner_mean,halo_vs_inner_min,halo_vs_inner_max,halo_vs_original_context_mean,halo_vs_original_context_min,halo_vs_original_context_max,original_supported_exact,NIR_exact,original_valid_exact,new_fits
+S07_jining_3678A_2021-05-24,10197,0,0,0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,True,True,True,0
+S17_zibo_1635A_2021-05-24,10201,13,13,8,0,46,25,-0.005454061879744513,-13.558617069292609,1.113789123175593,-0.005458504474258042,-13.558617069292609,1.113789123175593,True,True,True,0

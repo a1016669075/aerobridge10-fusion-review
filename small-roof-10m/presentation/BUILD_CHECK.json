@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "cases": 156,
+  "seasonal_cases": 120,
+  "fixed_cases": 36,
+  "sites": 35,
+  "methods": 25,
+  "tiles": 7956,
+  "seconds": 16.838018655776978,
+  "note": "Only rendered tiles and display metadata; no new inference, no changed source arrays."
+}

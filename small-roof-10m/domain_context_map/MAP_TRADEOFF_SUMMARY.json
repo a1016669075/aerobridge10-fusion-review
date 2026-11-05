@@ -1,0 +1,23 @@
+{
+  "batches": [
+    {
+      "batch": "original120",
+      "mapped_cases": 120,
+      "small_gain_retained": 0.9967739723454725,
+      "bright_gain_retained": 0.9974041894960807,
+      "maximum_scene_small_withdrawal": 0.0316434833004454
+    },
+    {
+      "batch": "event50",
+      "mapped_cases": 50,
+      "small_gain_retained": 0.9963804175563792,
+      "bright_gain_retained": 0.9966141596103121,
+      "maximum_scene_small_withdrawal": 0.0175979106155074
+    }
+  ],
+  "restored_small_input_objects": 572,
+  "maximum_object_withdrawal": 0.7262942046981973,
+  "maximum_object_mean_recovery": 0.8271711912342212,
+  "possible_building_like_objects": 513,
+  "note": "Input brightness/size and model semantics only; these objects are not verified roofs. Map intersects 10m cells, so mixed roof/road cells may also be restored."
+}

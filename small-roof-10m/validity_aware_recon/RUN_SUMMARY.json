@@ -1,0 +1,58 @@
+{
+  "method": "VALIDITY_AWARE_RECON",
+  "original_cases": 156,
+  "event_cases": 50,
+  "fullvalid_original": 54,
+  "fullvalid_events": 14,
+  "fullvalid_exact": true,
+  "original_changed_scenes": 16,
+  "event_changed_scenes": 3,
+  "original_mean_extra_drop": 0.0003035719947990058,
+  "original_max_pixel_drop": 10.989048192309092,
+  "original_max_pixel_rise": 0.5686098250456126,
+  "edge_mean_drop": 0.0014194945444688134,
+  "checks": "NIR, original support, invalid exact; all valid equals old RECON",
+  "small_objects_and_locked_rois": {
+    "input_small_objects": 14958,
+    "small_object_mean_extra_drop": 0.0009392720426234323,
+    "small_objects_lower": 17,
+    "small_objects_higher": 0,
+    "max_small_object_rise": -0.0,
+    "N2": {
+      "case": "S19_dandong_1601A_2019-10-03",
+      "object_id": 33,
+      "n": 4,
+      "new_mean": 26.897289157858797,
+      "old_mean": 29.098632588191343,
+      "extra_drop": 2.2013434303325523,
+      "old_contrast": 5.808771476801308,
+      "new_contrast": 3.607428046468762,
+      "new_supported": 1.0,
+      "old_supported": 0.0,
+      "missing_edge_fraction": 1.0
+    },
+    "road_RAW_positive_pairs": 83,
+    "new_road_reversals_vs_recon": 0,
+    "road_contrast_change_min": 0.0,
+    "road_contrast_change_max": 0.0,
+    "road_internal_gradient_MAE_vs_recon": 0.0,
+    "local_control_contrast_change_min": 0.0,
+    "local_control_contrast_change_max": 0.0
+  },
+  "event_transfer": {
+    "RECON_PROMINENCE": {
+      "pairs": 25,
+      "event_RMSE": 77.41968956555932,
+      "event_MAE": 50.76139023839948,
+      "same_direction": 23
+    },
+    "VALIDITY_AWARE_RECON": {
+      "pairs": 25,
+      "event_RMSE": 77.4194751568005,
+      "event_MAE": 50.76122444049131,
+      "same_direction": 23
+    },
+    "maximum_incremental_event_change": 0.001962022455767709
+  },
+  "new_fits": 0
+}

@@ -1,0 +1,100 @@
+{
+  "status": "STAGING_COMPLETE_NOT_PUBLISHED",
+  "files": 9362,
+  "content_bytes": 367573848,
+  "content_MiB": 350.54573822021484,
+  "groups": {
+    "(root)": {
+      "files": 1,
+      "bytes": 7674
+    },
+    "candidate_domain_recon": {
+      "files": 16,
+      "bytes": 1503915
+    },
+    "domain_context_map": {
+      "files": 35,
+      "bytes": 4041885
+    },
+    "evaluation": {
+      "files": 1,
+      "bytes": 18391
+    },
+    "event_comparison": {
+      "files": 853,
+      "bytes": 16015090
+    },
+    "native_reference": {
+      "files": 1,
+      "bytes": 227715
+    },
+    "paper_figures": {
+      "files": 379,
+      "bytes": 126738329
+    },
+    "presentation": {
+      "files": 7959,
+      "bytes": 201441778
+    },
+    "recon_prominence": {
+      "files": 20,
+      "bytes": 2926028
+    },
+    "reference_state_reopen": {
+      "files": 14,
+      "bytes": 1217355
+    },
+    "true_halo_context_extension": {
+      "files": 39,
+      "bytes": 6843593
+    },
+    "true_halo_context_pilot": {
+      "files": 13,
+      "bytes": 1374732
+    },
+    "true_halo_path_guard": {
+      "files": 17,
+      "bytes": 4103687
+    },
+    "validity_aware_recon": {
+      "files": 14,
+      "bytes": 1113676
+    }
+  },
+  "dynamic": {
+    "main_cases": 156,
+    "main_methods": 25,
+    "main_tiles": 7956,
+    "event_dates": 50,
+    "event_methods": 16,
+    "event_tiles": 850
+  },
+  "html_pages": 15,
+  "local_references": 669,
+  "missing_references": 0,
+  "syntax": "all staged external and inline JavaScript passed node --check",
+  "windows_absolute_paths_remaining": 0,
+  "credential_pattern_matches": 0,
+  "unchanged_binary_assets": 9299,
+  "metadata_cleanups": [
+    {
+      "file": "paper_figures/output/BROWSE_MANIFEST.csv",
+      "field": "path",
+      "action": "relative public asset path"
+    },
+    {
+      "file": "paper_figures/output/MANIFEST.csv",
+      "field": "path",
+      "action": "relative public asset path"
+    },
+    {
+      "file": "presentation/BUILD_CHECK.json",
+      "field": "source_index",
+      "action": "removed local source-path metadata"
+    }
+  ],
+  "scientific_arrays_included": false,
+  "git_actions": false,
+  "published_root_entry": "index.html",
+  "root_case_normalized_and_links_updated": true
+}

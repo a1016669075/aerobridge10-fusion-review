@@ -1,0 +1,13 @@
+rank_id,case,core_id,core_n,input_object_pixels,ring_cells,valid_cells,noncandidate_cells,nonvegetated_ndvi_cells,eligible_donor_cells,excluded_invalid,excluded_candidate,excluded_high_ndvi,excluded_semantic_vegetation,supported,core_touches_window_edge
+R2,yueyang_2022-07-01,69,6,6,120,120,109,4,4,0,11,105,0,False,False
+R3,S17_zibo_1635A_2021-05-24,243,2,2,44,44,32,4,4,0,12,28,0,False,True
+R4,S08_linfen_3668A_2021-09-12,140,6,6,114,114,114,1,1,0,0,113,0,False,False
+R5,S21_jian_2367A_2021-09-11,31,4,4,120,120,120,6,6,0,0,114,0,False,False
+R6,WINDOW_B_2022-07-08,414,4,4,108,108,106,4,4,0,2,102,0,False,False
+S1,S13_yangquan_1742A_2021-06-19,2,3,3,60,60,51,38,38,0,9,13,0,True,True
+S2,S07_jining_3678A_2021-02-23,42,14,14,90,90,83,76,76,0,7,7,0,True,True
+S3,S16_zhoukou_2068A_2021-06-06,88,3,3,90,90,74,24,24,0,16,50,0,True,False
+S4,S10_nanyang_2406A_2021-02-21,133,2,2,54,54,54,48,48,0,0,6,0,True,True
+S5,S03_daqing_1793A_2021-05-21,149,4,4,66,66,60,44,44,0,6,16,0,True,True
+S6,S04_jian_2368A_2021-09-01,80,12,12,156,154,148,109,109,2,6,39,0,True,False
+L1,WINDOW_A_2022-04-07,447,2,2,96,96,93,53,51,0,3,40,0,True,False

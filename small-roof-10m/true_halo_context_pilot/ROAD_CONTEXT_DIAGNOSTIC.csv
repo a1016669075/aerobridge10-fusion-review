@@ -1,0 +1,3 @@
+case,line_weighted_delta,changed_line_cells,line_min_delta,line_max_delta,map_release,no_historical_width_truth
+S07_jining_3678A_2021-05-24,0.0,0,0.0,0.0,2026-10-21.0,True
+S17_zibo_1635A_2021-05-24,0.0020940129622804508,2,0.0,0.9494255192296563,2026-10-21.0,True

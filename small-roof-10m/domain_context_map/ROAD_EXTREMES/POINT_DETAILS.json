@@ -1,0 +1,332 @@
+[
+  {
+    "row": 10,
+    "col": 63,
+    "lon": 113.57691603217494,
+    "lat": 37.859938278187755,
+    "original_X": [
+      1.1552000045776367,
+      1.176800012588501,
+      1.5751999616622925,
+      1.4031999111175537
+    ],
+    "VIS_mean": 1.30239999294281,
+    "any_band_gt1": true,
+    "edge_distance_pixels": 10,
+    "semantic": [
+      0.8617113605440861,
+      0.06375141219309961,
+      0.00017106993352503195,
+      0.07436615732928904
+    ],
+    "building_fraction": 0.18000975414179265,
+    "PM": {
+      "RAW": 98.52172229776903,
+      "EXPAND_LINE_TAIL": 96.01646806182401,
+      "RECON_PROMINENCE": 49.96239032702422,
+      "CANDIDATE_DOMAIN_RECON": 49.96239032702422,
+      "DOMAIN_CONTEXT_UNGUARDED": 49.96239032702422,
+      "DOMAIN_CONTEXT_MAP": 49.96239032702422
+    },
+    "original_to_RECON_drop": 46.0540777347998,
+    "RECON_to_DOMAIN_drop": 0.0,
+    "CONTEXT_extra_drop": 0.0,
+    "map_recovery": 0.0,
+    "mapped_length_m": 1.6990800933773202,
+    "map_path_option_n": 1,
+    "map_valid_off_n": 35,
+    "original_guard": 0.0,
+    "map_guard": 0.0,
+    "map_continuity": 0.0,
+    "map_off_similarity": 0.0,
+    "core_id": 27,
+    "core_n": 4,
+    "core_span_rc": [
+      2,
+      2
+    ],
+    "original_local_reference_supported": true,
+    "context_new_reference_supported": false,
+    "prominence": 1.0454776768238099,
+    "confidence": 0.8554226224915894,
+    "donor_threshold": 0.13668407464887766,
+    "band_floor": [
+      0.10040000081062317,
+      0.10999999940395355,
+      0.13019999861717224
+    ],
+    "path_details": [
+      [
+        {
+          "valid_n": 4,
+          "brightness": [
+            0.11246666312217712,
+            0.09589999665816624,
+            0.06633333240946133,
+            0.1495999942223231
+          ],
+          "cosine": [
+            0.993099531336399,
+            0.9532707990132279,
+            0.8893216129768582,
+            0.9562301622814449
+          ],
+          "similarity": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "valid_n": 4,
+          "brightness": [
+            0.4930666387081146,
+            0.09726666410764058,
+            0.10389999796946843,
+            0.08296666294336319
+          ],
+          "cosine": [
+            0.9821081585650985,
+            0.9846523948698482,
+            0.9792479944496407,
+            0.9832669797845977
+          ],
+          "similarity": [
+            1.2873403354772177e-178,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    ],
+    "case": "S29_yangquan_1738A_2021-06-29",
+    "site_id": "S29_yangquan_1738A"
+  },
+  {
+    "row": 43,
+    "col": 100,
+    "lon": 117.25127290465784,
+    "lat": 34.29139848150794,
+    "original_X": [
+      1.292799949645996,
+      1.452799916267395,
+      1.5231999158859253,
+      1.587999939918518
+    ],
+    "VIS_mean": 1.4229332208633423,
+    "any_band_gt1": true,
+    "edge_distance_pixels": 0,
+    "semantic": [
+      0.6669462133375652,
+      0.11607854137603912,
+      0.0035124880567102947,
+      0.21346275722968544
+    ],
+    "building_fraction": 0.0,
+    "PM": {
+      "RAW": 103.16036254108349,
+      "EXPAND_LINE_TAIL": 103.16036254108349,
+      "RECON_PROMINENCE": 60.70865736131951,
+      "CANDIDATE_DOMAIN_RECON": 60.70865736131951,
+      "DOMAIN_CONTEXT_UNGUARDED": 60.70865736131951,
+      "DOMAIN_CONTEXT_MAP": 60.70865736131951
+    },
+    "original_to_RECON_drop": 42.45170517976398,
+    "RECON_to_DOMAIN_drop": 0.0,
+    "CONTEXT_extra_drop": 0.0,
+    "map_recovery": 0.0,
+    "mapped_length_m": 10.644936116301155,
+    "map_path_option_n": 0,
+    "map_valid_off_n": 20,
+    "original_guard": 0.0,
+    "map_guard": 0.0,
+    "map_continuity": 0.0,
+    "map_off_similarity": 0.0,
+    "core_id": 103,
+    "core_n": 15,
+    "core_span_rc": [
+      5,
+      6
+    ],
+    "original_local_reference_supported": true,
+    "context_new_reference_supported": false,
+    "prominence": 1.1718479769838481,
+    "confidence": 0.6667004294672014,
+    "donor_threshold": 0.15018594607208455,
+    "band_floor": [
+      0.12809999287128448,
+      0.1533999890089035,
+      0.1565999984741211
+    ],
+    "path_details": [],
+    "case": "S12_xuzhou_1181A_2021-06-23",
+    "site_id": "S12_xuzhou_1181A"
+  },
+  {
+    "row": 10,
+    "col": 63,
+    "lon": 113.57691603217494,
+    "lat": 37.859938278187755,
+    "original_X": [
+      1.0591999292373657,
+      1.129599928855896,
+      1.097599983215332,
+      1.1047999858856201
+    ],
+    "VIS_mean": 1.0954666137695312,
+    "any_band_gt1": true,
+    "edge_distance_pixels": 10,
+    "semantic": [
+      0.7392046721400072,
+      0.10957302232924232,
+      0.0017873614485958516,
+      0.14943494408215463
+    ],
+    "building_fraction": 0.18000975414179265,
+    "PM": {
+      "RAW": 74.91186011574507,
+      "EXPAND_LINE_TAIL": 72.03684311012864,
+      "RECON_PROMINENCE": 37.29421966762172,
+      "CANDIDATE_DOMAIN_RECON": 37.29421966762172,
+      "DOMAIN_CONTEXT_UNGUARDED": 37.29421966762172,
+      "DOMAIN_CONTEXT_MAP": 37.29421966762172
+    },
+    "original_to_RECON_drop": 34.742623442506925,
+    "RECON_to_DOMAIN_drop": 0.0,
+    "CONTEXT_extra_drop": 0.0,
+    "map_recovery": 0.0,
+    "mapped_length_m": 1.6990800933773202,
+    "map_path_option_n": 1,
+    "map_valid_off_n": 35,
+    "original_guard": 0.0,
+    "map_guard": 0.0,
+    "map_continuity": 1.3633732243683398e-234,
+    "map_off_similarity": 7.554018916592621e-235,
+    "core_id": 33,
+    "core_n": 4,
+    "core_span_rc": [
+      2,
+      2
+    ],
+    "original_local_reference_supported": true,
+    "context_new_reference_supported": false,
+    "prominence": 0.8263939641869551,
+    "confidence": 0.7382164352903586,
+    "donor_threshold": 0.137379661955467,
+    "band_floor": [
+      0.10279999673366547,
+      0.12759999930858612,
+      0.141199991106987
+    ],
+    "path_details": [
+      [
+        {
+          "valid_n": 4,
+          "brightness": [
+            0.16573333243529,
+            0.14433332780996957,
+            0.11346666514873505,
+            0.16953333218892416
+          ],
+          "cosine": [
+            0.9915830564924506,
+            0.9844669564889958,
+            0.9383920530946094,
+            0.9608203176722534
+          ],
+          "similarity": [
+            2.3514045742174086e-235,
+            2.406021893173202e-246,
+            0.0,
+            5.218352440049213e-234
+          ]
+        },
+        {
+          "valid_n": 4,
+          "brightness": [
+            0.4254666566848755,
+            0.11159999668598175,
+            0.09819999585549037,
+            0.08073333029945691
+          ],
+          "cosine": [
+            0.9947130126441823,
+            0.9486794802837993,
+            0.979897502583836,
+            0.9616012059050908
+          ],
+          "similarity": [
+            1.4232134201330063e-122,
+            0.0,
+            8.343757838018049e-271,
+            9.359275311747447e-281
+          ]
+        }
+      ]
+    ],
+    "case": "S29_yangquan_1738A_2021-05-30",
+    "site_id": "S29_yangquan_1738A"
+  },
+  {
+    "row": 99,
+    "col": 1,
+    "lon": 116.5855390145307,
+    "lat": 35.40083978359032,
+    "original_X": [
+      1.2663999795913696,
+      0.7935999631881714,
+      1.3991999626159668,
+      1.6344000101089478
+    ],
+    "VIS_mean": 1.153066635131836,
+    "any_band_gt1": true,
+    "edge_distance_pixels": 1,
+    "semantic": [
+      0.6940447094504323,
+      0.08850373905929387,
+      0.0009396720157231216,
+      0.21651187947455103
+    ],
+    "building_fraction": 0.0,
+    "PM": {
+      "RAW": 79.96275744737247,
+      "EXPAND_LINE_TAIL": 79.96275744737247,
+      "RECON_PROMINENCE": 51.30024583049085,
+      "CANDIDATE_DOMAIN_RECON": 51.30024583049085,
+      "DOMAIN_CONTEXT_UNGUARDED": 51.30024583049085,
+      "DOMAIN_CONTEXT_MAP": 51.30024583049085
+    },
+    "original_to_RECON_drop": 28.662511616881616,
+    "RECON_to_DOMAIN_drop": 0.0,
+    "CONTEXT_extra_drop": 0.0,
+    "map_recovery": 0.0,
+    "mapped_length_m": 2.25506921404225,
+    "map_path_option_n": 0,
+    "map_valid_off_n": 14,
+    "original_guard": 0.0,
+    "map_guard": 0.0,
+    "map_continuity": 0.0,
+    "map_off_similarity": 7.245851245426854e-271,
+    "core_id": 333,
+    "core_n": 5,
+    "core_span_rc": [
+      3,
+      2
+    ],
+    "original_local_reference_supported": true,
+    "context_new_reference_supported": false,
+    "prominence": 0.9740706543854141,
+    "confidence": 0.6662494025531073,
+    "donor_threshold": 0.15180198519882873,
+    "band_floor": [
+      0.11339999735355377,
+      0.12919999659061432,
+      0.16539999842643738
+    ],
+    "path_details": [],
+    "case": "S07_jining_3678A_2021-06-08",
+    "site_id": "S07_jining_3678A"
+  }
+]
