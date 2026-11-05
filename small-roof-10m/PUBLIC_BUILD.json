@@ -1,16 +1,36 @@
 {
-  "status": "STAGING_COMPLETE_NOT_PUBLISHED",
-  "files": 9362,
-  "content_bytes": 367573848,
-  "content_MiB": 350.54573822021484,
+  "status": "PUBLIC_PROGRESS_SNAPSHOT",
+  "files": 10964,
+  "content_bytes": 438428303,
+  "content_MiB": 418.11781215667725,
   "groups": {
     "(root)": {
       "files": 1,
-      "bytes": 7674
+      "bytes": 11198
     },
     "candidate_domain_recon": {
       "files": 16,
       "bytes": 1503915
+    },
+    "compact_missing_core": {
+      "files": 45,
+      "bytes": 12711818
+    },
+    "compact_path_continuity": {
+      "files": 18,
+      "bytes": 1879240
+    },
+    "compact_tensor_guard": {
+      "files": 23,
+      "bytes": 5319047
+    },
+    "cs_structure_revisit": {
+      "files": 20,
+      "bytes": 4491136
+    },
+    "cs_validity_aware": {
+      "files": 16,
+      "bytes": 2096590
     },
     "domain_context_map": {
       "files": 35,
@@ -18,11 +38,11 @@
     },
     "evaluation": {
       "files": 1,
-      "bytes": 18391
+      "bytes": 21345
     },
     "event_comparison": {
-      "files": 853,
-      "bytes": 16015090
+      "files": 1053,
+      "bytes": 19711740
     },
     "native_reference": {
       "files": 1,
@@ -33,8 +53,8 @@
       "bytes": 126738329
     },
     "presentation": {
-      "files": 7959,
-      "bytes": 201441778
+      "files": 9207,
+      "bytes": 232950182
     },
     "recon_prominence": {
       "files": 20,
@@ -43,6 +63,14 @@
     "reference_state_reopen": {
       "files": 14,
       "bytes": 1217355
+    },
+    "residual_small_roof_priority": {
+      "files": 11,
+      "bytes": 1266556
+    },
+    "tensor_line_context": {
+      "files": 21,
+      "bytes": 7878536
     },
     "true_halo_context_extension": {
       "files": 39,
@@ -63,20 +91,30 @@
   },
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 25,
-    "main_tiles": 7956,
+    "main_methods": 29,
+    "main_tiles": 9204,
     "event_dates": 50,
-    "event_methods": 16,
-    "event_tiles": 850
+    "event_methods": 20,
+    "event_tiles": 1050
   },
-  "html_pages": 15,
-  "local_references": 669,
+  "html_pages": 23,
+  "local_references": 864,
   "missing_references": 0,
   "syntax": "all staged external and inline JavaScript passed node --check",
   "windows_absolute_paths_remaining": 0,
   "credential_pattern_matches": 0,
-  "unchanged_binary_assets": 9299,
+  "unchanged_binary_assets": 10857,
   "metadata_cleanups": [
+    {
+      "file": "compact_missing_core/full_scene_review/SELECTED_SIX.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "compact_tensor_guard/evaluation/ORIGINAL30.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
     {
       "file": "paper_figures/output/BROWSE_MANIFEST.csv",
       "field": "path",
@@ -91,10 +129,20 @@
       "file": "presentation/BUILD_CHECK.json",
       "field": "source_index",
       "action": "removed local source-path metadata"
+    },
+    {
+      "file": "residual_small_roof_priority/DIAGNOSIS.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "tensor_line_context/ORIGINAL30.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
     }
   ],
   "scientific_arrays_included": false,
   "git_actions": false,
-  "published_root_entry": "index.html",
-  "root_case_normalized_and_links_updated": true
+  "root_entry": "index.html",
+  "entry_case_normalized": true
 }

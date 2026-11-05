@@ -1,0 +1,9 @@
+只读诊断：残留小亮对象的实际阻碍环节；不训练、不取数、不修改科学数组。
+
+选择先固定：仅SEASONAL120。完全沿用evaluate_batch.py的小亮对象定义：原X可见三带均值>=0.16、NDVI<=0.35、原valid，8邻域连通对象1—25像元。排除触原窗口边界、与缺测格相邻的对象。原EXPAND对象均值减其3像元非亮有效邻域均值>=2 µg/m³，邻域至少8像元；combined DOMAIN_CONTEXT_MAP相对EXPAND对象均值下降<=0.1 µg/m³。另要求原输入实际非亮非植被参考可通过现有CTX.find_donors（8/12/16像元半径、谱形余弦>=0.90、至少8个参考及两个方位）；不把“能找到对象级参考”冒充实际DOMAIN核心已有参考。
+
+按EXPAND局部差值降序，case字典序、对象编号打破同分；每站最多2个、总最多30，不因方法效果或目视好看换对象。此为故障优先队列，使用模型输出筛查，不称独立验证样本。
+
+对选定对象读取冻结DOMAIN/native/CS/地图保护/REFERENCE_STATE_REOPEN的真实diag及现有same_donors函数。按实际逐像元公式拆解：材料候选、prominence与核心、真实支持、目标白材料超额、逐带floor、confidence、连续路结构保护、紧凑度、地图保护；核对拆解后的PM下降等于保存结果。另列EXPAND局部对比的B/G/R/NIR分量，避免把未改NIR贡献误归因其它门控。记录reference_state_reopen实际是否覆盖，不凭最终图猜机制。
+
+代表图最多6个：优先不同主因、不同站点，再按队列顺序补足；RGB/EXPAND/DOMAIN_CONTEXT_MAP/BASEKEEP_MATCH/CS_DIAMETER/REFERENCE_STATE_REOPEN，同全场原RAW P2—P98、原valid。只诊断与提议一个跨地点重复的新输入机制，不生成候选PM数组、不按案例调整阈值。

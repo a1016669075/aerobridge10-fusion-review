@@ -1,0 +1,8 @@
+唯一固定候选 COMPACT_TENSOR_GUARD
+启动依据：父任务已审阅 tensor_line_context 的206场诊断和7图，授权有限权衡试验；几何方向不能分类道路/屋顶，不声称分类成功。
+机制：w = tensor_line_context 已冻结 raw_coherence × gradient_fraction（缓存 coherence 字段已经含该乘积，只用一次）。
+对原valid上的可见三带：increment = Xp_REFERENCE_STATE_REOPEN - Xp_COMPACT_MISSING_CORE；Xp_new = Xp_COMPACT_MISSING_CORE + w × increment。
+即只将COMPACT新增扣量乘(1-w)。不改变更早处理，不叠加COMPACT_PATH_CONTINUITY或其它新候选；不加阈值、强度、窗口、拟合。NIR、原valid、没有新增扣量的像元保持精确。
+复用206场已算特征。原156与event50各一次 X→冻结线性头/B58；科学源只读，输出仅本目录。
+完整保留/报告：撤回的COMPACT小亮收益，2239输入对象及4171原变化像元，231原季节场地图交格，原30对象，固定道路/工业ROI，原同站日期/25对event变化，窗口PM。不能把退回亮屋顶缓解称为新增屋顶改善。
+固定图：原风险4点及已锁输入连通孤立亮点3处，共7图，同原全景RAW P2-P98/原valid。S07对照只是阈值连通孤立，物理上位于浅条/交叉附近；不换例。

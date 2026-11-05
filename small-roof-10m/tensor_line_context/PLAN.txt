@@ -1,0 +1,14 @@
+固定输入诊断：旋转无关的 10 m 结构张量方向连续性
+范围：原 156 场及新增 event50，总 206 场；原模型与 PM 输出全部只读。
+1. 只用原 X 四波段，保持原反射率尺度；每波段同权，无波段归一化、无新材质/道路标签。
+2. 固定 Sobel 3×3 /8，横纵梯度均只有 3×3 原 valid 全部有效且四带有限时参与；窗口外没有梯度。没有给无效 X 填亮值，也不作镜像边界。
+3. 固定 9×9 盒窗汇总四带 gx²、gx gy、gy²（9 继承已有紧凑对象尺度）；只对有支持的梯度计平均。
+4. lambda1≥lambda2；coherence=(lambda1-lambda2)/(lambda1+lambda2)。平坦分母为 0 时 coherence=0、方向 NaN。输出 raw_coherence 和 effective_coherence=raw_coherence×(有效梯度数/81)。方向取小特征值特征向量，为原影像中沿线方向，180° 周期。
+5. 不扫描窗口或阈值。汇报全部连续特征及中位数/分位数，coherence≥0.5 仅作固定几何强证据计数，不生成保护或 PM 候选；不得当道路分类真值。
+6. 原有四个风险点由 compact_path_continuity/FOCUS_INPUT.csv 固定：周口、济宁 S24、永州 2020-02-17、北京 B 2022-10-06，不移动定位点。
+7. 原 30 对象由 residual_small_roof_priority/SELECTED_OBJECTS.csv 固定。统计所有 COMPACT 几何候选对象、实际改变像元，以及 SEASONAL120 的 231 个地图交格。
+8. 孤立亮点对照预选只看原输入：1–4 像元原亮对象、跨度≤3、完整 13×13 有效邻域、建筑面积分数均值≥0.5、Pbuilding均值≥0.5、9×9 外围亮像元比例≤0.1，原 VIS 对环带中位数正超额；按外围亮比例升序、原 VIS 超额降序、case/object_id 破同分，每站最多一个取三站。筛选不看 coherence 或 PM 改变量。必须看 RGB，若不足以确认孤立亮点就如实标注，不能擅自调整规则凑分离结果。
+9. 图示 RGB / effective coherence / 小特征值沿线方向 / 已有 COMPACT 新增扣量；后者只读既有 prior PM - compact PM。所有 coherence 色限固定 0–1。无新拟合、无新 PM 推理、无取影像、无数组修改。
+来源：https://docs.opencv.org/4.12.0/d4/d70/tutorial_anisotropic_image_segmentation_by_a_gst.html
+来源：https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.structure_tensor
+四带汇总、有效域加权及固定 9×9 是本次有界输入适配；官方定义本身不赋予道路/屋顶身份。

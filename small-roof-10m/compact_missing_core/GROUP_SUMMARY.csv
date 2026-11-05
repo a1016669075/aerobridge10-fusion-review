@@ -1,0 +1,3 @@
+group,cases,changed_scenes,eligible_objects,supported_objects,changed_pixels,mean_scene_drop,max_extra_drop,road_intersection_changed_pixels,road_intersection_max_drop
+FIXED36,36,35,313,313,525,0.0007150608804717695,3.023778525800424,0,0.0
+SEASONAL120,120,115,1303,1302,2402,0.0010442505441638989,2.6524436542348298,231,1.6427459379211768

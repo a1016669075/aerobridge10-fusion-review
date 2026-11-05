@@ -1,0 +1,7 @@
+六场完整场景对照：既有输出，只读渲染
+1. 取 residual_small_roof_priority/SELECTED_OBJECTS.csv 的 priority 升序，每个 site_id 第一项，前六个站点；不按新方法的降幅重新挑场。
+2. 六项优先序为 1、2、3、5、6、7。济宁 S24_1653A 2021-05-24 自然排第三，无须替换；必须保留浅色条带被亮度阈值切碎的风险说明。
+3. 每图五列：真彩色、旧 EXPAND_LINE_TAIL、DOMAIN_CONTEXT_MAP、REFERENCE_STATE_REOPEN、COMPACT_MISSING_CORE。
+4. 所有方法沿用原 valid；每景完整 RAW 有效像元 P2–P98 为唯一色限，同景全图与局部相同；不改数值。RGB 使用原生 X B04/B03/B02，统一 /0.35 与 gamma=1/1.7。
+5. 原对象包围盒向四周扩大 12 像元、裁到原窗口，作为唯一定位框与局部视图；不移动到更明显位置。
+6. 300 dpi PNG，原生 UTM 坐标（km）和 100 m 标尺；仅从既有科学数组读取，不训练、不推理、不取数、不修改主展示或发布。
