@@ -1,0 +1,12 @@
+联合支持原生10m材料CNN：唯一辅助拟合，0PM头重训
+2026-11-06 /root 已批准以下固定方案；不得增加第2拟合或按留出选轮。
+
+预算完全复用native_context_support_union_probe.run.budget：统一CS_CONSISTENT_STATE起点，H=positive(CS_VIS−TEMP_PAST_VIS)仅TEMP eligible；C=positive(CS_VIS−COMPACT_MISSING_CORE_VIS)仅原eligible&supported；U=max(H,C)逐可见波段。不是H+C，不叠两遍。候选CS_NATIVE_CONTEXT_UNION=CS_VIS−p_union*U；NIR与原valid/无效值不变，联合域外CS不变。
+
+材料头输入/架构与前native完全相同：12通道13×13原生10m patch；当前4BOA、过去四带形态残差h=(X−方向opening背景)的Q25模板、history频率/计数除4、currentvalid/pastvalid。8谱形通道除中心rawVIS+.03。无地图/坐标/PM/B58/预算通道；缺历史通过count与pastvalid/模板编码，current supported只决定推理域和预算。不可把当前支持直接作为建筑标签。
+共享Conv12→24、5/13格两路感受野、19441参数；固定30epochs、batch256、seed20261105、AdamW lr.001/weight_decay.0001、class balanced BCE、D4增强；最终第30轮，不选checkpoint。训练/推理同一patch函数。
+
+联合训练域：同20TRAIN/10HOLDOUT地点、80日期候选池和原纯road/building弱标签。新增CURRENT_WITHOUT_TEMP全部54路+110建筑优先保留；再保留旧15998坐标，若同site/class>1000则固定seed20261105从旧坐标移除超额（预计47旧建筑），最终预计16115。明确训练域/坐标已改变，不声称旧15998全部保留。留出是已曝光探索性复用。
+拟合止门：新增两类各>=20格且各>=5TRAIN地点；真正history_count<2、full13_false、正预算子层单列，不把所有current-only说成无历史。预检不满足即停止，不硬套旧TEMP模型。
+
+全原156+事件50仅单字段206。保留既有road/station/25事件、46工业环境、原30正确74格、原12季节点的对比；固定六正反图沿用旧CNN六点，不挑好场替换。报告预算扩展与材料重拟合造成的变化，地图交格混合不当纯路，工业亮屋顶不自动当伪值。模型只存本地；旧源/模型/科学数组不改。

@@ -1,16 +1,16 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 20013,
-  "MiB": 574.4670944213867,
+  "files": 20787,
+  "MiB": 604.5692739486694,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 53,
-    "main_tiles": 16692,
+    "main_methods": 55,
+    "main_tiles": 17316,
     "event_dates": 50,
-    "event_methods": 44,
-    "event_tiles": 2250
+    "event_methods": 46,
+    "event_tiles": 2350
   },
-  "local_references": 1210,
+  "local_references": 1289,
   "missing_references": 0,
   "cleanup_fields": [
     {

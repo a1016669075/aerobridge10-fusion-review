@@ -1,0 +1,11 @@
+唯一预定机制：CS_NATIVE_CONTEXT_AVAILABILITY
+2026-11-06约15:25锁定；父任务已批准一次辅助fit、0次PMfit。不增加其它配置。
+
+目的：联合支持CNN新增域中真实history_count<2留出25点，建筑只召回1/8。检验成对可用性训练是否提高真实缺历史域表现，而非把模拟缺失分数当真实结果。
+依据：Neverova et al., ModDrop: adaptive multi-modal gesture recognition, https://arxiv.org/abs/1501.00102 。原文以训练期模态丢弃适应缺失信号；本试验仅借用成组缺失思路，是固定成对可用性训练适配，不声称完整ModDrop复现。
+
+真实训练坐标/标签/拆分完全复用native_context_union_head：16115点、20TRAIN/10HOLDOUT；新增域164点全保留，其中正U114点、真实count<2为61点。无PM标签、无地图推理输入。
+固定12通道/19441参数原生10m CNN、5/13格感受野、30epochs、batch256、seed20261105、AdamW lr.001 weight_decay.0001、最后epoch，类别权重由16115真实点计算，不扫参。
+每个原batch先做一次共同D4几何增强；两视图：真实12通道全信息，及通道4:10和11整体置零的历史缺失视图（仅保留当前四BOA与current_valid）。每batch一次optimizer update：loss=.5*(class-balanced BCE(full)+class-balanced BCE(missing))。不把行数翻倍增加update次数。
+部署只使用真实可得12通道；不强制缺失、不取两视图较好者、不增加TTA。严格复用联合支CS起点及U=max(H,C)逐带预算，Xp_VIS=CS_VIS−p*U，NIR/valid/无效原域精确不变。
+先锁此PLAN再拟合1次、冻结PM头推理206单字段。报告同真实支持HOLDOUT、真正count<2、原30正确74格、12季节点、道路/工业/事件/站窗、原6+2固定图。所有正反保留；本轮后不再增加fit。

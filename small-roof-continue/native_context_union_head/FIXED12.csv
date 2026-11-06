@@ -1,0 +1,13 @@
+case,site_id,date,season,row,col,history_eligible,current_supported,union_eligible,native_drop,union_drop,budget_component,refit_component,union_p_if_supported
+S03_daqing_1793A_2021-05-21,S03_daqing_1793A,2021-05-21,spring,17,2,False,False,False,0.0,0.0,0.0,0.0,
+S03_daqing_1793A_2021-06-17,S03_daqing_1793A,2021-06-17,summer,17,2,False,True,True,0.0,0.0,0.0,0.0,0.4425472021102905
+S03_daqing_1793A_2021-09-18,S03_daqing_1793A,2021-09-18,autumn,17,2,False,False,False,0.0,0.0,0.0,0.0,
+S03_daqing_1793A_2021-01-03,S03_daqing_1793A,2021-01-03,winter,17,2,False,False,False,0.0,0.0,0.0,0.0,
+S13_yangquan_1742A_2021-05-30,S13_yangquan_1742A,2021-05-30,spring,54,57,False,False,False,0.0,0.0,0.0,0.0,
+S13_yangquan_1742A_2021-06-19,S13_yangquan_1742A,2021-06-19,summer,54,57,False,True,True,0.0,0.01686653661117532,0.01686653661117876,0.0,0.9905411601066589
+S13_yangquan_1742A_2021-09-07,S13_yangquan_1742A,2021-09-07,autumn,54,57,False,False,False,0.0,0.0,0.0,0.0,
+S13_yangquan_1742A_2021-02-01,S13_yangquan_1742A,2021-02-01,winter,54,57,False,False,False,0.0,0.0,0.0,0.0,
+S17_zibo_1635A_2021-05-24,S17_zibo_1635A,2021-05-24,spring,54,9,False,False,False,0.0,0.0,0.0,0.0,
+S17_zibo_1635A_2021-07-13,S17_zibo_1635A,2021-07-13,summer,54,9,False,False,False,0.0,0.0,0.0,0.0,
+S17_zibo_1635A_2021-09-13,S17_zibo_1635A,2021-09-13,autumn,54,9,True,False,True,0.005577462177512871,0.016575296460061395,0.0,0.01099783428255174,0.3021957278251648
+S17_zibo_1635A_2021-01-26,S17_zibo_1635A,2021-01-26,winter,54,9,False,True,True,0.0,0.01637138199009769,0.016371381990113412,0.0,0.11014469712972641

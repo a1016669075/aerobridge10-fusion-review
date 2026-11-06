@@ -16,13 +16,13 @@
 const D=window.GALLERY, $=s=>document.querySelector(s), cases=new Map(D.cases.map(c=>[c.id,c])), sites=new Map(D.sites.map(s=>[s.id,s]));
 const params=new URLSearchParams(location.search), first=cases.has(params.get('case'))?params.get('case'):(cases.has('qujing_2022-03-07')?'qujing_2022-03-07':D.cases[0].id);
 const queryNumber=(key,value)=>params.has(key)&&Number.isFinite(Number(params.get(key)))?Number(params.get(key)):value;
-const state={case:first,a:params.get('a')||'CS_CONSISTENT_STATE',b:params.get('b')||'CS_PROFILE_CONTINUITY',mode:params.get('mode')==='SITE'?'SITE':'DAY',zoom:queryNumber('zoom',1),cx:queryNumber('cx',.5),cy:queryNumber('cy',.5)};
+const state={case:first,a:params.get('a')||'CS_CONSISTENT_STATE',b:params.get('b')||'CS_NATIVE_CONTEXT_UNION',mode:params.get('mode')==='SITE'?'SITE':'DAY',zoom:queryNumber('zoom',1),cx:queryNumber('cx',.5),cy:queryNumber('cy',.5)};
 const imageCache=new Map(); let currentPanels=[],loadVersion=0,drag=null;
 const fmt=(v,n=2)=>Number(v).toFixed(n), signed=v=>(v>0?'+':'')+fmt(v,3), meta=m=>D.methods[m]||{name:m,family:'候选',description:''};
 function node(tag,text,attrs={}){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el;}
 function option(value,text){const el=node('option',text);el.value=value;return el;}
 function setup(){
- $('#counts').innerHTML=`<span class="pill">${D.cases.length} 场</span><span class="pill">30 地点 × 四季</span><span class="pill">旧 36 场独立分组</span><span class="pill">${D.method_order.length-6} 个新候选</span>`;
+ $('#counts').innerHTML=`<span class="pill">${D.cases.length} 场</span><span class="pill">30 地点 × 四季</span><span class="pill">旧 36 场独立分组</span><span class="pill">${D.method_order.length} 个可比方法</span>`;
  $('#updated').textContent='展示生成 '+D.generated_at.replace('T',' ');
  for(const [group,label]of [['SEASONAL120','30 个地点 · 同年四季'],['FIXED36','旧 36 场 · 固定对照']]){const g=node('optgroup',undefined,{label});D.sites.filter(s=>s.group===group).forEach(s=>g.append(option(s.id,s.name)));$('#site').append(g);}
  const grad=`linear-gradient(to right,${D.colors.join(',')})`;$('#gradient').style.background=grad;
