@@ -6,7 +6,7 @@
 
 固定合同：
 1. 复用temporal_material_matched_head/TRAIN_COORDINATES.csv完全相同15998行（道路4084、建筑11914），同20 TRAIN/10 HOLDOUT地点、80 TRAIN日期候选池，不再抽样；实际固定坐标来自其中77景，3景无抽中标签像元。留出已多次参与探索，非独立确认集。
-2. 每目标13x13原生10m patch，12通道：当前4BOA、严格过去4BOA Q25模板、过去频率/计数除4、当前valid、过去有效。8个反射率通道除目标当前三VIS均值+.03；不输入地图、fraction、中心线、坐标、日期、PM/B58或现有手工23/29特征。非有效/窗外反射率置0并显式带支持mask，不反射填充、不假造外沿。过去有效=当前valid AND history_count>0 AND 模板四带有限。
+2. 每目标13x13原生10m patch，12通道：当前4BOA、严格过去四带形态残差h=(X−方向opening背景)的Q25模板、过去频率/计数除4、当前valid、过去有效。8个反射率通道除目标当前三VIS均值+.03；不输入地图、fraction、中心线、坐标、日期、PM/B58或现有手工23/29特征。非有效/窗外反射率置0并显式带支持mask，不反射填充、不假造外沿。过去有效=当前valid AND history_count>0 AND 模板四带有限。
 3. 固定小CNN：共享Conv(12,24,3),ReLU；细尺度Conv(24,24,3),ReLU，感受野5；大尺度从共享层Conv(24,24,3,dilation2),ReLU再Conv(24,24,3,dilation3),ReLU，感受野13。只拼两路中心24+24，Linear48->24->1。无降采样、无位置嵌入、无全图坐标；训练随机D4旋转/翻转整个patch，中心标签不变。
 4. 同一个patch函数用于训练与206场像元推理。相对通道直接输入，不另拟合scaler。唯一辅助fit，seed20261105；30固定epoch，batch256，AdamW lr1e-3/weight_decay1e-4，class-balanced BCE按n/(2*n_class)，CPU2线程。最后epoch权重，不早停/不按留出挑checkpoint、不扫参。
 5. 新方法CS_TEMP_NATIVE_CONTEXT：仅替换材料概率；Xp_VIS=已缓存CS_start_VIS-p_native_context*已缓存delta。TEMP eligible及原支持不变，域外CS不变，NIR精确不变。冻结PM头/B58，0次PM头拟合。原156+event50一次新输入->冻结头；父材料版不重推。

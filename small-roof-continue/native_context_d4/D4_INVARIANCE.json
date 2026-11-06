@@ -1,0 +1,8 @@
+{
+  "patches": 6,
+  "group_elements_each": 8,
+  "max_mean_error": 0.0,
+  "max_sorted_orbit_error": 0.0,
+  "all12channels_transformed": true,
+  "new_fit": 0
+}

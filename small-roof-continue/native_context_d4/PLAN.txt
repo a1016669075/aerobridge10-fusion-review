@@ -1,0 +1,6 @@
+CS_TEMP_NATIVE_D4｜固定0fit八向群平均
+复用native_context_material_head的19441参数模型、12通道13×13原生10m patch函数。对每个实际eligible目标执行训练D4群8种旋转/翻转，所有12通道同时变换，中心不变，无插值。材料权重p_D4=八个sigmoid输出等权算术均值；不平均logit，不按标签挑方向，不调幅度。
+仅替换CS→PAST既有剩余输入proposal的材料权重：Xp_VIS=CS_VIS−p_D4×delta；原NIR、valid、eligible、域外CS不变。0新fit，0PM头fit，无新10m观测。
+原156+事件50各一次同冻结PM头推理；源模型/父结果只读。固定6风险、坐标核定30对象74格、工业46对、道路与共同支持日期对照。同RGB同RAW色限。
+检查固定6patch八向平均在输入先施D4后的集合均值不变，容差仅浮点运算，不增加科学参数。身份方向与父缓存核对；不把群平均当屋顶或道路真值。
+来源：Cohen & Welling 2016, Group Equivariant Convolutional Networks, https://proceedings.mlr.press/v48/cohenc16.html 。借鉴对称性/群操作思想；本实现是已训普通CNN的后验测试时8向平均，不是该文G-convolution网络完整复现。

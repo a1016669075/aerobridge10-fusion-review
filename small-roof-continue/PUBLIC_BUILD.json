@@ -1,16 +1,16 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 19605,
-  "MiB": 557.0261583328247,
+  "files": 20013,
+  "MiB": 574.4670944213867,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 52,
-    "main_tiles": 16380,
+    "main_methods": 53,
+    "main_tiles": 16692,
     "event_dates": 50,
-    "event_methods": 43,
-    "event_tiles": 2200
+    "event_methods": 44,
+    "event_tiles": 2250
   },
-  "local_references": 1164,
+  "local_references": 1210,
   "missing_references": 0,
   "cleanup_fields": [
     {
@@ -119,8 +119,18 @@
       "action": "removed local source-path column"
     },
     {
+      "file": "native_context_d4/evaluation/ORIGINAL30.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
       "file": "native_context_material_head/evaluation/ORIGINAL30.csv",
       "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "native_context_temporal_probe/DAQING_HISTORY_AVAILABILITY.csv",
+      "field": "source_npz",
       "action": "removed local source-path column"
     },
     {

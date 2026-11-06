@@ -1,0 +1,7 @@
+CS起点的历史/本日输入预算并集｜0fit / 0PM
+预先固定本日候选COMPACT_MISSING_CORE：旧206场实际Xp齐，机制是本日原生10m完整紧凑对象+本日真实donor，不依赖TEMP历史。选择依据为机制与缓存完整性，不按改善幅度换候选。
+只使用其原diag_eligible & diag_supported &valid；不擅自重开unsupported对象。它排原窗边与邻缺测，所以不会完整解决边界。
+历史预算 H=max(CS_VIS−TEMP_PAST_10M_VIS,0)×原严格历史eligible；本日预算 C=max(CS_VIS−COMPACT_VIS,0)×原本日supported eligible。并集U=逐带max(H,C)，新增A=U−H；绝不把两个PM相加，不从原X重复扣量。
+核同网格/valid、NIR、CS_start与父delta；只读已有206字段，不拟合、不调用PM推理、不生成候选Xp/PM。
+报告新增可触达格(历史H为0但U正)、已有历史格幅度互补、固定原30准确74格、旧3址12固定位置、实际地图相交格与已定位生产环境46对。预算单位为BOA反射率，不冒充PM误差。
+TRAIN盘点沿20TRAIN/10留出与地图弱标签规则，仅季节120；分别统计联合eligible/实际预算、缺TEMP支持、缺历史/边缘，以及同每址每类1000上限可能样本数，不抽样不fit。若没有增加，停止；若有互补只提出一个覆盖联合域的新头合同，不把旧仅TEMP训练CNN外推。
