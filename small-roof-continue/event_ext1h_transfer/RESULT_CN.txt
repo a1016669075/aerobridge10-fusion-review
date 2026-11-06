@@ -1,0 +1,57 @@
+已存外城背景迁移完成：0新fit、0新背景predict。
+精确匹配149/156场：120四季场=30地点全部4季；固定29场。北京A/B7个非站窗不硬配。
+输出149个NPZ、298个组合场；30四季PNG+29固定PNG，均另有JPEG预览。相对同训旧特征控制，单日期绝对误差改善83、变差66。
+新头TRAIN重叠29/149，按重叠分别评价。未按好坏挑地点；低污染层单列。
+匹配证据：四季provenance physical_key、日期站号产品小时；固定原生侧车精确站坐标/产品/观测时刻唯一匹配，全部B58与缓存一致。所有新背景直接读取ALL_PREDICTIONS，不调用模型。
+四季每地点沿用四季RAW合并P2-P98；固定场每日期RAW P2-P98，全部方法同色限同原支持。颜色饱和不等于纹理数值被删除。
+新背景+对应CS/GRAPH全有效支持去均值局地项。空间相对差异和动态范围不变；这是区域监测背景升级，不声称新的10m屋顶缓解或精度。
+
+      group  new_TRAIN_repeat     stratum  method   n      RMSE       MAE       bias
+    FIXED36             False         ALL     B58  19 12.728488  8.691321  -0.017038
+    FIXED36             False         ALL CONTROL  19 11.137689  8.117497  -1.896199
+    FIXED36             False         ALL   EXT1H  19 11.243489  7.780824   0.001806
+    FIXED36             False OBS_PM_LT25     B58   7  7.953616  6.761305   5.814373
+    FIXED36             False OBS_PM_LT25 CONTROL   7  7.273986  6.222316   3.390178
+    FIXED36             False OBS_PM_LT25   EXT1H   7  6.156596  4.971795   2.967562
+    FIXED36             False OBS_PM_GE75     B58   0       NaN       NaN        NaN
+    FIXED36             False OBS_PM_GE75 CONTROL   0       NaN       NaN        NaN
+    FIXED36             False OBS_PM_GE75   EXT1H   0       NaN       NaN        NaN
+    FIXED36              True         ALL     B58  10 15.173449 10.478201  -2.967125
+    FIXED36              True         ALL CONTROL  10 14.558842 10.969115  -1.701547
+    FIXED36              True         ALL   EXT1H  10 11.922367  8.228538  -2.141136
+    FIXED36              True OBS_PM_LT25     B58   7  8.242358  6.810493   3.919615
+    FIXED36              True OBS_PM_LT25 CONTROL   7  9.543011  7.976747   5.262637
+    FIXED36              True OBS_PM_LT25   EXT1H   7  6.804553  5.957040   2.410304
+    FIXED36              True OBS_PM_GE75     B58   0       NaN       NaN        NaN
+    FIXED36              True OBS_PM_GE75 CONTROL   0       NaN       NaN        NaN
+    FIXED36              True OBS_PM_GE75   EXT1H   0       NaN       NaN        NaN
+SEASONAL120             False         ALL     B58 101 21.076203 13.100444  -3.975468
+SEASONAL120             False         ALL CONTROL 101 20.674963 12.611492  -4.415397
+SEASONAL120             False         ALL   EXT1H 101 15.819153  9.786889  -3.635176
+SEASONAL120             False OBS_PM_LT25     B58  36 13.866043  9.535471   7.692887
+SEASONAL120             False OBS_PM_LT25 CONTROL  36 12.960559  9.231390   7.593679
+SEASONAL120             False OBS_PM_LT25   EXT1H  36 10.392807  7.249229   5.120447
+SEASONAL120             False OBS_PM_GE75     B58  13 45.718102 37.385641 -37.243462
+SEASONAL120             False OBS_PM_GE75 CONTROL  13 47.020437 39.909400 -37.566877
+SEASONAL120             False OBS_PM_GE75   EXT1H  13 36.286093 28.843803 -28.843803
+SEASONAL120              True         ALL     B58  19 14.784169 10.764449   5.442901
+SEASONAL120              True         ALL CONTROL  19 14.608269 10.380532   3.900785
+SEASONAL120              True         ALL   EXT1H  19 10.316722  7.240657   4.413783
+SEASONAL120              True OBS_PM_LT25     B58   9 16.962535 11.243067  11.239378
+SEASONAL120              True OBS_PM_LT25 CONTROL   9 15.458994  9.959318   9.313629
+SEASONAL120              True OBS_PM_LT25   EXT1H   9  8.797868  5.655760   4.439851
+SEASONAL120              True OBS_PM_GE75     B58   0       NaN       NaN        NaN
+SEASONAL120              True OBS_PM_GE75 CONTROL   0       NaN       NaN        NaN
+SEASONAL120              True OBS_PM_GE75   EXT1H   0       NaN       NaN        NaN
+
+缺口：
+               case                               match_gap
+WINDOW_A_2021-12-30 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_A_2022-04-07 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_A_2022-07-08 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_A_2022-10-06 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_B_2022-04-07 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_B_2022-07-08 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+WINDOW_B_2022-10-06 NONSTATION_OR_NO_NATIVE_STATION_SIDECAR
+
+南通单独诊断见 NANTONG_DIAGNOSIS.txt（本城/周边实测只用于诊断，不回填模型）。

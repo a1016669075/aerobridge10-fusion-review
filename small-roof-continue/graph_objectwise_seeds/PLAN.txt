@@ -1,0 +1,11 @@
+GRAPH_OBJECTWISE_SEEDS — COMPACT_OBJECTWISE_SEEDS, frozen 2026-11-06
+
+Use the exact object-self-exclusion input mechanism from object_self_exclusion_probe/PLAN.txt. One206-scene candidate,0fits,unchanged PM head.
+For each full original candidate connected object accepted by COMPACT, remove only that object from the original pure geometry weak seeds. All own pixels must have seed0. Other objects are not removed merely because they are current COMPACT targets. Existing graph seed creation has no additional buffer; use none.
+Keep visible_material_seeds joint-NDVI/green-peak criterion,3x3confidence,soft anchor equation,.02four-band edge weights,map geometry,current valid support and tensor coherence unchanged. Per-object graph probabilities are used only on that object. They are not one global harmonic probability field.
+Weight=coherence*(1-p_object) on eligible targets with both reliable classes; use TENSOR elsewhere. Only COMPACT incremental VIS correction is arbitrated. Previous corrections,NIR,valid remain exact. Old36 lack pure-map seeds and remain exact TENSOR.
+Reuse the12scene input probability arrays already computed with this same function/contract. Within every new scene cache identical per-object seed layouts; do not repeat equivalent graph solves. Do not alter any old/current completed branch outputs.
+
+Input evidence:170objects,14 with probability change>.01. Daqing/Yangquan fixed summer points unchanged. Zibo winter target64 p.059245→.191500 through restored OTHER building object at[51,7]; its own former anchor[54,7] stays excluded. Not a global seasonality solution.
+Review: six inherited fixed scenes, fixed winter Zibo focus and unchanged Daqing/Yangquan summer focus; plus actual strongest PM differences in both directions, not labelled success solely by decline. Check original30,231 mapped target cells,old locked road/industrial appearance controls,station/date changes and new50event dates. No scale or strength sweep.
+Current candidate components can split one physical building into fragments; other fragments remain weak geography, not independent labels.2026map timing/roof-road mixtures and seasonal edge drift remain limitations.

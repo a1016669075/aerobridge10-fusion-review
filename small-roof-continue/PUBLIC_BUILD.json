@@ -1,21 +1,36 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 13338,
-  "MiB": 190.6418218612671,
+  "files": 14226,
+  "MiB": 265.5418920516968,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 37,
-    "main_tiles": 11700,
+    "main_methods": 39,
+    "main_tiles": 12324,
     "event_dates": 50,
-    "event_methods": 28,
-    "event_tiles": 1450
+    "event_methods": 30,
+    "event_tiles": 1550
   },
-  "local_references": 190,
+  "local_references": 443,
   "missing_references": 0,
   "cleanup_fields": [
     {
       "file": "event_ext1h_head/RAW_SOURCE_HOURS.csv",
       "field": "archive_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_ext1h_transfer/MATCH_ALL156.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_ext1h_transfer/MATCH_ALL156.csv",
+      "field": "input_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_ext1h_transfer/MATCH_ALL156.csv",
+      "field": "source_evidence",
       "action": "removed local source-path column"
     },
     {
