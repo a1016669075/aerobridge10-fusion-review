@@ -1,0 +1,156 @@
+{
+  "CS_TEMP_REOPEN_CONTROL": {
+    "station_RMSE": 19.644248003185044,
+    "CS_station_RMSE": 19.63946090792174,
+    "scope": {
+      "ALL_SMALL": {
+        "objects": 14958,
+        "changed_objects": 3764,
+        "changed_pixels": 8925,
+        "mean_drop": 0.05563154738795274,
+        "max_object_mean_drop": 3.234206280699148,
+        "mean_contrast_change": -0.032308184784246845,
+        "positive_to_negative": 48
+      },
+      "CS_POSITIVE": {
+        "objects": 14781,
+        "changed_objects": 3753,
+        "changed_pixels": 8910,
+        "mean_drop": 0.05625272203145739,
+        "max_object_mean_drop": 3.234206280699148,
+        "mean_contrast_change": -0.033119620432250044,
+        "positive_to_negative": 47
+      },
+      "POSITIVE_EARLIER_ACTED": {
+        "objects": 12862,
+        "changed_objects": 3256,
+        "changed_pixels": 8063,
+        "mean_drop": 0.054576362516344616,
+        "max_object_mean_drop": 3.234206280699148,
+        "mean_contrast_change": -0.030670210501296345,
+        "positive_to_negative": 44
+      },
+      "FIXED30": {
+        "objects": 30,
+        "pixels": 74,
+        "changed_objects": 10,
+        "changed_pixels": 31,
+        "mean_drop": 0.15406853221426797,
+        "max_object_mean_drop": 1.728110478622753,
+        "mean_contrast_change": -0.1404882410026586,
+        "positive_to_negative": 0,
+        "coordinate_verified": true
+      }
+    },
+    "locked_road": {
+      "comparisons": 106,
+      "worst_contrast_change": -0.0689051333774593,
+      "maximum_core_drop": 0.0689051333774593,
+      "new_reversal": 0
+    },
+    "industry_appearance_control": {
+      "comparisons": 125,
+      "maximum_core_drop": 0.11452837368870306,
+      "worst_contrast_change": -0.11452837368870306,
+      "maximum_absolute_contrast_change": 0.11452837368870306
+    },
+    "seasonal_map": {
+      "scenes_with_map": 116,
+      "intersection_cells": 114833,
+      "changed_cells": 3435,
+      "weighted_mean_drop": 0.008961302666677138,
+      "maximum_drop": 4.337520705224783
+    },
+    "event25": {
+      "RMSE": 77.41322666879618,
+      "CS_RMSE": 77.41200107222762,
+      "worst_error_worsening": 0.030485357540307234,
+      "max_window_difference": 0.030485357540307234,
+      "max_bright_difference": 0.10009791098950593,
+      "max_road_difference": 0.0
+    },
+    "adjacent_dates": {
+      "pairs": 121,
+      "max_window_change_difference": 0.031016240417201857,
+      "window_change_RMSE": 24.112957213883046,
+      "CS_RMSE": 24.112466415254612
+    }
+  },
+  "CS_TEMP_MATERIAL_REOPEN": {
+    "station_RMSE": 19.641816521288487,
+    "CS_station_RMSE": 19.63946090792174,
+    "scope": {
+      "ALL_SMALL": {
+        "objects": 14958,
+        "changed_objects": 3764,
+        "changed_pixels": 8925,
+        "mean_drop": 0.0323430297600922,
+        "max_object_mean_drop": 2.6378694473889395,
+        "mean_contrast_change": -0.020801171919453357,
+        "positive_to_negative": 16
+      },
+      "CS_POSITIVE": {
+        "objects": 14781,
+        "changed_objects": 3753,
+        "changed_pixels": 8910,
+        "mean_drop": 0.03270634776101505,
+        "max_object_mean_drop": 2.6378694473889395,
+        "mean_contrast_change": -0.021273726725260976,
+        "positive_to_negative": 15
+      },
+      "POSITIVE_EARLIER_ACTED": {
+        "objects": 12862,
+        "changed_objects": 3256,
+        "changed_pixels": 8063,
+        "mean_drop": 0.03262337501629029,
+        "max_object_mean_drop": 2.6378694473889395,
+        "mean_contrast_change": -0.02066067420415725,
+        "positive_to_negative": 14
+      },
+      "FIXED30": {
+        "objects": 30,
+        "pixels": 74,
+        "changed_objects": 10,
+        "changed_pixels": 31,
+        "mean_drop": 0.09121245931017327,
+        "max_object_mean_drop": 1.019543614827171,
+        "mean_contrast_change": -0.08337799817537792,
+        "positive_to_negative": 0,
+        "coordinate_verified": true
+      }
+    },
+    "locked_road": {
+      "comparisons": 106,
+      "worst_contrast_change": -0.04251856534299847,
+      "maximum_core_drop": 0.04251856534299847,
+      "new_reversal": 0
+    },
+    "industry_appearance_control": {
+      "comparisons": 125,
+      "maximum_core_drop": 0.0575509365798581,
+      "worst_contrast_change": -0.0575509365798581,
+      "maximum_absolute_contrast_change": 0.07358761665222247
+    },
+    "seasonal_map": {
+      "scenes_with_map": 116,
+      "intersection_cells": 114833,
+      "changed_cells": 3435,
+      "weighted_mean_drop": 0.003978202350133325,
+      "maximum_drop": 3.7457819641778727
+    },
+    "event25": {
+      "RMSE": 77.4122766993084,
+      "CS_RMSE": 77.41200107222762,
+      "worst_error_worsening": 0.012694241884418034,
+      "max_window_difference": 0.012694241884418034,
+      "max_bright_difference": 0.0556210927456533,
+      "max_road_difference": 0.0
+    },
+    "adjacent_dates": {
+      "pairs": 121,
+      "max_window_change_difference": 0.027563767373735004,
+      "window_change_RMSE": 24.11280395917406,
+      "CS_RMSE": 24.112466415254612
+    }
+  }
+}

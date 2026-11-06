@@ -1,0 +1,12 @@
+4. 历史路线实际已有，不能再声称首次原生10m时序。
+temporal_material/run.py：TEMP_PAST_10M与TEMP_RATIO_10M已完成156场，严格过去同网格同星同轨，最多4日、至少2次，历史候选频率>=.5。原生四带7格四方向开运算残差，过去Q25稳定幅度（RATIO先归一局地背景）；投影既有白材料谱，按当日谱向一致性、当前正残差和非负输入封顶。与EXPAND逐带min组合，原本就可处理EXPAND已改过的位置，但没有学习材料概率，也没有与当前CS状态组合。
+persistent_reference/run.py：PERSIST_MATCH/STRICT复用历史“是否稳定”支持，扣量仍取当日邻域；同样不是学习材料概率×历史幅度，也非CS当前状态新输入。
+native_relative_texture/api.py与native_texture_semantic/api.py：已学材料概率确实存在且覆盖有效像元，但其已有应用仍只仲裁COMPACT增量；不是跨作用域的时序模板处理。
+
+5. 唯一建议已交root：TEMP_MATERIAL_REOPEN，先缓存输入级试验。
+沿用旧TEMP严格过去eligible与已存TEMP_PAST结果，p取已存RELATIVE23材料建筑辅助概率。逐可见带：X_new = X_CS - p * max(X_CS-X_TEMP_PAST,0)。只在历史eligible作用，不再依赖COMPACT eligible或old_acted禁入；NIR/原valid不变。
+它复用历史稳定分量已有谱形，不再叠加一次完整历史扣量，不撤销CS已有降低，也不靠扩大mask或重训。概率仅是弱标签辅助，不是真实材质比例。此方案只提出且计算缓存差值预算，本目录未生成新Xp或新PM。root已让另代理执行唯一候选＋无材料权重消融。
+预算有边界：70,595个CS正差格中34169格具有历史支持，只有8,898格在至少一个可见带存在旧TEMP低于CS的实际输入预算；其中6,011是较早已处理、2,185其他范围外、689COMPACT活跃、13增量原为0。正确原30仅31/74格有预算。不能期待它覆盖所有剩余屋顶。
+三VIS共同白谱残余门可作为后续输入诊断，本轮已选定逐带版，不同时开另一PM方案。
+
+0新fit、0新PM、0新Xp。所有PM与输入均读冻结缓存；结果只写residual_scope_probe。未改matting或训练扩样。

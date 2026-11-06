@@ -1,0 +1,16 @@
+{
+  "method": "CS_TEMP_MATERIAL_IN_DOMAIN",
+  "parent": "CS_TEMP_MATERIAL_REOPEN",
+  "start": "CS_CONSISTENT_STATE",
+  "mechanism": "Use existing material p only within exactly its original raw-input training domain; outside preserve CS",
+  "formula": "CS_VIS - training_domain * parent_p * parent_delta",
+  "training_domain": "raw dtype VISmean>=0.16 and np.divide NDVI<=0.35; valid only",
+  "parameters_changed": 0,
+  "new_input_fits": 0,
+  "new_PM_head_fits": 0,
+  "scenes": 206,
+  "NIR_exact": true,
+  "valid_exact": true,
+  "inside_parent_exact": true,
+  "outside_CS_exact": true
+}

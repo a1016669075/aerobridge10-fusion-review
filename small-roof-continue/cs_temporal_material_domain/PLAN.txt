@@ -1,0 +1,10 @@
+唯一候选 CS_TEMP_MATERIAL_IN_DOMAIN，0新拟合，原156+事件50各一次冻结头计算。
+
+已核真实来源：20261105/native_relative_texture/api.py::labels 的材料训练只取原raw X的VIS均值>=0.16且NDVI<=0.35；现TEMP eligible允许VIS>=0.14。直接沿用原训练dtype与公式，不先float64转换，不改阈值。
+domain = valid & (X[:3].mean(0)>=.16) & (divide(X[3]-X[2],X[3]+X[2],out=zeros_like(X[0]),where=abs(den)>1e-8)<=.35)。
+CS_TEMP_MATERIAL_IN_DOMAIN_VIS = CS_start_VIS - domain * p_building_native * delta。
+CS_start、delta、p全部直接读取已经生成的cs_temporal_material_reopen诊断，delta原域和过去选择保持。域外返回CS，域内逐值等于父材料候选；不删除或白掉任何像元。不撤回原CS，不重推父两字段，不扩大mask。
+
+统一api.transform(a,parent)，原156和event50同函数。NIR、valid、无效输入原样。仅允许新的单字段通过experiment_io.save_result运行冻结头。
+preflight先核父206齐、训练域公式/原dtype、域内和域外Xp一致性，再实算一次。记录原地图交格、无建筑地图路格、真实建筑弱格、原定义small bright和原固定30；固定30必须调用已修坐标/bbox/中心/n/near规则，不按不同dtype的连通域编号链接。
+评价保留域内>=.16道路风险、邻域参照变化造成的局部对比变化，以及原工业环境QR/AR与未知用途控制的真实差别。最多6处图：优先既定域外不利位置恢复、域内原亮点保留，再给残留地图最大风险。只使用原RAW同限/valid，0扫参。

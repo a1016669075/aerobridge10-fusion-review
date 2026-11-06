@@ -1,0 +1,22 @@
+CS状态上的过去材料模板重新处理：预定双字段合同
+
+目的：已有COMPACT材料分支只仲裁狭窄新增对象，不能处理大部分已处理后仍残留的小亮点。本机制从当前CS_CONSISTENT_STATE的真实输入状态出发，允许原earlier_acted像元再次发生新的X处理。
+
+冻结来源
+- CS：20261105/cs_consistent_state原156及event50真实Xp。
+- 过去模板：20261105/temporal_material 的 TEMP_PAST_10M 精确Xp和diag_eligible。严格过去、同格网、同平台、同轨，至少2至多4个合格历史日；不采用未来四季目标。
+- 材料权重：20261105/native_relative_texture 已训练23相对特征模型的 diag_p_building_native，直接复用，不重新拟合/校准。
+
+单一公式（VIS逐波段）
+eligible = 原TEMP_PAST_10M.eligible AND 原valid。
+delta = max(CS_VIS - PAST_VIS, 0)，在eligible外为0。
+CS_TEMP_REOPEN_CONTROL_VIS = CS_VIS - delta。
+CS_TEMP_MATERIAL_REOPEN_VIS = CS_VIS - p_material * delta。
+NIR和invalid严格原样。p仅是现有弱地图材料分类输出，不是独立真值。原156包括旧36均可按其真实已有p使用；不再以无地图为理由一律保持TENSOR，因为本轮使用已有原生输入模型而非新地图图传播。
+
+这是同一新增机制与无材料消融两字段；不是把原始X重复扣旧CS幅度。CS已扣部分由状态差delta自动排除。不取各PM输出最小值，不改色限或mask，不按PM标签定义作用位置，不加道路/工厂手工保护，不扫描强度。
+
+事件可用性
+先检查既有event50同日严格历史缓存。若不存在完整TEMP_PAST Xp，允许使用event_date_transfer/history/HISTORY_SOURCES.csv.gz和其已有真实本地源数组，调用同一旧TEMP transform构造该日模板，不下载、不借另一日期。选日必须与旧事件缓存past_dates/past_keys严格一致；本地源缺失或格网不匹配则该事件保留CS并明确原因，不凑206。
+
+运行先原156完整，再实际可构造事件；0新fit，冻结PM头真实推理两字段。记录实际支持/原已处理范围、原30与residual_scope_probe既定残余队列、地图道路/旧道路工业控制/事件/四季。给最大增强和最不利局部的同RGB/同RAW限图。允许残余，不把显著削减称真实10mPM误差改善。

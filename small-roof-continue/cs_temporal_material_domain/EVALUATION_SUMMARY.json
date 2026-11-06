@@ -1,0 +1,109 @@
+{
+  "original30": {
+    "CS_TEMP_MATERIAL_REOPEN": {
+      "objects": 30,
+      "pixels": 74,
+      "changed_objects": 10,
+      "changed_pixels": 31,
+      "mean_drop": 0.09121245931017327,
+      "max_object_mean": 1.019543614827171,
+      "mean_contrast_change": -0.08337799817537792,
+      "positive_to_negative": 0,
+      "all_object_PM_exact_parent": true
+    },
+    "CS_TEMP_MATERIAL_IN_DOMAIN": {
+      "objects": 30,
+      "pixels": 74,
+      "changed_objects": 10,
+      "changed_pixels": 31,
+      "mean_drop": 0.09121245931017327,
+      "max_object_mean": 1.019543614827171,
+      "mean_contrast_change": -0.09121245931017347,
+      "positive_to_negative": 0,
+      "all_object_PM_exact_parent": true
+    }
+  },
+  "locked_roads": {
+    "CS_TEMP_MATERIAL_REOPEN": {
+      "rows": 106,
+      "worst_contrast_change": -0.04251856534299847,
+      "worst_contrast_case": "qujing_2020-09-08",
+      "worst_contrast_object": "QD01",
+      "max_core_drop": 0.04251856534299888,
+      "max_core_case": "qujing_2020-09-08",
+      "max_core_object": "QD01",
+      "positive_to_negative": 0
+    },
+    "CS_TEMP_MATERIAL_IN_DOMAIN": {
+      "rows": 106,
+      "worst_contrast_change": -0.008851159413106657,
+      "worst_contrast_case": "qujing_2020-09-08",
+      "worst_contrast_object": "QD01",
+      "max_core_drop": 0.008851159413107204,
+      "max_core_case": "qujing_2020-09-08",
+      "max_core_object": "QD01",
+      "positive_to_negative": 0
+    }
+  },
+  "production_environment": {
+    "CS_TEMP_MATERIAL_REOPEN": {
+      "rows": 46,
+      "worst_contrast_change": -0.007914197659321331,
+      "worst_contrast_case": "anshan_2022-05-18",
+      "worst_contrast_object": "AR02",
+      "max_core_drop": 0.01608095218521068,
+      "max_core_case": "anshan_2022-05-18",
+      "max_core_object": "AR02",
+      "positive_to_negative": 0
+    },
+    "CS_TEMP_MATERIAL_IN_DOMAIN": {
+      "rows": 46,
+      "worst_contrast_change": -0.005438042883731953,
+      "worst_contrast_case": "anshan_2022-05-18",
+      "worst_contrast_object": "AR02",
+      "max_core_drop": 0.009802981645463038,
+      "max_core_case": "anshan_2022-05-18",
+      "max_core_object": "AR02",
+      "positive_to_negative": 0
+    }
+  },
+  "unknown_or_residential_controls": {
+    "CS_TEMP_MATERIAL_REOPEN": {
+      "rows": 45,
+      "worst_contrast_change": -0.0575509365798581,
+      "worst_contrast_case": "qujing_2022-05-06",
+      "worst_contrast_object": "QR03",
+      "max_core_drop": 0.05755093657985652,
+      "max_core_case": "qujing_2022-05-06",
+      "max_core_object": "QR03",
+      "positive_to_negative": 0
+    },
+    "CS_TEMP_MATERIAL_IN_DOMAIN": {
+      "rows": 45,
+      "worst_contrast_change": -0.0575509365798581,
+      "worst_contrast_case": "qujing_2022-05-06",
+      "worst_contrast_object": "QR03",
+      "max_core_drop": 0.05755093657985652,
+      "max_core_case": "qujing_2022-05-06",
+      "max_core_object": "QR03",
+      "positive_to_negative": 0
+    }
+  },
+  "event25": {
+    "CS_CONSISTENT_STATE": {
+      "event_RMSE": 77.40906492982411,
+      "event_MAE": 50.75383976217826,
+      "max_abs_change_vs_CS": 0.0
+    },
+    "CS_TEMP_MATERIAL_REOPEN": {
+      "event_RMSE": 77.40934806630483,
+      "event_MAE": 50.7535829062512,
+      "max_abs_change_vs_CS": 0.012687515167840502
+    },
+    "CS_TEMP_MATERIAL_IN_DOMAIN": {
+      "event_RMSE": 77.40969064027202,
+      "event_MAE": 50.75441926282358,
+      "max_abs_change_vs_CS": 0.00909034483285609
+    }
+  }
+}

@@ -1,16 +1,16 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 16913,
-  "MiB": 462.4901075363159,
+  "files": 18092,
+  "MiB": 522.1475143432617,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 45,
-    "main_tiles": 14196,
+    "main_methods": 48,
+    "main_tiles": 15132,
     "event_dates": 50,
-    "event_methods": 36,
-    "event_tiles": 1850
+    "event_methods": 39,
+    "event_tiles": 2000
   },
-  "local_references": 976,
+  "local_references": 1099,
   "missing_references": 0,
   "cleanup_fields": [
     {
@@ -122,6 +122,16 @@
       "file": "presentation/BUILD_CHECK.json",
       "field": "source_index",
       "action": "removed local source-path metadata"
+    },
+    {
+      "file": "reopened_focus/SELECTION.csv",
+      "field": "source_arrays",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "temporal_reopen_road_probe/INPUT_DATES.csv",
+      "field": "source_npz",
+      "action": "removed local source-path column"
     }
   ],
   "scientific_arrays_included": false

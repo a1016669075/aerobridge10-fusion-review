@@ -1,0 +1,7 @@
+{
+  "positive_objects": 14781,
+  "changed_objects": 3753,
+  "unchanged": 11028,
+  "no_history_eligible": 6727,
+  "eligible_but_no_positive_state_gap": 4301
+}

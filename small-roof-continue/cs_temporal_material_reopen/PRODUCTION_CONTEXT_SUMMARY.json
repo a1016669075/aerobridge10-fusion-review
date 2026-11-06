@@ -1,0 +1,16 @@
+{
+  "CS_TEMP_MATERIAL_REOPEN": {
+    "comparisons": 46,
+    "scenes": 17,
+    "maximum_core_drop": 0.0160809521852094,
+    "worst_contrast_change": -0.0079141976593213,
+    "maximum_absolute_contrast_change": 0.0212448824244297
+  },
+  "CS_TEMP_REOPEN_CONTROL": {
+    "comparisons": 46,
+    "scenes": 17,
+    "maximum_core_drop": 0.0444097064902813,
+    "worst_contrast_change": -0.0192914454446082,
+    "maximum_absolute_contrast_change": 0.0569645061092174
+  }
+}

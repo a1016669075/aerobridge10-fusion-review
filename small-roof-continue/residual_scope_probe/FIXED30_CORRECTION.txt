@@ -1,0 +1,20 @@
+固定30关联更正：原队列以原dtype计算阈值，旧scope转float64后仅按object_id重找，造成部分编号漂移。现复用原objects(a)，逐对象验证像元数、bbox、质心及邻域数量，30对象共74格。全156统计使用固定float64定义，保持不变；仅固定30评价和说明修正。ALL_SMALL_OBJECTS/POSITIVE_CS_PIXELS内错误fixed30/priority字段已删除，改为真实像元重叠标记。固定队列一律使用本修正表与FIXED30_PIXEL_COORDINATES。
+{
+  "group": "FIXED30",
+  "objects": 30,
+  "pixels": 74,
+  "scenes": 27,
+  "entirely_outside_eligible": 4,
+  "entirely_earlier_acted": 0,
+  "with_earlier_acted": 0,
+  "earlier_acted_pixels": 0,
+  "outside_other_pixels": 32,
+  "eligible_no_reference_pixels": 0,
+  "eligible_no_extra_pixels": 0,
+  "eligible_extra_pixels": 42,
+  "history_eligible_pixels": 41,
+  "CS_visible_contrast_mean": 0.0674315116254076,
+  "CS_PM_contrast_mean": 3.5519071413534933,
+  "COMPACT_PM_contrast_mean": 3.1309193363627785
+}
+{'object_id': 1959.0, 'priority': 465.0, 'pixels': 74.0, 'temporal_eligible': 41.0, 'saved_PAST_has_lower_input': 31.0, 'mean_weighted_visible_budget': 0.053868181568942915, 'maximum_weighted_visible_budget': 0.0829888803173609}
