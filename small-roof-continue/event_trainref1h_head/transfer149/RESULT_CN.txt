@@ -1,0 +1,42 @@
+149/156缓存精确匹配：30地点全部120四季场＋29旧固定场。7北京A/B非站窗不硬配。
+本子页0新拟合、0新背景predict；只使用上级唯一EVENT_TRAINREF1H拟合已存预测。149NPZ共298组合场，30四季＋29固定PNG，各有JPEG。
+单日期绝对误差相对EXT：改善88，变差61。新TRAIN重叠29/149。全部匹配场均保留。
+信息假设：有独立同城TRAIN监测站；当前目标站排除，25事件站和真实CITY/STATION站均不入池。CITY组无同城值。前1h归档发布时间未知。
+原B58来源重叠沿用；局地CS/GRAPH去均值纹理不改，不能称新的10m光学改进。
+      group  new_TRAIN_repeat stratum                method   n      RMSE       MAE       bias
+    FIXED36             False     ALL EVENT_RETRAIN_CONTROL  19 11.137689  8.117497  -1.896199
+    FIXED36             False     ALL           EVENT_EXT1H  19 11.243489  7.780824   0.001806
+    FIXED36             False     ALL      EVENT_TRAINREF1H  19  8.546136  5.940268   1.357402
+    FIXED36             False PM_LT25 EVENT_RETRAIN_CONTROL   7  7.273986  6.222316   3.390178
+    FIXED36             False PM_LT25           EVENT_EXT1H   7  6.156596  4.971795   2.967562
+    FIXED36             False PM_LT25      EVENT_TRAINREF1H   7  3.867938  3.392234   2.910807
+    FIXED36             False PM_GE75 EVENT_RETRAIN_CONTROL   0       NaN       NaN        NaN
+    FIXED36             False PM_GE75           EVENT_EXT1H   0       NaN       NaN        NaN
+    FIXED36             False PM_GE75      EVENT_TRAINREF1H   0       NaN       NaN        NaN
+    FIXED36              True     ALL EVENT_RETRAIN_CONTROL  10 14.558842 10.969115  -1.701547
+    FIXED36              True     ALL           EVENT_EXT1H  10 11.922367  8.228538  -2.141136
+    FIXED36              True     ALL      EVENT_TRAINREF1H  10  6.615476  5.609951  -0.140230
+    FIXED36              True PM_LT25 EVENT_RETRAIN_CONTROL   7  9.543011  7.976747   5.262637
+    FIXED36              True PM_LT25           EVENT_EXT1H   7  6.804553  5.957040   2.410304
+    FIXED36              True PM_LT25      EVENT_TRAINREF1H   7  6.651165  5.672873   1.280401
+    FIXED36              True PM_GE75 EVENT_RETRAIN_CONTROL   0       NaN       NaN        NaN
+    FIXED36              True PM_GE75           EVENT_EXT1H   0       NaN       NaN        NaN
+    FIXED36              True PM_GE75      EVENT_TRAINREF1H   0       NaN       NaN        NaN
+SEASONAL120             False     ALL EVENT_RETRAIN_CONTROL 101 20.674963 12.611492  -4.415397
+SEASONAL120             False     ALL           EVENT_EXT1H 101 15.819153  9.786889  -3.635176
+SEASONAL120             False     ALL      EVENT_TRAINREF1H 101 12.813450  8.458560  -1.194725
+SEASONAL120             False PM_LT25 EVENT_RETRAIN_CONTROL  36 12.960559  9.231390   7.593679
+SEASONAL120             False PM_LT25           EVENT_EXT1H  36 10.392807  7.249229   5.120447
+SEASONAL120             False PM_LT25      EVENT_TRAINREF1H  36  9.551381  6.337528   4.330903
+SEASONAL120             False PM_GE75 EVENT_RETRAIN_CONTROL  13 47.020437 39.909400 -37.566877
+SEASONAL120             False PM_GE75           EVENT_EXT1H  13 36.286093 28.843803 -28.843803
+SEASONAL120             False PM_GE75      EVENT_TRAINREF1H  13 25.460347 18.683964 -16.909703
+SEASONAL120              True     ALL EVENT_RETRAIN_CONTROL  19 14.608269 10.380532   3.900785
+SEASONAL120              True     ALL           EVENT_EXT1H  19 10.316722  7.240657   4.413783
+SEASONAL120              True     ALL      EVENT_TRAINREF1H  19  6.314485  4.404133   0.429740
+SEASONAL120              True PM_LT25 EVENT_RETRAIN_CONTROL   9 15.458994  9.959318   9.313629
+SEASONAL120              True PM_LT25           EVENT_EXT1H   9  8.797868  5.655760   4.439851
+SEASONAL120              True PM_LT25      EVENT_TRAINREF1H   9  5.189985  3.675087   2.757155
+SEASONAL120              True PM_GE75 EVENT_RETRAIN_CONTROL   0       NaN       NaN        NaN
+SEASONAL120              True PM_GE75           EVENT_EXT1H   0       NaN       NaN        NaN
+SEASONAL120              True PM_GE75      EVENT_TRAINREF1H   0       NaN       NaN        NaN

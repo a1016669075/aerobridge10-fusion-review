@@ -1,18 +1,33 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 14226,
-  "MiB": 265.5418920516968,
+  "files": 14893,
+  "MiB": 380.3988218307495,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 39,
-    "main_tiles": 12324,
+    "main_methods": 40,
+    "main_tiles": 12636,
     "event_dates": 50,
-    "event_methods": 30,
-    "event_tiles": 1550
+    "event_methods": 31,
+    "event_tiles": 1600
   },
-  "local_references": 443,
+  "local_references": 751,
   "missing_references": 0,
   "cleanup_fields": [
+    {
+      "file": "event_available_reference/TIELING_SWITCH_DATES.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_available_reference/TIELING_SWITCH_DATES.csv",
+      "field": "input_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_available_reference/TIELING_SWITCH_DATES.csv",
+      "field": "source_evidence",
+      "action": "removed local source-path column"
+    },
     {
       "file": "event_ext1h_head/RAW_SOURCE_HOURS.csv",
       "field": "archive_path",
@@ -36,6 +51,31 @@
     {
       "file": "event_state_head/external_city_diagnostic/RAW_CITY_HOURLY.csv",
       "field": "archive_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_trainref1h_head/transfer149/DATE_LEVELS.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_trainref1h_head/transfer149/DATE_LEVELS.csv",
+      "field": "input_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_trainref1h_head/transfer149/DATE_LEVELS.csv",
+      "field": "source_evidence",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_trainref1h_head/transfer149/MATCH_GAPS.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "event_trainref1h_head/transfer149/MATCH_GAPS.csv",
+      "field": "input_path",
       "action": "removed local source-path column"
     },
     {

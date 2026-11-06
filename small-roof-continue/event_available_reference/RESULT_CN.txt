@@ -1,0 +1,81 @@
+切换代价明确保留：铁岭2216A的2021-08-26同城输入缺测，按固定规则选EXT；其前后两对相邻日期ΔRMSE为9.2726，优于EXT的10.7880，但差于TRAINREF的5.2103。两对均含新TRAIN重复日期。25事件本身路由不切换；路由ΔRMSE32.8425略差于单TRAINREF31.9512，优于EXT37.2673。未按这些结果调整路由。
+
+EVENT_AVAILABLE_REF：0fit / 0背景predict 的固定输入可用性路由
+有限同城TRAIN前1h均值＋有效数>0→已存TRAINREF；否则→已存EXT。与模型优劣和PM真值无关。训练预测、全部测试、50事件、348工业、149迁移使用同一函数。
+全部62004行中同城可用55781，外城路由6223；238缺B58仍无预测。CITY全部与EXT逐行完全一致。
+信息业务模式不同：有同城独立监测/无同城监测；原845 TRAIN池排目标自身、25事件站、实际CITY/STATION站，归档发布时间未知。原B58来源重叠与已曝光对照沿用。
+全分组：
+evaluation_group stratum                method     n      RMSE       MAE      bias
+            CITY     ALL                   B58  3106 29.380770 17.471521 -1.620335
+            CITY     ALL EVENT_RETRAIN_CONTROL  3106 27.318820 16.635058 -1.630979
+            CITY     ALL           EVENT_EXT1H  3106 23.604502 13.967995 -0.551585
+            CITY     ALL      EVENT_TRAINREF1H  3106 26.121539 15.222561 -2.996531
+            CITY     ALL   EVENT_AVAILABLE_REF  3106 23.604502 13.967995 -0.551585
+         STATION     ALL                   B58  5083 24.253938 15.919141  0.422507
+         STATION     ALL EVENT_RETRAIN_CONTROL  5083 22.933128 15.211308  0.602845
+         STATION     ALL           EVENT_EXT1H  5083 18.811660 12.184600  0.096052
+         STATION     ALL      EVENT_TRAINREF1H  5083 14.638384  9.337363  0.366605
+         STATION     ALL   EVENT_AVAILABLE_REF  5083 14.282334  9.191941  0.349578
+            TIME     ALL                   B58  4703 27.953325 16.031701 -1.972725
+            TIME     ALL EVENT_RETRAIN_CONTROL  4703 28.452805 16.127059 -1.964849
+            TIME     ALL           EVENT_EXT1H  4703 21.509700 12.591466 -1.288991
+            TIME     ALL      EVENT_TRAINREF1H  4703 15.875144  9.429849 -0.373301
+            TIME     ALL   EVENT_AVAILABLE_REF  4703 15.839174  9.403414 -0.340334
+  TRAIN_EXCLUDED     ALL                   B58  5216 26.281238 17.623490  0.896805
+  TRAIN_EXCLUDED     ALL EVENT_RETRAIN_CONTROL  5216 24.070004 16.216642 -0.078841
+  TRAIN_EXCLUDED     ALL           EVENT_EXT1H  5216 19.276447 12.917719  0.282543
+  TRAIN_EXCLUDED     ALL      EVENT_TRAINREF1H  5216 16.902755 10.278122  0.562133
+  TRAIN_EXCLUDED     ALL   EVENT_AVAILABLE_REF  5216 16.825553 10.217382  0.570728
+      TRAIN_USED     ALL                   B58 43658 28.591785 17.944568  0.508147
+      TRAIN_USED     ALL EVENT_RETRAIN_CONTROL 43658 24.194835 15.855779 -0.014028
+      TRAIN_USED     ALL           EVENT_EXT1H 43658 19.753775 12.668600 -0.009873
+      TRAIN_USED     ALL      EVENT_TRAINREF1H 43658 15.930532  9.685485 -0.007509
+      TRAIN_USED     ALL   EVENT_AVAILABLE_REF 43658 15.938689  9.695683  0.064243
+25事件：
+               method  pairs  event_RMSE  event_MAE  positive_delta_pairs  switched_pairs
+                  B58     25   78.041705  51.718877                    23               0
+  EVENT_AVAILABLE_REF     25   32.842495  24.660256                    25               0
+          EVENT_EXT1H     25   37.267270  29.950349                    24               0
+EVENT_RETRAIN_CONTROL     25   72.290262  47.129345                    23               0
+     EVENT_TRAINREF1H     25   31.951172  24.057155                    25               0
+相对EXT事件误差改善16，变差7；25事件路由跨日切换0对。
+重点正反场：
+           site_id  observed_delta_route  predicted_delta_ext  predicted_delta_route  route_switched_route  change_vs_EXT
+ S05_jiaozuo_1829A                  84.0            44.458063              50.149285                 False      -5.691222
+  S07_jining_3678A                  68.0             6.966844               6.966844                 False       0.000000
+ S09_nantong_1168A                  53.0           -29.422985              28.616506                 False     -58.039491
+S13_yangquan_1742A                 205.0           171.394458             157.428575                 False      13.965883
+ S22_jiaozuo_3169A                  99.0            63.942982              52.756618                 False      11.186364
+  S24_jining_1653A                  19.0            22.533083              22.533083                 False       0.000000
+S29_yangquan_1738A                 250.0           171.394458             157.428575                 False      13.965883
+30地点四季按日期相邻90对，路由切换2对；全部记录在SEASONAL_ADJACENT90_PAIRS.csv，不据此调整规则。
+ route_switched  new_TRAIN_repeat_any              method  n  delta_RMSE  delta_MAE
+          False                 False EVENT_AVAILABLE_REF 75   13.765598   9.919355
+          False                 False         EVENT_EXT1H 75   17.668939  13.176693
+          False                 False    EVENT_TRAINREF1H 75   15.627043  10.903784
+          False                  True EVENT_AVAILABLE_REF 13    7.788782   6.377988
+          False                  True         EVENT_EXT1H 13   19.199995  15.927842
+          False                  True    EVENT_TRAINREF1H 13    7.788782   6.377988
+           True                  True EVENT_AVAILABLE_REF  2    9.272575   9.086000
+           True                  True         EVENT_EXT1H  2   10.788011   9.980833
+           True                  True    EVENT_TRAINREF1H  2    5.210280   4.870500
+348工业相关日期仍按317TRAIN重复/31非重复分列；曲靖工业候选和济南工业邻近低覆盖对照区别不变。
+149精确匹配：120四季＋29旧固定；7非站窗北京A/B缺口不硬配。全部日期保留：
+      group  training_repeat stratum                method   n      RMSE       MAE      bias
+    FIXED36            False     ALL EVENT_RETRAIN_CONTROL  19 11.137689  8.117497 -1.896199
+    FIXED36            False     ALL           EVENT_EXT1H  19 11.243489  7.780824  0.001806
+    FIXED36            False     ALL      EVENT_TRAINREF1H  19  8.546136  5.940268  1.357402
+    FIXED36            False     ALL   EVENT_AVAILABLE_REF  19  8.546136  5.940268  1.357402
+    FIXED36             True     ALL EVENT_RETRAIN_CONTROL  10 14.558842 10.969115 -1.701547
+    FIXED36             True     ALL           EVENT_EXT1H  10 11.922367  8.228538 -2.141136
+    FIXED36             True     ALL      EVENT_TRAINREF1H  10  6.615476  5.609951 -0.140230
+    FIXED36             True     ALL   EVENT_AVAILABLE_REF  10  6.615476  5.609951 -0.140230
+SEASONAL120            False     ALL EVENT_RETRAIN_CONTROL 101 20.674963 12.611492 -4.415397
+SEASONAL120            False     ALL           EVENT_EXT1H 101 15.819153  9.786889 -3.635176
+SEASONAL120            False     ALL      EVENT_TRAINREF1H 101 12.813450  8.458560 -1.194725
+SEASONAL120            False     ALL   EVENT_AVAILABLE_REF 101 12.113512  7.910259 -1.456722
+SEASONAL120             True     ALL EVENT_RETRAIN_CONTROL  19 14.608269 10.380532  3.900785
+SEASONAL120             True     ALL           EVENT_EXT1H  19 10.316722  7.240657  4.413783
+SEASONAL120             True     ALL      EVENT_TRAINREF1H  19  6.314485  4.404133  0.429740
+SEASONAL120             True     ALL   EVENT_AVAILABLE_REF  19  6.447808  4.626002  0.651608
+地图25双日＋总览＋铁岭切换时序，共27PNG/25JPEG。50NPZ共100组合场直接选择已存两分支CS/GRAPH结果，无新增空间变换，原支持/RAW色限一致。区域背景信息收益不等同屋顶/道路10m光学精度。

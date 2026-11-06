@@ -1,0 +1,6 @@
+group,rows,local_value_available,local_value_missing,at_least2,max_reference_n
+CITY,3106,0,3106,0,0
+STATION,5083,4513,570,3484,13
+TIME,4732,4516,216,3878,16
+TRAIN_EXCLUDED,5425,5217,208,4879,10
+TRAIN_USED,43658,41535,2123,35098,16
