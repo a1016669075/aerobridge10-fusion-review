@@ -1,7 +1,7 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 20787,
-  "MiB": 604.5692739486694,
+  "files": 20822,
+  "MiB": 615.3134288787842,
   "dynamic": {
     "main_cases": 156,
     "main_methods": 55,
@@ -10,7 +10,7 @@
     "event_methods": 46,
     "event_tiles": 2350
   },
-  "local_references": 1289,
+  "local_references": 1329,
   "missing_references": 0,
   "cleanup_fields": [
     {
@@ -111,6 +111,31 @@
     {
       "file": "industry_event_context/OBJECT_IDENTITY.csv",
       "field": "source",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "integrated_union_background/ALL_INDEX.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "integrated_union_background/ALL_INDEX.csv",
+      "field": "union_source",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "integrated_union_background/ALL_INDEX.csv",
+      "field": "background_source",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "integrated_union_background/MATCH_GAPS.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "integrated_union_background/MATCH_GAPS.csv",
+      "field": "input_path",
       "action": "removed local source-path column"
     },
     {

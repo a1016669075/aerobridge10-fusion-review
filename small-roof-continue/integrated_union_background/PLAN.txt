@@ -1,0 +1,25 @@
+联合空间纹理＋既存可用性区域背景：固定缓存组合合同
+2026-11-06；0新fit、0背景predict、0冻结PM头推理。
+
+精确沿用 event_trainref1h_head/render.py::combine：
+P_new = P_source + (B_AVAILABLE − mean(P_source[original_valid]))。
+source 分别是旧CS_CONSISTENT_STATE、已完成CS_NATIVE_CONTEXT_UNION。
+B_AVAILABLE完全读取event_available_reference已匹配预测：同城独立TRAIN前1h参考可用则TRAINREF，否则EXT，不按结果改路由。
+原始UNION PM缓存原样保留作原背景对照；不先将它强制归一到B58，因为原PM还包含旧局地项的均值。
+
+范围：既存MATCHED149_PREDICTIONS的149原场＋EVENT50_PREDICTIONS的50事件场。
+以case/日期及既有physical_key匹配来源，不重新找最近日期；其余7原北京A/B列缺。非有限背景或不一致原valid立即报告，不偷偷fallback。
+保存五个场：RAW、旧CS、原背景UNION、AVAILABLE+CS、AVAILABLE+UNION。
+新场只加常数，不改变原valid；原X与UNION Xp保存为来源，NIR不改。所有相对空间对比、空间动态范围理应在浮点精度内保持。
+
+评价：逐景原valid均值/站窗误差，原149按组及背景TRAIN重叠分层；50事件按原同址两日共同valid算25日期变化；工业已定位环境的既有日期单列。按构造，AVAILABLE+CS和+UNION全窗均值相等，这不能当作纹理精度改善。事件共同域可有微小差异，照实报告。
+
+固定6图，先锁后看：
+1 曲靖qujing_2022-03-07与2022-08-19，两日实际工业环境及站点高低污染。
+2 S13_yangquan_1742A原25事件中的low/high双日。
+3 S01_beijing_1012A_2021-06-06 [72,38]，北京固定亮结构。
+4 S03_daqing_1793A_2021-01-03 [93,65]，联合域新增范围。
+5 S26_nantong_1170A_2021-10-30 [13,47]，固定道路混合反例。
+6 S16_zhoukou_2068A_2021-05-24 [4,8]，新增道路混合反例。
+双日图统一取两日原RAW P2–P98，其它图原全景RAW P2–P98；不另换色限让高值看起来更好。超界仅颜色饱和，数值不截断。
+这是独立监测/气象关联背景与已有光学输入纹理的组合，不称纯卫星X收益或已证实10m像元PM精度。前1h归档发布时间未知、已曝光事件及背景TRAIN重叠沿用原记录。

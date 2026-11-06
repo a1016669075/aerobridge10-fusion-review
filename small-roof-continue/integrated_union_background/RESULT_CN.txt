@@ -1,0 +1,77 @@
+联合CNN空间纹理接可用性区域背景：199个真实匹配场完成
+公式严格沿原背景分支：P_new=P_union+(B_available−mean(P_union[原valid]))。旧CS控制相同；原背景联合CNN直接复用冻结缓存。
+149原场＋50事件；7非站窗北京A/B缺精确匹配，只列缺，不fallback。0fit、0背景predict、0PM头推理；保存199新组合场及四个对照。
+X/NIR来源不变，输出原valid一致。组合只加整景常数，不能修复既有道路误压，也不会额外选择道路/厂房加值。
+最大常数平移误差2.84e-14；最大去均值细节误差2.84e-14；动态范围最大绝对变化2.84e-14。
+149匹配站窗（两新背景纹理源全窗均值相同，这是构造结果而不是新纹理精度收益）：
+                   method      group   n      RMSE       MAE
+      CS_CONSISTENT_STATE MATCHED149 149 19.639461 12.386756
+  CS_NATIVE_CONTEXT_UNION MATCHED149 149 19.642617 12.389282
+   EVENT_AVAILABLE_REF_CS MATCHED149 149 10.817492  7.085871
+EVENT_AVAILABLE_REF_UNION MATCHED149 149 10.817492  7.085871
+                      RAW MATCHED149 149 19.543241 12.341308
+分组与背景TRAIN重叠：
+              group  background_TRAIN_repeat                    method   n      RMSE       MAE       bias
+EVENT_DATE_TRANSFER                    False       CS_CONSISTENT_STATE  50 56.583411 29.141839 -19.019736
+EVENT_DATE_TRANSFER                    False   CS_NATIVE_CONTEXT_UNION  50 56.587777 29.144157 -19.030409
+EVENT_DATE_TRANSFER                    False    EVENT_AVAILABLE_REF_CS  50 26.210332 15.851471  -8.879364
+EVENT_DATE_TRANSFER                    False EVENT_AVAILABLE_REF_UNION  50 26.210332 15.851471  -8.879364
+EVENT_DATE_TRANSFER                    False                       RAW  50 56.447075 29.076437 -18.699793
+            FIXED36                    False       CS_CONSISTENT_STATE  19 13.229605  9.074330  -4.373831
+            FIXED36                    False   CS_NATIVE_CONTEXT_UNION  19 13.230592  9.074590  -4.379166
+            FIXED36                    False    EVENT_AVAILABLE_REF_CS  19  8.546136  5.940268   1.357402
+            FIXED36                    False EVENT_AVAILABLE_REF_UNION  19  8.546136  5.940268   1.357402
+            FIXED36                    False                       RAW  19 13.180996  9.061188  -4.168461
+            FIXED36                     True       CS_CONSISTENT_STATE  10 15.802296  9.732718  -5.781423
+            FIXED36                     True   CS_NATIVE_CONTEXT_UNION  10 15.810572  9.738009  -5.803024
+            FIXED36                     True    EVENT_AVAILABLE_REF_CS  10  6.615476  5.609951  -0.140230
+            FIXED36                     True EVENT_AVAILABLE_REF_UNION  10  6.615476  5.609951  -0.140230
+            FIXED36                     True                       RAW  10 15.576188  9.755536  -5.054680
+        SEASONAL120                    False       CS_CONSISTENT_STATE 101 21.841013 13.826642  -7.051110
+        SEASONAL120                    False   CS_NATIVE_CONTEXT_UNION 101 21.844591 13.830000  -7.062429
+        SEASONAL120                    False    EVENT_AVAILABLE_REF_CS 101 12.113512  7.910259  -1.456722
+        SEASONAL120                    False EVENT_AVAILABLE_REF_UNION 101 12.113512  7.910259  -1.456722
+        SEASONAL120                    False                       RAW 101 21.733011 13.753349  -6.594589
+        SEASONAL120                     True       CS_CONSISTENT_STATE  19 13.510207  9.441907   1.277168
+        SEASONAL120                     True   CS_NATIVE_CONTEXT_UNION  19 13.509380  9.440830   1.271877
+        SEASONAL120                     True    EVENT_AVAILABLE_REF_CS  19  6.447808  4.626002   0.651608
+        SEASONAL120                     True EVENT_AVAILABLE_REF_UNION  19  6.447808  4.626002   0.651608
+        SEASONAL120                     True                       RAW  19 13.527543  9.476251   1.418054
+25事件在每对原共同有效交集评价：
+                   method  n  event_RMSE  event_MAE  positive_delta_pairs
+      CS_CONSISTENT_STATE 25   77.412001  50.758097                    23
+  CS_NATIVE_CONTEXT_UNION 25   77.412371  50.757515                    23
+   EVENT_AVAILABLE_REF_CS 25   32.845058  24.665761                    25
+EVENT_AVAILABLE_REF_UNION 25   32.845049  24.665717                    25
+                      RAW 25   77.404536  50.782722                    23
+联合纹理相对CS纹理导致事件差异最不利三对：
+           site_id  predicted_delta_union  predicted_delta_cs  change_in_abs_error
+S29_yangquan_1738A             157.436792          157.436902             0.000110
+    S04_jian_2368A              50.646126           50.646218             0.000092
+ S10_nanyang_2406A              34.531666           34.531598             0.000069
+曲靖高低污染日期与阳泉事件实际均值：
+                               case                    method       mean  observed  background_TRAIN_repeat
+                  qujing_2022-03-07                       RAW  23.031867      67.0                     True
+                  qujing_2022-03-07       CS_CONSISTENT_STATE  22.487854      67.0                     True
+                  qujing_2022-03-07   CS_NATIVE_CONTEXT_UNION  22.462910      67.0                     True
+                  qujing_2022-03-07    EVENT_AVAILABLE_REF_CS  56.475306      67.0                     True
+                  qujing_2022-03-07 EVENT_AVAILABLE_REF_UNION  56.475306      67.0                     True
+                  qujing_2022-08-19                       RAW  11.932726      24.0                     True
+                  qujing_2022-08-19       CS_CONSISTENT_STATE  11.192712      24.0                     True
+                  qujing_2022-08-19   CS_NATIVE_CONTEXT_UNION  11.174875      24.0                     True
+                  qujing_2022-08-19    EVENT_AVAILABLE_REF_CS  11.899835      24.0                     True
+                  qujing_2022-08-19 EVENT_AVAILABLE_REF_UNION  11.899835      24.0                     True
+EVENT_S13_yangquan_1742A_2021-04-27                       RAW  25.813680      49.0                    False
+EVENT_S13_yangquan_1742A_2021-04-27       CS_CONSISTENT_STATE  25.292668      49.0                    False
+EVENT_S13_yangquan_1742A_2021-04-27   CS_NATIVE_CONTEXT_UNION  25.271241      49.0                    False
+EVENT_S13_yangquan_1742A_2021-04-27    EVENT_AVAILABLE_REF_CS  24.557566      49.0                    False
+EVENT_S13_yangquan_1742A_2021-04-27 EVENT_AVAILABLE_REF_UNION  24.557566      49.0                    False
+EVENT_S13_yangquan_1742A_2021-05-07                       RAW  32.812367     254.0                    False
+EVENT_S13_yangquan_1742A_2021-05-07       CS_CONSISTENT_STATE  32.208754     254.0                    False
+EVENT_S13_yangquan_1742A_2021-05-07   CS_NATIVE_CONTEXT_UNION  32.187073     254.0                    False
+EVENT_S13_yangquan_1742A_2021-05-07    EVENT_AVAILABLE_REF_CS 181.986142     254.0                    False
+EVENT_S13_yangquan_1742A_2021-05-07 EVENT_AVAILABLE_REF_UNION 181.986142     254.0                    False
+六图均预定：曲靖双日、阳泉真实事件双日、北京固定点、大庆新增范围、南通固定道路和周口新增道路风险。同RAW色限；超界颜色饱和，真实值保留。
+曲靖为工业环境，QR01/02生产区候选，未知用途屋顶不称工业真值；阳泉站场并未逐栋核实工业用途。工业/事件观测为站点尺度，不能称像元真值。
+背景含独立同城/外城前1h监测资料及气象关联，非纯卫星收益；发布延迟未知、事件已曝光、TRAIN重叠和上游B58来源重叠沿用原事实。
+补充显示页 TEXTURE_COMPARE.html：固定曲靖2022-03-07与阳泉2021-05-07，1张PNG/JPEG；左侧绝对PM严格沿用本支原双日图RAW色限。右侧每场CS/UNION/组合UNION各减原valid均值，三图同对称限（CS与UNION残差联合绝对值P98）：曲靖±6.093120，阳泉±4.361434。UNION与组合残差最大差分别7.11e-15、2.13e-14，为只加整景常数的公式性质，不是精度证明。仅缓存渲染；总图数由6增加至7。

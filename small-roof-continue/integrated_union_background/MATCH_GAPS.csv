@@ -1,0 +1,8 @@
+case,group,date,scope,site_id,city,season,reason
+WINDOW_A_2021-12-30,FIXED36,2021-12-30,WINDOW_A,FIXED_WINDOW_A,WINDOW_A,winter,No exact station-window background match in existing frozen149; no fallback
+WINDOW_A_2022-04-07,FIXED36,2022-04-07,WINDOW_A,FIXED_WINDOW_A,WINDOW_A,spring,No exact station-window background match in existing frozen149; no fallback
+WINDOW_A_2022-07-08,FIXED36,2022-07-08,WINDOW_A,FIXED_WINDOW_A,WINDOW_A,summer,No exact station-window background match in existing frozen149; no fallback
+WINDOW_A_2022-10-06,FIXED36,2022-10-06,WINDOW_A,FIXED_WINDOW_A,WINDOW_A,autumn,No exact station-window background match in existing frozen149; no fallback
+WINDOW_B_2022-04-07,FIXED36,2022-04-07,WINDOW_B,FIXED_WINDOW_B,WINDOW_B,spring,No exact station-window background match in existing frozen149; no fallback
+WINDOW_B_2022-07-08,FIXED36,2022-07-08,WINDOW_B,FIXED_WINDOW_B,WINDOW_B,summer,No exact station-window background match in existing frozen149; no fallback
+WINDOW_B_2022-10-06,FIXED36,2022-10-06,WINDOW_B,FIXED_WINDOW_B,WINDOW_B,autumn,No exact station-window background match in existing frozen149; no fallback
