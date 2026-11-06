@@ -1,0 +1,85 @@
+Gaussian 与当前方法核实记录（2026-11-06，只读缓存复核；0新拟合、0推理）
+
+1. 最初Gaussian究竟是什么
+本轮正确对照键是 B_GAUSSIAN，原36场由 inputs/pack_inputs.py 从 spectral_input_bounds_transfer 缓存复制 REFERENCE_BOUNDED_INPUT，Xp 为 Xp_B 或 Xp[1]。后续 EXPAND_LINE_TAIL、CS_DIAMETER、CS_CONSISTENT_STATE 均不能冒称最初Gaussian。
+原Gaussian核心使用完整20m单元的6波段残差 e=Y-b、建筑分数f与材料/其他成分协方差：m_hat=f*C_M*(f²*C_M+C_D)^(-1)*e；C_M/C_D来自冻结模型，按传感器选择并乘既定tau。再由建筑交叠面积triple把前三可见带材料量分配到原生10m：delta10=(triple.T @ m_hat_VIS)/100。
+实际B基线进一步按逐带同日参照限幅：d_B=min(max(delta10,0),max(X_VIS-b10_VIS,0))；X_B_VIS=X_VIS-d_B；NIR不变。b是同日非建筑/低植被/非水donor的Gaussian加权背景（sigma=5个20m格），b10按面积映射。它不是对PM图做Gaussian模糊。
+所有方案仍用原冻结线性PM头：PM=B58+INTERCEPT+sum(beta_c*Xp_c)。既有缺测支持及NIR保留。
+
+2. 当前几种方法的关系
+CS_CONSISTENT_STATE 是后续共同起点：保留原X定义的CS对象与参数，使目标材料幅度和形态背景在同一冻结EXPAND状态计算；它不是Gaussian的别名。
+CS_PROFILE_CONTINUITY 是并行的保守保护候选：原四带9×9结构张量决定方向，±9格处9点横剖面的相关和幅度给保护权重，只退回CS_CONSISTENT_STATE相对CS_DIAMETER的新增量。0新拟合。
+CS_TEMP_MATERIAL_IN_DOMAIN 是另一并行候选：仅在旧材料训练域raw VIS>=0.16且NDVI<=0.35使用已有RELATIVE23材料概率控制严格过去剩余预算；域外回到CS。0新拟合。它会放弃域外目视亮点，例如北京r72c38。
+CS_NATIVE_CONTEXT_UNION 是当前优先探索候选：直接从CS_CONSISTENT_STATE出发，严格过去预算H与有实际供体支持的本日COMPACT预算C逐带取U=max(H,C)，Xp_VIS=X_CS_VIS-p_UNION*U。一次辅助材料CNN重训；原生10m、12通道、13×13窗口、5/13格感受野、19,441参数。PM头未重训。
+这三支并非 PROFILE→IN_DOMAIN→UNION 依次叠加；UNION并未自动包含前两支保护。更晚的历史缺失训练CS_NATIVE_CONTEXT_AVAILABILITY已做，但既有总结未认定其整体胜出。
+
+3. 分开报告纹理改变与实测准确率
+156场同一原输入定义的小亮像元集合：VIS>=0.16、NDVI<=0.35、8连通对象1–25格；各场先取像元均值，再对156场等权。相对Gaussian，CS平均降低1.987162，PROFILE降低1.984214，IN_DOMAIN降低2.017743，UNION降低2.032997 μg/m³；155/156场均值下降。UNION相对CS多降0.045835。这里的下降是亮材料纹理缓解诊断，不是像元PM精度。
+原固定30对象的原精度坐标已核定为74格。用同一坐标重读Gaussian/CS/UNION缓存：Gaussian→CS有26对象44格下降，对象等权平均下降0.488886；Gaussian→UNION有29对象66格下降，平均下降0.818054。该队列有COMPACT可作用域偏好，不能代表全图。
+另一个常见数字“10对象31格→25对象56格、0.120917→0.329168”比较的是历史CNN与UNION各自相对CS的新增作用，绝不是Gaussian→UNION。
+同149个有实测观测的站窗、同一case集合，RMSE（μg/m³）：Gaussian 19.590326；CS 19.639461；PROFILE 19.639275；IN_DOMAIN 19.640616；UNION 19.642617。UNION比Gaussian高0.052292（约0.267%）；目前没有证据表明实测PM准确率提高。全部156场中其余7场无站点观测，不进入RMSE。
+106组原锁定道路与侧邻对比：UNION相对Gaussian对比变化MAE=0.056092，最小=-0.110415，最大=+1.843551，新增正转负0；CS的MAE=0.051451。不能把相对PEAK或相对CS的道路最坏值直接写成相对Gaussian。地图道路交格另含建筑混合，不是纯道路真值。
+
+4. 10场固定位置与全景读数
+下面均为已存PM数组的值，单位μg/m³；r/c按数组0起始。前7行固定点（第一行六格均值），并列Gaussian/CS/PROFILE/IN_DOMAIN/UNION；低值仅说明压低幅度。
+case | 固定位置 | Gaussian | CS | PROFILE | IN_DOMAIN | UNION | Gaussian减UNION
+qujing_2022-03-07 | r60 c48:54（6格） | 34.821224 | 25.272768 | 25.309340 | 25.272768 | 25.272768 | 9.548456
+qujing_2022-08-19 | r26 c88 | 28.698665 | 28.698665 | 28.698665 | 20.667987 | 18.803162 | 9.895503
+S01_beijing_1012A_2021-06-06 | r72 c38 | 25.796504 | 25.796504 | 25.796504 | 25.796504 | 23.050377 | 2.746127
+S03_daqing_1793A_2021-01-03 | r93 c65 | 27.990459 | 26.710587 | 26.710587 | 26.710587 | 25.761082 | 2.229376
+S24_jining_1653A_2021-05-24 | r84 c47 | 24.482519 | 23.905579 | 23.905579 | 23.652764 | 23.535174 | 0.947345
+S26_nantong_1170A_2021-10-30 | r13 c47 | 41.445835 | 41.445835 | 41.445835 | 41.445835 | 37.240367 | 4.205468
+S16_zhoukou_2068A_2021-05-24 | r4 c8 | 18.985979 | 18.555297 | 18.555297 | 18.555297 | 17.948308 | 1.037672
+
+固定位置解读：
+曲靖2022-03-07原六格从34.821224降至25.272768，较Gaussian降低9.548456；当前UNION在这六格未再改动CS。PROFILE略退回0.036572，不能称UNION新增解决了这一六格。
+曲靖2022-08-19 r26c88属于204格大亮连通区域上的一个点，不是上述六格屋顶；其9.895503降幅不能代表小屋顶整体收益。
+大庆与济宁显示真实的新可作用位置/幅度。北京r72c38原VIS=0.145267，IN_DOMAIN不作用，UNION能够继续压低。
+南通r13c47及周口r4c8作为道路/建筑混合风险保留，Gaussian→UNION分别降4.205468、1.037672；周口UNION相对CS再降0.606989。不得把这两例当纯屋顶成功。
+
+全部10场同一小亮集合均值及全景均值（可用于全景图旁的统一数值；后3场无需另挑最好看点）：
+case | 小亮格数 | 小亮均值Gaussian | 小亮均值CS | 小亮均值UNION | 全景均值Gaussian | 全景均值CS | 全景均值UNION
+qujing_2022-03-07 | 303 | 26.056146 | 23.780780 | 23.678096 | 22.624462 | 22.487854 | 22.462910
+qujing_2022-08-19 | 416 | 14.599373 | 12.446169 | 12.390284 | 11.440076 | 11.192712 | 11.174875
+S01_beijing_1012A_2021-06-06 | 468 | 27.126259 | 26.110192 | 26.063102 | 25.080933 | 24.946918 | 24.937222
+S03_daqing_1793A_2021-01-03 | 641 | 27.787059 | 25.812540 | 25.797503 | 24.475074 | 24.226843 | 24.220252
+S24_jining_1653A_2021-05-24 | 360 | 25.178530 | 23.437527 | 23.407204 | 21.492650 | 21.166380 | 21.159312
+S26_nantong_1170A_2021-10-30 | 225 | 42.939066 | 39.610129 | 39.548538 | 37.412558 | 37.309661 | 37.296816
+S16_zhoukou_2068A_2021-05-24 | 457 | 19.255594 | 17.327151 | 17.303147 | 15.237368 | 14.898467 | 14.892646
+yueyang_2022-04-07 | 215 | 37.389329 | 35.797965 | 35.697237 | 33.681695 | 33.633708 | 33.626330
+anshan_2022-10-05 | 268 | 8.920047 | 6.319620 | 6.295798 | 3.832000 | 3.753422 | 3.749539
+WINDOW_B_2022-04-07 | 2134 | 34.648232 | 32.514783 | 32.481437 | 30.830132 | 30.666891 | 30.659524
+
+后3场补充：岳阳YR01既有白屋顶核心Gaussian/CS/UNION=38.873736/35.868435/35.868435，大部分变化已由CS完成；鞍山AR01–04生产环境外观核心中，AR02=6.516977/6.414767/6.414434，其余UNION相对CS不变。这类工业/屋顶外观控制不是工业污染像元真值。WINDOW_B_2022-04-07无站点PM观测，只用于全景纹理观察。
+
+5. 展示建议
+专门10场页主列固定RGB、B_GAUSSIAN、CS_CONSISTENT_STATE、CS_NATIVE_CONTEXT_UNION，并可切PROFILE/IN_DOMAIN。每场所有PM图共用现有RAW色限和原有效域；前7例沿固定坐标同步放大，后3例保留全景。切换候选不要重算色限。
+默认页面presentation/DATA.js里的baseline字段仍是EXPAND_LINE_TAIL，现成stats.delta_*和changed_pct是相对EXPAND，不能以Gaussian为标题直接复用。若主对照写Gaussian应由已存字段做差或只用并列值。
+
+来源（均本地已有，只读；本次仅写此记录）：
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/presentation/DATA.js
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/experiment_io.py
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/merge_review.py
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/combined/INDEX.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/combined/arrays
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/evaluation/SMALL_INPUT_OBJECTS.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/evaluation/LEVEL_DAILY.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/evaluation/METHOD_SUMMARY.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/evaluation/ROAD_SIDES.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/evaluation/OBJECT_DAILY.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/residual_scope_probe/FIXED30_PIXEL_COORDINATES.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/residual_scope_probe/FIXED30_CORRECTION.txt
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/native_context_union_head/RESULT_CN.txt
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/native_context_union_head/api.py
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/native_context_union_head/evaluation/ORIGINAL30.csv
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/native_context_union_head/EVALUATION_SUMMARY.json
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/cs_increment_structure/METHODS.json
+PROJECT/AeroBridge10_SMALL_ROOF_CONTINUE_6H_20261106/cs_temporal_material_domain/RESULT_CN.txt
+PROJECT/AeroBridge10_SMALL_ROOF_6H_20261105/common.py
+PROJECT/AeroBridge10_SMALL_ROOF_6H_20261105/evaluate_batch.py
+PROJECT/AeroBridge10_SMALL_ROOF_6H_20261105/presentation/build.py
+PROJECT/AeroBridge10_SEASONAL_CASES_20261105/pipeline/adapter.py
+PROJECT/AeroBridge10_B_ERASE_FUSION_20261104/inputs/pack_inputs.py
+PROJECT/AeroBridge10_NEW_METHODS_12H_20261103/spectral_competition/kernel.py
+PROJECT/AeroBridge10_NEW_METHODS_12H_20261103/spectral_competition/common.py
+PROJECT/AeroBridge10_NEW_METHODS_12H_20261103/spectral_input_bounds/run.py

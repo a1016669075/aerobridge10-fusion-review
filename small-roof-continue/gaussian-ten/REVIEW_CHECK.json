@@ -1,0 +1,13 @@
+{
+  "cases": 10,
+  "selectable_methods": 12,
+  "simultaneous_panels": 8,
+  "full_scene_figures": 10,
+  "focus_figures": 7,
+  "local_references": 55,
+  "missing": [],
+  "inline_Javascript": "syntax passed",
+  "delta_baseline": "B_GAUSSIAN, recomputed from cached arrays",
+  "new_fits": 0,
+  "new_PM_inference": 0
+}
