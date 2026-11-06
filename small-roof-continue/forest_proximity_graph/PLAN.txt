@@ -1,0 +1,13 @@
+FOREST_PROXIMITY_GRAPH — frozen reuse of learned relative material geometry, 2026-11-06
+
+This is not a new classifier fit and not the already tested single-pixel classifier probability times tensor. Use existing native_relative_texture/model_LOCAL_ONLY.joblib, all128 ExtraTrees and the same23-feature function unchanged. Its absolute/relative texture predecessor models were already trained on map weak labels; no third fit or PM-head fit.
+Source verified: Breiman official description, Proximities: two cases in the same terminal node increase proximity, then normalization by tree count. https://www.stat.berkeley.edu/~breiman/forests/cc_home.htm . Here the definition is adapted to existing ExtraTrees leaves and a spatial harmonic graph, not a complete Random Forest or remote-sensing method reproduction.
+
+Unique frozen graph
+- Original valid spatial4-neighbor topology only. A pixel is represented by128 leaf IDs from model.apply(original23features); compare IDs only within the same tree.
+- w_ij=mean_t[leaf_it==leaf_jt]+existing1e-10. No probability unary, K7, radius, feature-distance term, exponent, blend coefficient, tree selection or hyperparameter search.
+- VISIBLE current raw-map geometry seeds, green-peak/NIR material support,3x3 confidence, all-current-COMPACT-target exclusion and lambda=degree*c/(1-c) remain unchanged. Count zero-proximity edges and effective seed support above floor; formally positive floor connections are not independent new support.
+- Existing old36 have no pure map and remain exact TENSOR. Map-available170 scenes apply coherence*(1-p_graph) only to COMPACT VIS increment; unchanged NIR, rawvalid and earlier corrections. Same X feature function for12input and206inference.
+
+First12 fixed seasonal inputs: no PM, save both nominal and positive-proximity seed support, zero-edge fraction, actual near/far seed influence, site TRAIN/HOLDOUT_REUSED status. Existing model may have seen some TRAIN target geometry labels during its original fit; excluding current graph seeds does not remove that earlier learning. Do not claim blind validation.
+If graph collapses or most edges are only floor, stop. If usable, run one full156+50 frozen PM candidate, reuse12 input caches; present original30, actual map roads, seasonal change, oldindustry controls and real event failures. No parameter adjustments based on12outputs.

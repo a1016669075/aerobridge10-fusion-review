@@ -1,0 +1,13 @@
+{
+  "CS_NIR_MATERIAL_RESIDUAL": {
+    "name_cn": "CS之后NIR锚定局地谱比残差",
+    "starting_point": "CS_CONSISTENT_STATE",
+    "relation": "extra visible-band correction after CS; not a parallel COMPACT baseline",
+    "feature": "Same-date processed donor Q75(VIS/NIR), target NIR anchored envelope, common positive VIS residual",
+    "support": "Frozen COMPACT object/donors and OBJECTWISE guard",
+    "source": "residual_input_mechanism/api.py::transform",
+    "parameters": "Parent PLAN.txt; unchanged after input preflight",
+    "new_input_fits": 0,
+    "new_PM_head_fits": 0
+  }
+}
