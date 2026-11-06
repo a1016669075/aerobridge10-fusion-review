@@ -1,0 +1,90 @@
+{
+  "CS_TEMP_MATCHED_REL23": {
+    "TRAIN": {
+      "n": 18838,
+      "roads": 4084,
+      "buildings": 14754,
+      "confusion_rows_actual_road_building": [
+        [
+          3781,
+          303
+        ],
+        [
+          6507,
+          8247
+        ]
+      ],
+      "accuracy": 0.6384966556959337,
+      "balanced_accuracy": 0.7423875455611102,
+      "ROC_AUC": 0.8374959024375865,
+      "brier": 0.19410171674989118,
+      "mean_p_building_road": 0.4013397544688591,
+      "mean_p_building_building": 0.586559961639817
+    },
+    "HOLDOUT": {
+      "n": 14129,
+      "roads": 1223,
+      "buildings": 12906,
+      "confusion_rows_actual_road_building": [
+        [
+          904,
+          319
+        ],
+        [
+          5417,
+          7489
+        ]
+      ],
+      "accuracy": 0.5940264703800694,
+      "balanced_accuracy": 0.6597193633213503,
+      "ROC_AUC": 0.7022182789980612,
+      "brier": 0.2172538733080474,
+      "mean_p_building_road": 0.46018056622618864,
+      "mean_p_building_building": 0.5594734359352131
+    }
+  },
+  "CS_TEMP_MATCHED_HIST29": {
+    "TRAIN": {
+      "n": 18838,
+      "roads": 4084,
+      "buildings": 14754,
+      "confusion_rows_actual_road_building": [
+        [
+          3639,
+          445
+        ],
+        [
+          4653,
+          10101
+        ]
+      ],
+      "accuracy": 0.7293767915914641,
+      "balanced_accuracy": 0.7878330476822832,
+      "ROC_AUC": 0.8740086853054806,
+      "brier": 0.1716155744743604,
+      "mean_p_building_road": 0.36869101740453475,
+      "mean_p_building_building": 0.6202970089127479
+    },
+    "HOLDOUT": {
+      "n": 14129,
+      "roads": 1223,
+      "buildings": 12906,
+      "confusion_rows_actual_road_building": [
+        [
+          950,
+          273
+        ],
+        [
+          4040,
+          8866
+        ]
+      ],
+      "accuracy": 0.6947413121947768,
+      "balanced_accuracy": 0.7318728578833882,
+      "ROC_AUC": 0.806811159476428,
+      "brier": 0.19445491671822063,
+      "mean_p_building_road": 0.4132782198932236,
+      "mean_p_building_building": 0.5882055526738548
+    }
+  }
+}

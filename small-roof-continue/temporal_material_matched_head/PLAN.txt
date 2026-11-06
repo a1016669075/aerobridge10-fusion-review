@@ -1,0 +1,11 @@
+TEMP历史支持域内材料头：固定双头输入实验
+
+0. 新方法名 CS_TEMP_MATCHED_REL23 / CS_TEMP_MATCHED_HIST29。沿当前CS状态与已算CS−PAST正差；原156＋事件50。仅两个固定辅助材料fits，0PM头fit，0编码器训练，0参数扫描。
+1. 训练仅原120四季的旧SITE_SPLIT中20 TRAIN地点；同10 HOLDOUT地点留出，事件50不拟合。只用本日旧TEMP_PAST_10M严格历史eligible。该支持已有本日VIS>=.14/NDVI/白材料光谱/至少2过去日频率等约束，不额外套旧RELATIVE23训练的VIS>=.16门。
+2. 标签固定沿用地图规则：road_length>=5且fraction==0→道路0；fraction>=.8且road_length==0→建筑1。训练目标是已有地图材料弱标签，不是PM、排放、日期、站号或坐标；2026地图的历史匹配和混合像元问题仍存在。
+3. 同一批样本：按旧代码顺序各TRAIN地点每类最多1000，rng=np.random.default_rng(20261105)，每类不放回取样；不为样本不足扩标签。两个头共享完全相同坐标/样本次序。
+4. 模型同旧ExtraTrees：128树，max_depth=12，min_samples_leaf=20，class_weight=balanced，random_state=20261105，n_jobs=2。各头仅一次fit。
+5. A=原RELATIVE23同feature_arrays函数；B=23+6历史特征：旧TEMP缓存template4[0]的4带各除以本日rawVISmean+.03，history_frequency，history_count/4。模板为严格过去加性Q25输入，非未来四季合成。训练/推理同一个feature函数；共享已有模板不重算历史/父PM。
+6. 推理只在旧TEMP eligible内生成材料p（原36也以已有原生X/实际过去缓存迁移，不冒充新地图验证），其余格保持CS。原已算delta=max(CS_VIS−PAST_VIS,0)复用，候选VIS=CS_VIS−p×delta；NIR/invalid不变。两头只有输入信息差，无强度或补偿项。
+7. 首先检查训练两类数量、地图标签支持和206历史特征完整性；不足就报告。拟合后分别报告TRAIN/同10留出弱标签指标，不按留出重训，不称独立PM精度。
+8. 同支持对比当前CS、原过去材料法、零拟合训练域匹配法、A/B新头；正确固定30按原坐标mask74格独立核定，完整残余队列另列。检查道路交格、生产区环境候选/未知屋顶分组、真实事件与跨季；保留不利图。
