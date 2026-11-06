@@ -1,16 +1,16 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 18839,
-  "MiB": 535.010326385498,
+  "files": 19605,
+  "MiB": 557.0261583328247,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 50,
-    "main_tiles": 15756,
+    "main_methods": 52,
+    "main_tiles": 16380,
     "event_dates": 50,
-    "event_methods": 41,
-    "event_tiles": 2100
+    "event_methods": 43,
+    "event_tiles": 2200
   },
-  "local_references": 1122,
+  "local_references": 1164,
   "missing_references": 0,
   "cleanup_fields": [
     {
@@ -119,6 +119,11 @@
       "action": "removed local source-path column"
     },
     {
+      "file": "native_context_material_head/evaluation/ORIGINAL30.csv",
+      "field": "combined_path",
+      "action": "removed local source-path column"
+    },
+    {
       "file": "presentation/BUILD_CHECK.json",
       "field": "source_index",
       "action": "removed local source-path metadata"
@@ -126,6 +131,11 @@
     {
       "file": "reopened_focus/SELECTION.csv",
       "field": "source_arrays",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "temporal_material_cost_head/evaluation/ORIGINAL30.csv",
+      "field": "combined_path",
       "action": "removed local source-path column"
     },
     {

@@ -1,0 +1,9 @@
+固定单候选 CS_TEMP_COST_HIST29｜2026-11-06
+唯一变化：用冻结 CS→PAST 实际可扣量 D 为材料误判赋线性成本。
+同 temporal_material_matched_head/TRAIN_COORDINATES.csv 的15,998行、完全相同顺序/20 TRAIN地点；同本日23+过去6维feature_arrays；同地图弱标签。事件50不训练。
+D = 已有 CS_PM - 已有无材料 CS_TEMP_REOPEN_CONTROL_PM，与冻结 beta·正VIS剩余一致。逐类 sample_weight = D / mean_TRAIN_class(D)。类均值包括零D；零D行保留、权重0。无逐景归一，无clip，无D平方，不扫强度。
+ExtraTrees同128树/depth12/leaf20/random_state20261105/class_weight=balanced/n_jobs2。只1次辅助fit，0PM头/encoder训练。模型存在后禁止重复fit。
+应用仍 CS_VIS - p_cost * 已有delta，仅严格过去TEMP eligible；域外CS精确，NIR/valid不动。156+事件50同函数、同PM头。
+本机制并非首次提出成本加权：2026-11-03已有CNN C² BCE幅度权重；这里使用冻结CS→PAST的实际线性剩余及地图材料辅助头，不把历史思路换名当原创。
+评价对照原23/29、父材料及零拟合域匹配；固定30用原精度、bbox/中心/n/near锁定74格。6原风险点保持，工业46对仅生产环境已定位对象，另列未知用途/外观控制。站窗/共同支持事件照实，材料分类不代表10mPM精度。
+先保存本合同，再一次fit和全206推理；不按结果增参或重训。

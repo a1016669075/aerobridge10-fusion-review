@@ -1,0 +1,60 @@
+{
+  "TRAIN": {
+    "n": 18838,
+    "roads": 4084,
+    "buildings": 14754,
+    "confusion_rows_actual_road_building": [
+      [
+        3933,
+        151
+      ],
+      [
+        7775,
+        6979
+      ]
+    ],
+    "accuracy": 0.5792546979509502,
+    "balanced_accuracy": 0.7180253546341522,
+    "ROC_AUC": 0.8202687144587494,
+    "brier": 0.2409089184651672,
+    "mean_p_building_road": 0.32379451681297355,
+    "mean_p_building_building": 0.5007183101997319,
+    "D_weighted_p_by_class": {
+      "0": 0.3735762306998306,
+      "1": 0.6163416578071255
+    },
+    "D_weighted_error_by_class": {
+      "0": 0.3735762306998306,
+      "1": 0.3836583421928746
+    }
+  },
+  "HOLDOUT": {
+    "n": 14129,
+    "roads": 1223,
+    "buildings": 12906,
+    "confusion_rows_actual_road_building": [
+      [
+        1132,
+        91
+      ],
+      [
+        9320,
+        3586
+      ]
+    ],
+    "accuracy": 0.33392313681081465,
+    "balanced_accuracy": 0.6017240328488819,
+    "ROC_AUC": 0.6565134346483454,
+    "brier": 0.317958112168366,
+    "mean_p_building_road": 0.35801870823738435,
+    "mean_p_building_building": 0.44049106911535635,
+    "D_weighted_p_by_class": {
+      "0": 0.4248946868178614,
+      "1": 0.5875140946970185
+    },
+    "D_weighted_error_by_class": {
+      "0": 0.4248946868178614,
+      "1": 0.4124859053029813
+    }
+  }
+}

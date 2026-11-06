@@ -1,0 +1,526 @@
+{
+  "HOLDOUT": {
+    "REL23": {
+      "ALL": {
+        "n": 14129,
+        "roads": 1223,
+        "buildings": 12906,
+        "confusion_rows_actual_road_building": [
+          [
+            904,
+            319
+          ],
+          [
+            5417,
+            7489
+          ]
+        ],
+        "accuracy": 0.5940264703800694,
+        "balanced_accuracy": 0.6597193633213503,
+        "ROC_AUC": 0.7022182789980612,
+        "brier": 0.2172538733080474,
+        "mean_p_building_road": 0.46018056622618864,
+        "mean_p_building_building": 0.5594734359352131
+      },
+      "BRIGHT": {
+        "n": 12244,
+        "roads": 686,
+        "buildings": 11558,
+        "confusion_rows_actual_road_building": [
+          [
+            483,
+            203
+          ],
+          [
+            4584,
+            6974
+          ]
+        ],
+        "accuracy": 0.6090329957530218,
+        "balanced_accuracy": 0.6537366114467936,
+        "ROC_AUC": 0.6934190950748085,
+        "brier": 0.2134715524843959,
+        "mean_p_building_road": 0.4689818695996306,
+        "mean_p_building_building": 0.5641930173479699
+      },
+      "LOW_VIS_014_016": {
+        "n": 1885,
+        "roads": 537,
+        "buildings": 1348,
+        "confusion_rows_actual_road_building": [
+          [
+            421,
+            116
+          ],
+          [
+            833,
+            515
+          ]
+        ],
+        "accuracy": 0.496551724137931,
+        "balanced_accuracy": 0.5830162900828318,
+        "ROC_AUC": 0.6231274417165371,
+        "brier": 0.24182190310369128,
+        "mean_p_building_road": 0.44893718798749005,
+        "mean_p_building_building": 0.519006876611295
+      }
+    },
+    "HIST29": {
+      "ALL": {
+        "n": 14129,
+        "roads": 1223,
+        "buildings": 12906,
+        "confusion_rows_actual_road_building": [
+          [
+            950,
+            273
+          ],
+          [
+            4040,
+            8866
+          ]
+        ],
+        "accuracy": 0.6947413121947768,
+        "balanced_accuracy": 0.7318728578833882,
+        "ROC_AUC": 0.806811159476428,
+        "brier": 0.19445491671822063,
+        "mean_p_building_road": 0.4132782198932236,
+        "mean_p_building_building": 0.5882055526738548
+      },
+      "BRIGHT": {
+        "n": 12244,
+        "roads": 686,
+        "buildings": 11558,
+        "confusion_rows_actual_road_building": [
+          [
+            498,
+            188
+          ],
+          [
+            3235,
+            8323
+          ]
+        ],
+        "accuracy": 0.7204344985298922,
+        "balanced_accuracy": 0.7230274034316468,
+        "ROC_AUC": 0.8005755734672184,
+        "brier": 0.18553964510256224,
+        "mean_p_building_road": 0.43098062293518674,
+        "mean_p_building_building": 0.5990007920322401
+      },
+      "LOW_VIS_014_016": {
+        "n": 1885,
+        "roads": 537,
+        "buildings": 1348,
+        "confusion_rows_actual_road_building": [
+          [
+            452,
+            85
+          ],
+          [
+            805,
+            543
+          ]
+        ],
+        "accuracy": 0.5278514588859416,
+        "balanced_accuracy": 0.6222661063497064,
+        "ROC_AUC": 0.6640059899761837,
+        "brier": 0.252363980729956,
+        "mean_p_building_road": 0.3906639769010695,
+        "mean_p_building_building": 0.4956451843472842
+      }
+    },
+    "COST29": {
+      "ALL": {
+        "n": 14129,
+        "roads": 1223,
+        "buildings": 12906,
+        "confusion_rows_actual_road_building": [
+          [
+            1132,
+            91
+          ],
+          [
+            9320,
+            3586
+          ]
+        ],
+        "accuracy": 0.33392313681081465,
+        "balanced_accuracy": 0.6017240328488819,
+        "ROC_AUC": 0.6565134346483454,
+        "brier": 0.317958112168366,
+        "mean_p_building_road": 0.35801870823738435,
+        "mean_p_building_building": 0.44049106911535635
+      },
+      "BRIGHT": {
+        "n": 12244,
+        "roads": 686,
+        "buildings": 11558,
+        "confusion_rows_actual_road_building": [
+          [
+            634,
+            52
+          ],
+          [
+            8375,
+            3183
+          ]
+        ],
+        "accuracy": 0.3117445279320484,
+        "balanced_accuracy": 0.5997959587266048,
+        "ROC_AUC": 0.6494662235892801,
+        "brier": 0.3247690088736411,
+        "mean_p_building_road": 0.35958207440666273,
+        "mean_p_building_building": 0.43992560323258556
+      },
+      "LOW_VIS_014_016": {
+        "n": 1885,
+        "roads": 537,
+        "buildings": 1348,
+        "confusion_rows_actual_road_building": [
+          [
+            498,
+            39
+          ],
+          [
+            945,
+            403
+          ]
+        ],
+        "accuracy": 0.4779840848806366,
+        "balanced_accuracy": 0.6131678630041609,
+        "ROC_AUC": 0.6779807591355426,
+        "brier": 0.27371799585038836,
+        "mean_p_building_road": 0.35602155890381854,
+        "mean_p_building_building": 0.44533947762653175
+      }
+    },
+    "NATIVE_CNN": {
+      "ALL": {
+        "n": 14129,
+        "roads": 1223,
+        "buildings": 12906,
+        "confusion_rows_actual_road_building": [
+          [
+            937,
+            286
+          ],
+          [
+            2324,
+            10582
+          ]
+        ],
+        "accuracy": 0.8152735508528558,
+        "balanced_accuracy": 0.7930387648585235,
+        "ROC_AUC": 0.8794286037577963,
+        "brier": 0.12595680135411355,
+        "mean_p_building_road": 0.32785581149395404,
+        "mean_p_building_building": 0.7827844488562653
+      },
+      "BRIGHT": {
+        "n": 12244,
+        "roads": 686,
+        "buildings": 11558,
+        "confusion_rows_actual_road_building": [
+          [
+            495,
+            191
+          ],
+          [
+            1638,
+            9920
+          ]
+        ],
+        "accuracy": 0.8506207121855602,
+        "balanced_accuracy": 0.7899271616292427,
+        "ROC_AUC": 0.8918953943528317,
+        "brier": 0.10283189373218836,
+        "mean_p_building_road": 0.35813931644277824,
+        "mean_p_building_building": 0.8134046722977688
+      },
+      "LOW_VIS_014_016": {
+        "n": 1885,
+        "roads": 537,
+        "buildings": 1348,
+        "confusion_rows_actual_road_building": [
+          [
+            442,
+            95
+          ],
+          [
+            686,
+            662
+          ]
+        ],
+        "accuracy": 0.5856763925729443,
+        "balanced_accuracy": 0.657094585260459,
+        "ROC_AUC": 0.7094806292790479,
+        "brier": 0.2761644241248574,
+        "mean_p_building_road": 0.2891696208144505,
+        "mean_p_building_building": 0.5202410196745907
+      }
+    }
+  },
+  "TRAIN": {
+    "REL23": {
+      "ALL": {
+        "n": 18838,
+        "roads": 4084,
+        "buildings": 14754,
+        "confusion_rows_actual_road_building": [
+          [
+            3781,
+            303
+          ],
+          [
+            6507,
+            8247
+          ]
+        ],
+        "accuracy": 0.6384966556959337,
+        "balanced_accuracy": 0.7423875455611102,
+        "ROC_AUC": 0.8374959024375865,
+        "brier": 0.19410171674989118,
+        "mean_p_building_road": 0.4013397544688591,
+        "mean_p_building_building": 0.586559961639817
+      },
+      "BRIGHT": {
+        "n": 14703,
+        "roads": 2340,
+        "buildings": 12363,
+        "confusion_rows_actual_road_building": [
+          [
+            2131,
+            209
+          ],
+          [
+            5088,
+            7275
+          ]
+        ],
+        "accuracy": 0.6397333877439978,
+        "balanced_accuracy": 0.7495665830839333,
+        "ROC_AUC": 0.83699593700807,
+        "brier": 0.1880841554906293,
+        "mean_p_building_road": 0.4079575177376103,
+        "mean_p_building_building": 0.6011292468878062
+      },
+      "LOW_VIS_014_016": {
+        "n": 4135,
+        "roads": 1744,
+        "buildings": 2391,
+        "confusion_rows_actual_road_building": [
+          [
+            1650,
+            94
+          ],
+          [
+            1419,
+            972
+          ]
+        ],
+        "accuracy": 0.63409915356711,
+        "balanced_accuracy": 0.6763126920907532,
+        "ROC_AUC": 0.7968039551989686,
+        "brier": 0.21549862199654846,
+        "mean_p_building_road": 0.39246041613808075,
+        "mean_p_building_building": 0.5112274340275665
+      }
+    },
+    "HIST29": {
+      "ALL": {
+        "n": 18838,
+        "roads": 4084,
+        "buildings": 14754,
+        "confusion_rows_actual_road_building": [
+          [
+            3639,
+            445
+          ],
+          [
+            4653,
+            10101
+          ]
+        ],
+        "accuracy": 0.7293767915914641,
+        "balanced_accuracy": 0.7878330476822832,
+        "ROC_AUC": 0.8740086853054806,
+        "brier": 0.1716155744743604,
+        "mean_p_building_road": 0.36869101740453475,
+        "mean_p_building_building": 0.6202970089127479
+      },
+      "BRIGHT": {
+        "n": 14703,
+        "roads": 2340,
+        "buildings": 12363,
+        "confusion_rows_actual_road_building": [
+          [
+            2027,
+            313
+          ],
+          [
+            3432,
+            8931
+          ]
+        ],
+        "accuracy": 0.7452900768550635,
+        "balanced_accuracy": 0.7943183962900051,
+        "ROC_AUC": 0.872151049001328,
+        "brier": 0.1630840371661406,
+        "mean_p_building_road": 0.38992457997048263,
+        "mean_p_building_building": 0.6399850943298306
+      },
+      "LOW_VIS_014_016": {
+        "n": 4135,
+        "roads": 1744,
+        "buildings": 2391,
+        "confusion_rows_actual_road_building": [
+          [
+            1612,
+            132
+          ],
+          [
+            1221,
+            1170
+          ]
+        ],
+        "accuracy": 0.6727932285368803,
+        "balanced_accuracy": 0.7068234664395151,
+        "ROC_AUC": 0.8304596460733867,
+        "brier": 0.20195153409775957,
+        "mean_p_building_road": 0.34020103093416887,
+        "mean_p_building_building": 0.5184970089079832
+      }
+    },
+    "COST29": {
+      "ALL": {
+        "n": 18838,
+        "roads": 4084,
+        "buildings": 14754,
+        "confusion_rows_actual_road_building": [
+          [
+            3933,
+            151
+          ],
+          [
+            7775,
+            6979
+          ]
+        ],
+        "accuracy": 0.5792546979509502,
+        "balanced_accuracy": 0.7180253546341522,
+        "ROC_AUC": 0.8202687144587494,
+        "brier": 0.2409089184651672,
+        "mean_p_building_road": 0.32379451681297355,
+        "mean_p_building_building": 0.5007183101997319
+      },
+      "BRIGHT": {
+        "n": 14703,
+        "roads": 2340,
+        "buildings": 12363,
+        "confusion_rows_actual_road_building": [
+          [
+            2226,
+            114
+          ],
+          [
+            6102,
+            6261
+          ]
+        ],
+        "accuracy": 0.5772291369108346,
+        "balanced_accuracy": 0.7288562646606811,
+        "ROC_AUC": 0.8221504959311317,
+        "brier": 0.24102836766413907,
+        "mean_p_building_road": 0.33254746369632526,
+        "mean_p_building_building": 0.5131712260185222
+      },
+      "LOW_VIS_014_016": {
+        "n": 4135,
+        "roads": 1744,
+        "buildings": 2391,
+        "confusion_rows_actual_road_building": [
+          [
+            1707,
+            37
+          ],
+          [
+            1673,
+            718
+          ]
+        ],
+        "accuracy": 0.5864570737605804,
+        "balanced_accuracy": 0.6395385841016963,
+        "ROC_AUC": 0.7585455204724136,
+        "brier": 0.240484187734216,
+        "mean_p_building_road": 0.3120503105589352,
+        "mean_p_building_building": 0.436328766800441
+      }
+    },
+    "NATIVE_CNN": {
+      "ALL": {
+        "n": 18838,
+        "roads": 4084,
+        "buildings": 14754,
+        "confusion_rows_actual_road_building": [
+          [
+            3455,
+            629
+          ],
+          [
+            2634,
+            12120
+          ]
+        ],
+        "accuracy": 0.8267862830449092,
+        "balanced_accuracy": 0.8337282361183747,
+        "ROC_AUC": 0.9146412360890328,
+        "brier": 0.11781301847892207,
+        "mean_p_building_road": 0.2649802478465257,
+        "mean_p_building_building": 0.7665710341578211
+      },
+      "BRIGHT": {
+        "n": 14703,
+        "roads": 2340,
+        "buildings": 12363,
+        "confusion_rows_actual_road_building": [
+          [
+            1914,
+            426
+          ],
+          [
+            1724,
+            10639
+          ]
+        ],
+        "accuracy": 0.8537713391824797,
+        "balanced_accuracy": 0.8392501819946615,
+        "ROC_AUC": 0.9217351402136649,
+        "brier": 0.1011799910076876,
+        "mean_p_building_road": 0.2950880755075855,
+        "mean_p_building_building": 0.7982591582030694
+      },
+      "LOW_VIS_014_016": {
+        "n": 4135,
+        "roads": 1744,
+        "buildings": 2391,
+        "confusion_rows_actual_road_building": [
+          [
+            1541,
+            203
+          ],
+          [
+            910,
+            1481
+          ]
+        ],
+        "accuracy": 0.7308343409915357,
+        "balanced_accuracy": 0.7515035118314475,
+        "ROC_AUC": 0.8539951998894939,
+        "brier": 0.17695580031920272,
+        "mean_p_building_road": 0.2245832772462505,
+        "mean_p_building_building": 0.6027231556252393
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+原生10m局地空间上下文辅助材料头：待父任务批准后唯一拟合
+
+目的：直接让卷积看到小亮目标周围的排列、沿线连续与跨线边缘；不是重新组合23/29个单点统计，也不是调整损失权重。
+
+查重结论：11/03 spatial_component_intervention与target_selective_absolute确有CNN；输入为原生20m的15x15窗口、6带+建筑fraction+相对坐标/风向，预测4个10m子格三VIS扣量，监督是已知合成材料/大气干预。learned_input_head本身是手工28特征+ridge。此次为原生10m、真实地图弱标签的材料概率头，地图不作推理输入，目标/监督/输入尺度不同；不能声称CNN首次应用本项目。
+
+固定合同：
+1. 复用temporal_material_matched_head/TRAIN_COORDINATES.csv完全相同15998行（道路4084、建筑11914），同20 TRAIN/10 HOLDOUT地点、80 TRAIN日期候选池，不再抽样；实际固定坐标来自其中77景，3景无抽中标签像元。留出已多次参与探索，非独立确认集。
+2. 每目标13x13原生10m patch，12通道：当前4BOA、严格过去4BOA Q25模板、过去频率/计数除4、当前valid、过去有效。8个反射率通道除目标当前三VIS均值+.03；不输入地图、fraction、中心线、坐标、日期、PM/B58或现有手工23/29特征。非有效/窗外反射率置0并显式带支持mask，不反射填充、不假造外沿。过去有效=当前valid AND history_count>0 AND 模板四带有限。
+3. 固定小CNN：共享Conv(12,24,3),ReLU；细尺度Conv(24,24,3),ReLU，感受野5；大尺度从共享层Conv(24,24,3,dilation2),ReLU再Conv(24,24,3,dilation3),ReLU，感受野13。只拼两路中心24+24，Linear48->24->1。无降采样、无位置嵌入、无全图坐标；训练随机D4旋转/翻转整个patch，中心标签不变。
+4. 同一个patch函数用于训练与206场像元推理。相对通道直接输入，不另拟合scaler。唯一辅助fit，seed20261105；30固定epoch，batch256，AdamW lr1e-3/weight_decay1e-4，class-balanced BCE按n/(2*n_class)，CPU2线程。最后epoch权重，不早停/不按留出挑checkpoint、不扫参。
+5. 新方法CS_TEMP_NATIVE_CONTEXT：仅替换材料概率；Xp_VIS=已缓存CS_start_VIS-p_native_context*已缓存delta。TEMP eligible及原支持不变，域外CS不变，NIR精确不变。冻结PM头/B58，0次PM头拟合。原156+event50一次新输入->冻结头；父材料版不重推。
+6. 报告全弱标签与亮道路/0.14-.16道路的分类、实际扣量加权代价；固定6风险点、纠正坐标后的原30对象/74格、地图弱纯路与混合、工业及25事件，同时展示有利/不利。同原RAW色限/valid。辅助分类不能当PM精度。
+
+拟合前状态：未训练，待父任务批准。预计训练+全206推理约20分钟量级，随后收口少量代表图；不开展第二模型。
+架构实现依据：PyTorch2.14 Conv2d与BCEWithLogitsLoss官方API（卷积dilation/稳定二分类损失），不是领域有效性证据。
+https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv2d.html
+https://docs.pytorch.org/docs/2.14/generated/torch.nn.BCEWithLogitsLoss.html
