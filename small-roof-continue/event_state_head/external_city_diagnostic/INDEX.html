@@ -1,0 +1,185 @@
+<!doctype html><meta charset="utf-8"><title>外城观测新信息诊断</title><style>body{max-width:1800px;margin:28px auto;padding:0 24px;font:17px system-ui;line-height:1.65;background:#f2f5f7;color:#193042}section{background:white;padding:22px;margin:18px 0}img{width:100%;height:auto}table{border-collapse:collapse;font-size:13px}th,td{padding:6px;border-bottom:1px solid #ddd}pre{white-space:pre-wrap}a{color:#176994}</style><h1>外城实测资料中存在此前缺少的污染过程信息</h1><p>0拟合 · 847个固定TRAIN参考站 · 排除目标整座城市 · 25已曝光事件</p><p><a href="RESULT_CN.txt">完整短报告</a> · <a href="PLAN.txt">预锁规则</a> · <a href="DATE_SIGNALS.csv">50日期输入</a> · <a href="EVENT_PAIR_SIGNALS.csv">25对差值</a> · <a href="REFERENCE_DETAILS.csv">每个外城源值</a> · <a href="RAW_CITY_HOURLY.csv">原始ZIP索引</a></p><section><h2>焦作和阳泉有突增信号，南通存在反例</h2><p>前1小时区域信号覆盖50/50日期、24/25对方向为正；不能直接当目标站预测。上风信号缺少5个日期，不补造。归档发布延迟未知。</p><img src="EXTERNAL_SIGNALS.png"></section><section><h2>焦作 / 阳泉 / 南通</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>pair_id</th>
+      <th>observed_pm25_delta</th>
+      <th>B58_delta</th>
+      <th>EVENT_RETRAIN_CONTROL_delta</th>
+      <th>EVENT_STATE24_delta</th>
+      <th>regional_PM_lag0_delta</th>
+      <th>regional_PM_lag1_delta</th>
+      <th>upwind_PM_lag1_delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S05_jiaozuo_1829A</td>
+      <td>84.0</td>
+      <td>-14.769</td>
+      <td>-10.303</td>
+      <td>-8.452</td>
+      <td>85.238</td>
+      <td>70.581</td>
+      <td>87.482</td>
+    </tr>
+    <tr>
+      <td>S09_nantong_1168A</td>
+      <td>53.0</td>
+      <td>7.407</td>
+      <td>10.457</td>
+      <td>10.139</td>
+      <td>-50.176</td>
+      <td>-52.092</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>S13_yangquan_1742A</td>
+      <td>205.0</td>
+      <td>6.186</td>
+      <td>25.031</td>
+      <td>9.528</td>
+      <td>135.389</td>
+      <td>174.071</td>
+      <td>214.629</td>
+    </tr>
+    <tr>
+      <td>S22_jiaozuo_3169A</td>
+      <td>99.0</td>
+      <td>-14.769</td>
+      <td>-10.303</td>
+      <td>-8.452</td>
+      <td>105.957</td>
+      <td>89.466</td>
+      <td>88.160</td>
+    </tr>
+    <tr>
+      <td>S29_yangquan_1738A</td>
+      <td>250.0</td>
+      <td>6.186</td>
+      <td>25.031</td>
+      <td>9.528</td>
+      <td>135.220</td>
+      <td>173.824</td>
+      <td>214.663</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>全体覆盖与描述性变化</h2><p>差值RMSE为输入信号与目标变化之间的描述，不是新模型精度；样本已曝光且有共享城市事件。</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>signal</th>
+      <th>date_covered</th>
+      <th>pairs_covered</th>
+      <th>positive_delta_pairs</th>
+      <th>mean_delta</th>
+      <th>delta_rmse_descriptive</th>
+      <th>delta_correlation_descriptive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>observed_pm25</td>
+      <td>50</td>
+      <td>25</td>
+      <td>25</td>
+      <td>77.120</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>B58</td>
+      <td>50</td>
+      <td>25</td>
+      <td>23</td>
+      <td>29.354</td>
+      <td>78.042</td>
+      <td>0.049</td>
+    </tr>
+    <tr>
+      <td>EVENT_RETRAIN_CONTROL</td>
+      <td>50</td>
+      <td>25</td>
+      <td>23</td>
+      <td>34.220</td>
+      <td>72.290</td>
+      <td>0.155</td>
+    </tr>
+    <tr>
+      <td>EVENT_STATE24</td>
+      <td>50</td>
+      <td>25</td>
+      <td>23</td>
+      <td>32.319</td>
+      <td>77.283</td>
+      <td>-0.041</td>
+    </tr>
+    <tr>
+      <td>regional_PM_lag0</td>
+      <td>50</td>
+      <td>25</td>
+      <td>24</td>
+      <td>56.633</td>
+      <td>43.446</td>
+      <td>0.718</td>
+    </tr>
+    <tr>
+      <td>regional_PM_lag1</td>
+      <td>50</td>
+      <td>25</td>
+      <td>24</td>
+      <td>57.854</td>
+      <td>39.768</td>
+      <td>0.779</td>
+    </tr>
+    <tr>
+      <td>upwind_PM_lag0</td>
+      <td>45</td>
+      <td>20</td>
+      <td>20</td>
+      <td>73.650</td>
+      <td>35.230</td>
+      <td>0.829</td>
+    </tr>
+    <tr>
+      <td>upwind_PM_lag1</td>
+      <td>45</td>
+      <td>20</td>
+      <td>20</td>
+      <td>80.770</td>
+      <td>34.194</td>
+      <td>0.823</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>读取与下一候选</h2><pre>固定 TRAIN 外城观测：零拟合输入诊断完成
+
+新信息确实存在：前日状态没有跟上焦作/阳泉突增，但附近外城前1小时已有实际污染突增。847个冻结TRAIN站、199城，全局排除25事件站；每目标排除整座本城，按几何预锁300km内最近5外城。该池不包含CITY/STATION保留站，邻居不按事件结果挑选。
+50日期全部有至少2个外城；区域前1小时信号覆盖25/25对，24对增向。固定上风±60°、风速≥1m/s信号覆盖45/50日期与20/25对，未给缺测替换邻居。
+
+焦作1829A外城前1小时：晋城24→132、郑州22→97；区域信号Δ=70.58，而本站Δ=84。
+阳泉1742A外城前1小时：晋中25.5→226、太原28→280、忻州45→238；区域信号Δ=174.07，而本站Δ=205。
+有不利例：南通本站Δ=53.0，外城前1小时Δ=-52.091537、同小时Δ=-50.175915。外城变化不能直接回填为目标预测。
+
+以下差值RMSE只是外城输入与目标事件变化的描述性比较，不是一个已训练模型的精度；25对早已曝光，部分共享城市/事件，不能当25个独立盲测。
+               signal  date_covered  pairs_covered  positive_delta_pairs  mean_delta  delta_rmse_descriptive  delta_correlation_descriptive
+        observed_pm25            50             25                    25   77.120000                0.000000                       1.000000
+                  B58            50             25                    23   29.353791               78.041705                       0.048990
+EVENT_RETRAIN_CONTROL            50             25                    23   34.220174               72.290262                       0.154945
+        EVENT_STATE24            50             25                    23   32.319189               77.283079                      -0.041232
+     regional_PM_lag0            50             25                    24   56.632672               43.446236                       0.718109
+     regional_PM_lag1            50             25                    24   57.854151               39.768358                       0.778961
+       upwind_PM_lag0            45             20                    20   73.650353               35.229816                       0.828969
+       upwind_PM_lag1            45             20                    20   80.770479               34.193589                       0.822722
+
+关键逐对数据：
+           pair_id  observed_pm25_delta  B58_delta  EVENT_RETRAIN_CONTROL_delta  EVENT_STATE24_delta  regional_PM_lag0_delta  regional_PM_lag1_delta  upwind_PM_lag1_delta
+ S05_jiaozuo_1829A                 84.0 -14.768661                   -10.303219            -8.452286               85.237872               70.580583             87.482420
+ S09_nantong_1168A                 53.0   7.406757                    10.457476            10.139309              -50.175915              -52.091537                   NaN
+S13_yangquan_1742A                205.0   6.186009                    25.030964             9.528139              135.388592              174.071080            214.629249
+ S22_jiaozuo_3169A                 99.0 -14.768661                   -10.303219            -8.452286              105.956984               89.465855             88.160095
+S29_yangquan_1738A                250.0   6.186009                    25.030964             9.528139              135.219615              173.824120            214.662842
+
+时间可用性：原始CNEMC日文件 type=PM2.5、北京时间标注小时。只使用冻结TRAIN参考站的原始数值，负值/缺测剔除，未插值。归档没有发布时刻，同小时只能在该小时资料发布后使用；前1小时是更合理的延迟方案代理，仍不能保证过境时已发布齐。上风判断使用目标当前气象风向，前1小时观测也沿用该风向。
+建议一个固定候选（待root批准，不在本诊断中拟合）：旧13特征＋外城前1小时PM、上风前1小时PM及两个有效城市数；与已有同训43,658行控制比较，仅一次固定HGB，不扫描距离、风角或邻居数。TRAIN和预测按同一池、排本城、同一函数构造；缺失按TRAIN中位数+标记。沿用原B58的已知训练重叠需继续披露。
+该候选是区域地面监测融合背景；即使有效，也不代表10m光学或屋顶纹理改进。与零均值局地细节组合时只改变场均值。
+
+文件：PLAN.txt为读PM前锁定规则；REFERENCE_POOL.csv/NEIGHBORS.csv/LOCK.json固定池和几何；RAW_CITY_HOURLY.csv保留确切ZIP/member/小时；REFERENCE_DETAILS.csv保留每场每外城数值；DATE_SIGNALS.csv、EVENT_PAIR_SIGNALS.csv为完整结果。fit_count=0。
+</pre></section>

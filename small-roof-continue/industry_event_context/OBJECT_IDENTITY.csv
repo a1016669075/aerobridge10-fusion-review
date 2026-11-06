@@ -1,0 +1,14 @@
+scope,object_id,label,kind,status,id_line
+qujing,QR01,东北大型浅色屋顶内核；生产区环境候选，未逐栋核用途,surface,light_roof_candidate,19
+qujing,QR02,东北独立浅色条形屋顶内核；生产区环境候选，未逐栋核用途,surface,light_roof_candidate,87
+qujing,QR03,中北小白屋顶；用途未知，非已证非工业对照,surface,light_roof_candidate,159
+qujing,QC01,南部小型屋顶外观对照，2018到2022明显变亮；用途未知，不作稳定材质,surface,light_roof_candidate,227
+qujing,QC02,中部蓝色小构筑物候选，屋面与场地仍可能混合；用途未知,surface,colored_roof_candidate,295
+qujing,QD01,中央道路候选；北侧绿化候选、南侧屋顶地面混合，不作车辆PM真值,road,road_one_vegetation_side_other_mixed,363
+anshan,AR01,工业园内东部浅色大屋顶候选；具体企业未核,surface,light_roof_candidate,20
+anshan,AR02,工业园内东部浅色大屋顶候选2；具体企业未核,surface,light_roof_candidate,88
+anshan,AR03,工业园内北部暗色条带屋顶候选,surface,dark_roof_candidate,156
+anshan,AR04,工业园南部蓝色长屋顶候选,surface,colored_roof_candidate,224
+anshan,AC01,OSM宏发石榴住宅地块内小型浅色屋顶候选；非工业匹配有限,surface,residential_roof_candidate,292
+anshan,AC02,西缘小白屋顶普通外观对照，使用性质未知不得称非工业,surface,light_roof_candidate,360
+anshan,AD01,西部斜向道路；两侧绿化候选含地面/阴影，非交通真值,road,road_with_vegetation_mixed_sides,428

@@ -1,0 +1,63 @@
+{
+  "status": "STAGED_NOT_PUBLISHED",
+  "files": 13304,
+  "MiB": 179.5398063659668,
+  "dynamic": {
+    "main_cases": 156,
+    "main_methods": 37,
+    "main_tiles": 11700,
+    "event_dates": 50,
+    "event_methods": 28,
+    "event_tiles": 1450
+  },
+  "local_references": 156,
+  "missing_references": 0,
+  "cleanup_fields": [
+    {
+      "file": "event_state_head/external_city_diagnostic/RAW_CITY_HOURLY.csv",
+      "field": "archive_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/EXACT_DATE_CONTEXT.csv",
+      "field": "source_npz",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/EXACT_DATE_CONTEXT.csv",
+      "field": "metadata_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/EXACT_DATE_CONTEXT.csv",
+      "field": "geometry_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/EXACT_DATE_CONTEXT.csv",
+      "field": "path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/EXACT_DATE_CONTEXT.csv",
+      "field": "input_path",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "industry_event_context/OBJECT_IDENTITY.csv",
+      "field": "source",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "multiband_material_probe/AVAILABILITY.csv",
+      "field": "source_npz",
+      "action": "removed local source-path column"
+    },
+    {
+      "file": "presentation/BUILD_CHECK.json",
+      "field": "source_index",
+      "action": "removed local source-path metadata"
+    }
+  ],
+  "scientific_arrays_included": false
+}

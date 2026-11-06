@@ -1,0 +1,31 @@
+VISIBLE_MATERIAL_SEEDS — 2026-11-06, frozen before input probe
+
+One candidate: COMPACT_VISIBLE_SEEDS; 0 fitting and frozen PM head.
+Question: does visible green-peak evidence prevent high-NIR blue roofs from losing building anchors while retaining evidence against vegetation-contaminated map seeds?
+
+Actual native 10 m X order is B02(B), B03(G), B04(R), B08(NIR).
+ndvi=(NIR-R)/(NIR+R), requiring denominator>1e-8.
+green_peak=(G>R)&(G>B).
+vegetation_evidence=(ndvi>.35)&green_peak.
+material_support=valid & denominator>1e-8 & ~vegetation_evidence.
+This means lack of joint vegetation evidence; it is not a true nonvegetation/material label.
+ExG=(2G-R-B)/(R+G+B) is recorded for explanation only and adds no fitted threshold. A green peak implies positive ExG when the sum is positive. No parameter or threshold sweep.
+
+Everything else is the first graph_material_stability candidate:
+confidence(seed)=material_support(seed)*sum(material_support in 3x3)/9.
+c=1 gives the existing hard class; c=0 removes that anchor; 0<c<1 gives lambda=graph_degree*c/(1-c).
+Solve (L_UU+diag(lambda))*p=-L_UH*y_H+lambda*y_U.
+Original four-band unit-vector edge weight exp(-squared_distance/.02)+1e-10, current-day valid graph, original map seed locations/classes, target exclusion, 3x3 support, component fallback, coherence and COMPACT-only correction contract remain fixed.
+No future images, target unions, new model fitting, altered PM head, new imagery, changed masks, or manual ROI labels enter this candidate.
+Both reliable seed classes required in a valid component; otherwise retain TENSOR. Old36 have no pure-map seeds and remain exact TENSOR.
+Candidate is parallel to original GRAPH/first soft-seed candidate; their outputs are not stacked.
+
+Prelocked input probe: original17 scenes from graph_material_stability plus the first branch's Daqing spring adverse scene S20_daqing_1791A_2020-04-23 and EVENT_S17_zibo_1635A_2021-11-12 (19 scenes). The original17 comparisons and these adverse cases are exposed exploratory inputs.
+Specifically inspect the 25 high-NDVI building map cells removed within80m of Daqing[63,68], Zibo high-NDVI road map cells, and original fixed focus coordinates. If the added input distinguishes these mechanisms, run original156+event50 once. Do not select scenes according to candidate output.
+Retain the six original fixed review scenes plus the two already identified adverse scenes. Report seed counts/coverage, oldGRAPH and first-candidate changes, actual station/date PM measures and limitations.
+
+Source basis (checked 2026-11-06):
+Woebbecke et al. 1995, Color indices for weed identification under various soil, residue, and lighting conditions, Transactions ASAE38(1):259-269. Original RGB study evaluated r-g, g-b and 2g-r-b for plant/background separation; institutional article record:
+https://pure.psu.edu/en/publications/color-indices-for-weed-identification-under-various-soil-residue-/
+DOI10.13031/2013.27838.
+Our conjunction of existing NDVI threshold with G>R and G>B is a predetermined adaptation, not a recipe validated by that paper for Sentinel urban surfaces. Green roofs, shadows, dormant vegetation, mixed pixels, calibration and haze remain limitations. A green roof may still lose its anchor; a non-green plant mix may retain one. No graph value is claimed as calibrated material truth or 10m PM accuracy.
