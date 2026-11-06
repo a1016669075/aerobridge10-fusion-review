@@ -1,0 +1,14 @@
+唯一单场SAR上下文融合pilot；2026-11-06。以下在新融合PM输出之前固定；0拟合、0扫参。
+
+真实场：S15岳阳2020-08-05 03:19 UTC，原physical_key匹配B58=22.03774714428036（2020-08-05 03:00 UTC），实测站小时PM=29，仅作背景说明。S1为2020-08-06 10:27 UTC，本地VV差31.12892小时。不得借用2021-02-06背景或像元。
+使用原seasonal adapter从本场DN/20m SWIR/真实建筑fraction、同日reference、严格过去同格网/平台/轨道的原semantic特征重建6个最初基线；复放candidate_domain_recon→DOMAIN_CONTEXT_MAP→REFERENCE_STATE_REOPEN→COMPACT_MISSING_CORE，再得到原TENSOR。全部只写本目录，不调用原批runner或configure_history写旧目录。
+
+仅新增一个融合公式和一个BOA-only消融。相同图节点、地图种子、材料支持软confidence、目标排除、同日对象参照、COMPACT扣量及9×9原tensor不变。
+种子：非COMPACT目标内，建筑fraction>=.8且地图线长度0为building；实际地图交长>=5m且fraction==0为road。原material_support(可见绿色+NDVI联合非植被、3×3有效材料比例)作软锚，两个版本完全相同。
+四邻域图边：u=X/||X||，D_BOA=||u_i-u_j||²/.02。
+标准化logVV：z=(10log10(VV)-本场共同支持median)/max(IQR,1e-6)。仅用于相邻材料距离，绝不以高VV直接判屋顶。
+BOA-only边权 exp(-D_BOA)+1e-10；BOA+VV边权 exp(-D_BOA-(z_i-z_j)²)+1e-10。
+两图使用相同原软标签调和求解。双类别可靠种子分量才使用Pbuilding；其余保持原TENSOR保护。
+新增量δ=REFERENCE_STATE_REOPEN−COMPACT（仅三VIS）；保护weight=coherence*(1−Pbuilding)，Xp=COMPACT+δ*weight。因此只调整原COMPACT新增量保留比例，所有更早作用不变；NIR/原valid/无效输入逐值保留。
+方法：PILOT_COMPACT_BOA_CONTEXT 与 PILOT_COMPACT_BOA_VV_CONTEXT。BASELINE保留RAW/EXPAND/REFERENCE/COMPACT/TENSOR；融合相对BOA-only展示正反例与已锁输入屋顶/道路两点，不按好坏省略。
+所有PM使用本日期真实B58和冻结原BETA/INTERCEPT。仅一个场，不扩206，不新增PM拟合、下载、公开上传。

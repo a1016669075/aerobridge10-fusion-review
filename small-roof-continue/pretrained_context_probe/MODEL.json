@@ -1,0 +1,17 @@
+{
+  "model": "DINOv2 ViT-S/14",
+  "torch": "2.14.0+cpu",
+  "device": "CPU",
+  "parameters": 22056576,
+  "weight_bytes": 88283115,
+  "weight_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+  "source_archive_sha256": "eebbfa9e4c2c2aa84c6ecd3baef7d4fcbd652431805c460bcf4860c118310497",
+  "input_size": 518,
+  "token_grid": [
+    37,
+    37
+  ],
+  "embedding_dim": 384,
+  "new_fits": 0,
+  "new_PM": 0
+}

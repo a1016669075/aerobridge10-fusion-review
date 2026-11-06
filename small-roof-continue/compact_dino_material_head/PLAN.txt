@@ -1,0 +1,11 @@
+冻结 DINO 材料辅助头：单次输入学习合同
+
+1. 只拟合一次 LogisticRegression(C=1,class_weight='balanced',solver='lbfgs',max_iter=1000)。无编码器训练，无 PM 头训练，无参数或概率强度扫描。
+2. 训练/留出严格沿用 20261105/native_relative_texture/SITE_SPLIT.csv 的20/10地点。仅原120四季的地图材料弱种子 token；事件50不训练。所有与本日 COMPACT 目标重叠 token 从种子剔除。种子定义继承 VISIBLE 材料支持与第10支合格 token，不修改。
+3. 输入为已经缓存的官方 DINOv2 ViT-S14 518输入、最终384维 token 向量，逐 token L2归一；不输入 PM、日期、站号、坐标。标签 road=0/building=1 来自地图弱标签，非PM或材质真值。
+4. 每个 TRAIN scene 总样本权重相等，全部 TRAIN 权重均值1：w=N/(S*n_scene)。class_weight继续固定balanced；报告原数量和实际加权规模。不按留出结果重训。
+5. 推理仍先对同样单位 token 向量 predict_proba，再对对象内原合格有效token取简单算术均值。不得将对象平均向量归一后直接输入分类器。
+6. 仅在第10支原有实际双类局地参照且目标token有效的同一对象上使用新材料权重。原156的1991格、事件50的1148格支持固定，其余保留TENSOR；旧36无地图仍精确TENSOR。因此本实验仅改变任务映射，不改变覆盖或参照范围。
+7. 以 p_object 控制原 COMPACT 新增 VIS 扣量：w_protect=原coherence*(1-p_object)，沿用既有tensor变换。早期处理/NIR/原valid支持不变，无结果递归。新法 COMPACT_DINO_MATERIAL_HEAD。
+8. 一次拟合后真实原156+事件50冻结头推理。同RAW色限/原支持对照第10支、VISIBLE、FOREST、有界材料分离。保留预锁道路/混合场与最不利场；报告30对象、实际地图交格、工业外观控制和事件变化。
+9. 10留出地点已被旧输入方法研究和展示，本次虽不参与此头拟合，仍是探索性复用，不能称新独立测试。约27.3m token上下文不产生新10m观测；材料弱标签分类准确率不代表PM精度。

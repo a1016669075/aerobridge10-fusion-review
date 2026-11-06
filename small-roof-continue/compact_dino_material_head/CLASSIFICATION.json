@@ -1,0 +1,40 @@
+{
+  "TRAIN": {
+    "tokens": 36719,
+    "sites": 20,
+    "scenes": 80,
+    "balanced_accuracy": 0.8559494458820063,
+    "accuracy": 0.8579482012037365,
+    "AUROC": 0.930958142190751,
+    "confusion_road_building": [
+      [
+        13305,
+        2505
+      ],
+      [
+        2711,
+        18198
+      ]
+    ],
+    "scene_macro_balanced_accuracy": 0.8600894360883433
+  },
+  "HOLDOUT": {
+    "tokens": 19456,
+    "sites": 10,
+    "scenes": 40,
+    "balanced_accuracy": 0.822605081282761,
+    "accuracy": 0.8258120888157895,
+    "AUROC": 0.9025197880940853,
+    "confusion_road_building": [
+      [
+        6463,
+        1574
+      ],
+      [
+        1815,
+        9604
+      ]
+    ],
+    "scene_macro_balanced_accuracy": 0.8361709577394356
+  }
+}

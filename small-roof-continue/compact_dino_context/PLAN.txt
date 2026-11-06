@@ -1,0 +1,16 @@
+COMPACT_DINO_CONTEXT: one fixed pretrained-context PM candidate, 156+50 scenes.
+
+2026-11-06 root authorized full206 after fixed4input probe. No encoder/new auxiliary/PMhead training. Official DINOv2 ViT-S14 source and88.3MB weights stay only in sibling pretrained_context_probe/model. Same fixed518 RGB preparation, final37x37x384 tokens, local weak-token references; reuse4 embeddings without rerunning them. No model/scale/layer/strength scan, no correction for exposed failure positions.
+
+Input and reference contract exactly inherited from probe:
+Current real rawBOA RGB display stretch clip(RGB/.35,0,1)^(1/1.7), originalinvalid gray. One bilinear518resize, ImageNet normalizer, frozen final normalized patch tokens. Directtoken support on current101x101 scene is27.30m, attention can span fullwindow; no new10m observation. Tokenvalid excludes direct footprint of original missing-neighbor cells, but globalcontext remains caveat. All currentCOMPACT target-intersecting tokens excluded from weak seeds, not just target pixels. Seed tokens require one only reliable VISIBLE seed class and no target. Objects are full nativeCOMPACT objects; average their usable unit token embeddings then L2normalize. Spatial nearest up to7 reliable token references of each class within160m from originalobject centroid. Same location sets and cosine distances as originalprobe. Partial validtoken objects explicitly recorded; no newvalid support.
+
+One bounded material-weight formula (not calibrated probability):
+d_r = mean cosine distance from object embedding to reliable road reference tokens.
+d_b = mean cosine distance to reliable building reference tokens.
+p_context = d_r / (d_r+d_b), only when at least1 usable target token, >=1 real reference of each class, allfinite nonnegative distances and positive denominator.
+This normalized inverse-distance ratio is high for building-like context and low for road-like context. It is not a posterior material fraction. If numeric distances fall below zero beyond floating roundoff, stop; tiny roundoff only may be clamped to0. Exact duplicate/zero denominator has no contrast and remains unsupported, not0.5 invented support.
+At each eligible native10m object pixel use originalcoherence*(1-p_context) to protect only the preexistingCOMPACT VIS correction; retain existing correction spectrum/strength and native spatial texture. p_context is constant within an object, not a27mPM raster enlarged to10m. Originalprior corrections/NIR/valid exact. No averaging of outputPM, no minimum acrossmethods.
+Missing real doubleclass token reference uses existingTENSOR. Original36 no puremap seeds stay exactTENSOR. This may differ from fullwindowGRAPH connectivity coverage and is reported. No invented anchors/expandedreference radius.
+
+One real206 run, array+twoINDEX+METHODS. Compare sameorigin VISIBLE, FOREST, BOUNDED, COMPACT/TENSOR andEXPAND; original30, mappedroad intersections, oldroad/industryappearance, true25eventpairs, fixedseasonalpoints and actualpositive/adverseimages. AllsameRAW limits andoriginalsupport. Whole four-season commoncurrentobject support may be sparse; do not use futuretarget unions as deployment input or forcePM seasonal constancy.

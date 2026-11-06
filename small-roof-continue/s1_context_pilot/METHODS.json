@@ -1,0 +1,28 @@
+{
+  "method": "PILOT_COMPACT_BOA_VV_CONTEXT",
+  "ablation": "PILOT_COMPACT_BOA_CONTEXT",
+  "formula": "edge=exp(-||unitX_i-unitX_j||^2/0.02-(zVV_i-zVV_j)^2)+1e-10; protect=coherence*(1-Pbuilding); Xp=COMPACT+(REFERENCE-COMPACT)*protect",
+  "VV_normalization": "(10log10(VV)-common-support median)/IQR",
+  "target": "only existing COMPACT incremental VIS correction",
+  "new_fits": 0,
+  "new_PM_head_fits": 0,
+  "cases": 1,
+  "conclusion": "No meaningful visible roof improvement; tiny map-road lowering cost",
+  "source_dates": {
+    "S2": "2020-08-05",
+    "B58": "2020-08-05 03:00 UTC",
+    "S1": "2020-08-06"
+  },
+  "VV_gap_hours": 31.128920007222224,
+  "grid_m": 10,
+  "SAR_effective_resolution_m": [
+    20,
+    22
+  ],
+  "same_NIR": true,
+  "same_valid": true,
+  "limits_RAW_P2_P98": [
+    14.483678393664785,
+    26.370186124772335
+  ]
+}

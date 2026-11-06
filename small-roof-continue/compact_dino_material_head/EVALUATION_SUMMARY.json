@@ -1,0 +1,98 @@
+{
+  "EVENT_DATE_TRANSFER": {
+    "cases": 50,
+    "old_extra_small_drop_mean": 0.031741462010103166,
+    "remaining_extra_small_drop_mean": 0.026296233049211182,
+    "withdrawn_small_drop_mean": 0.005445228960891981,
+    "mean_drop_fraction_retained": 0.8284505937641187
+  },
+  "FIXED36": {
+    "cases": 36,
+    "old_extra_small_drop_mean": 0.020195710455902,
+    "remaining_extra_small_drop_mean": 0.01193888782151584,
+    "withdrawn_small_drop_mean": 0.008256822634386159,
+    "mean_drop_fraction_retained": 0.5911595854765692
+  },
+  "SEASONAL120": {
+    "cases": 120,
+    "old_extra_small_drop_mean": 0.026364296855590556,
+    "remaining_extra_small_drop_mean": 0.020422109008691812,
+    "withdrawn_small_drop_mean": 0.005942187846898743,
+    "mean_drop_fraction_retained": 0.774612314546189
+  },
+  "original30": {
+    "n": 30,
+    "old_mean_extra_drop": 0.9093408278945845,
+    "recovered_mean": 0.15356742620250685,
+    "remaining_mean_extra_drop": 0.7557734016920776,
+    "max_recovery": 1.128853029317673,
+    "objects_remaining_positive": 26
+  },
+  "locked_road": {
+    "comparisons": 106,
+    "contrast_change_min": 0.0,
+    "contrast_change_max": 0.007009451693098967,
+    "core_change_max": 0.007009451693098967,
+    "new_reversal": 0
+  },
+  "locked_industry": {
+    "comparisons": 125,
+    "core_change_max": 0.00047528604888746884,
+    "near_change_max": 0.012776005285427772,
+    "contrast_change_max": 0.012776005285427772
+  },
+  "station_RMSE": {
+    "COMPACT_BOUNDED_MATTING": 19.639524950113387,
+    "COMPACT_DINO_CONTEXT": 19.639524219422185,
+    "COMPACT_DINO_MATERIAL_HEAD": 19.639532574872547,
+    "COMPACT_FOREST_GRAPH": 19.639517377380184,
+    "COMPACT_GRAPH_TENSOR": 19.63952031003518,
+    "COMPACT_LOCAL_KNN60": 19.639518224037314,
+    "COMPACT_MATERIAL_SEEDS": 19.639521063739345,
+    "COMPACT_MISSING_CORE": 19.63959525520789,
+    "COMPACT_RELATIVE_TEXTURE": 19.63952928919372,
+    "COMPACT_TENSOR_GUARD": 19.63947017391646,
+    "COMPACT_VISIBLE_SEEDS": 19.63951990271266,
+    "EXPAND_LINE_TAIL": 19.607187206501802,
+    "RAW": 19.543241489624304,
+    "REFERENCE_STATE_REOPEN": 19.639273980247133
+  },
+  "event25": {
+    "pairs": 25,
+    "RMSE": 77.42081557441549,
+    "compact_RMSE": 77.42086592007773,
+    "max_window_change_difference": 0.0006014360674555519,
+    "max_bright_change_difference": 0.0008278716843950207,
+    "max_semantic_road_change_difference": 0.0001734490657980814,
+    "max_error_worsening": 0.0004811995667708402
+  },
+  "adjacent_dates": {
+    "window_pairs": 121,
+    "max_window_delta_difference": 0.0010727243697754574,
+    "window_change_RMSE": 24.104368137978337,
+    "compact_window_change_RMSE": 24.104379559742746
+  },
+  "pixel_cost": {
+    "all4171": {
+      "n": 4171,
+      "recovered_fraction": 0.23565229669967822,
+      "mean_recovery": 0.12684903303582798,
+      "max_recovery": 1.7115186164683962,
+      "mean_remaining_drop": 0.411439941068625
+    },
+    "seasonal_map231": {
+      "n": 231,
+      "recovered_fraction": 0.28713338424491636,
+      "mean_recovery": 0.1191165336657231,
+      "max_recovery": 0.5554458771799542,
+      "mean_remaining_drop": 0.2957308515624612
+    },
+    "building_proxy": {
+      "n": 726,
+      "recovered_fraction": 0.2125965710679177,
+      "mean_recovery": 0.13579642984407614,
+      "max_recovery": 1.7115186164683962,
+      "mean_remaining_drop": 0.5029553108916367
+    }
+  }
+}
