@@ -1,4 +1,4 @@
-<!doctype html><meta charset="utf-8"><title>外城观测新信息诊断</title><style>body{max-width:1800px;margin:28px auto;padding:0 24px;font:17px system-ui;line-height:1.65;background:#f2f5f7;color:#193042}section{background:white;padding:22px;margin:18px 0}img{width:100%;height:auto}table{border-collapse:collapse;font-size:13px}th,td{padding:6px;border-bottom:1px solid #ddd}pre{white-space:pre-wrap}a{color:#176994}</style><h1>外城实测资料中存在此前缺少的污染过程信息</h1><p>0拟合 · 847个固定TRAIN参考站 · 排除目标整座城市 · 25已曝光事件</p><p><a href="RESULT_CN.txt">完整短报告</a> · <a href="PLAN.txt">预锁规则</a> · <a href="DATE_SIGNALS.csv">50日期输入</a> · <a href="EVENT_PAIR_SIGNALS.csv">25对差值</a> · <a href="REFERENCE_DETAILS.csv">每个外城源值</a> · <a href="RAW_CITY_HOURLY.csv">原始ZIP索引</a></p><section><h2>焦作和阳泉有突增信号，南通存在反例</h2><p>前1小时区域信号覆盖50/50日期、24/25对方向为正；不能直接当目标站预测。上风信号缺少5个日期，不补造。归档发布延迟未知。</p><img src="EXTERNAL_SIGNALS.png"></section><section><h2>焦作 / 阳泉 / 南通</h2><table border="1" class="dataframe">
+<!doctype html><meta charset="utf-8"><title>外城观测新信息诊断</title><style>body{max-width:1800px;margin:28px auto;padding:0 24px;font:17px system-ui;line-height:1.65;background:#f2f5f7;color:#193042}section{background:white;padding:22px;margin:18px 0}img{width:100%;height:auto}table{border-collapse:collapse;font-size:13px}th,td{padding:6px;border-bottom:1px solid #ddd}pre{white-space:pre-wrap}a{color:#176994}</style><section style="background:#fff3cf;border:2px solid #a16d00"><b>角色更正：</b>本页保留847站初步零拟合诊断。1002A/1004A存在实际STATION角色冲突，未用于拟合；新分支已剔除并改为845站。845池50日期×4输入已复算，最大差5.7e-14；这些窗的外城邻居都不含北京。</section><h1>外城实测资料中存在此前缺少的污染过程信息</h1><p>0拟合 · 847个固定TRAIN参考站 · 排除目标整座城市 · 25已曝光事件</p><p><a href="RESULT_CN.txt">完整短报告</a> · <a href="PLAN.txt">预锁规则</a> · <a href="DATE_SIGNALS.csv">50日期输入</a> · <a href="EVENT_PAIR_SIGNALS.csv">25对差值</a> · <a href="REFERENCE_DETAILS.csv">每个外城源值</a> · <a href="RAW_CITY_HOURLY.csv">原始ZIP索引</a></p><section><h2>焦作和阳泉有突增信号，南通存在反例</h2><p>前1小时区域信号覆盖50/50日期、24/25对方向为正；不能直接当目标站预测。上风信号缺少5个日期，不补造。归档发布延迟未知。</p><img src="EXTERNAL_SIGNALS.png"></section><section><h2>焦作 / 阳泉 / 南通</h2><table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>pair_id</th>
@@ -149,9 +149,11 @@
       <td>0.823</td>
     </tr>
   </tbody>
-</table></section><section><h2>读取与下一候选</h2><pre>固定 TRAIN 外城观测：零拟合输入诊断完成
+</table></section><section><h2>读取与下一候选</h2><pre>固定 TRAIN 外城观测：零拟合初步输入诊断
 
-新信息确实存在：前日状态没有跟上焦作/阳泉突增，但附近外城前1小时已有实际污染突增。847个冻结TRAIN站、199城，全局排除25事件站；每目标排除整座本城，按几何预锁300km内最近5外城。该池不包含CITY/STATION保留站，邻居不按事件结果挑选。
+【角色更正 2026-11-06】本页保留847站初步诊断数值，未用于任何拟合。后续与真实62004行划分交叉后发现：1002A、1004A在5X表为TRAIN，但实际数据为STATION保留站。新event_ext1h_head按真实划分剔除两站，固定为845站/199城后才允许1次拟合。不能把本页847池声称为完全排除保留站；初步结果不作为新模型精度。845池50日期×4输入已复算，最大差5.7e-14；这些窗的外城邻居都不含北京。
+
+新信息确实存在：前日状态没有跟上焦作/阳泉突增，但附近外城前1小时已有实际污染突增。初步847站按5X表TRAIN标签冻结、199城，全局排除25事件站；每目标排除整座本城，按几何预锁300km内最近5外城。存在上述2个实际角色冲突站，邻居未按事件结果挑选。
 50日期全部有至少2个外城；区域前1小时信号覆盖25/25对，24对增向。固定上风±60°、风速≥1m/s信号覆盖45/50日期与20/25对，未给缺测替换邻居。
 
 焦作1829A外城前1小时：晋城24→132、郑州22→97；区域信号Δ=70.58，而本站Δ=84。

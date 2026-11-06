@@ -1,0 +1,83 @@
+外城前1小时输入背景头：1次固定拟合完成
+
+旧13特征＋外城前1小时PM、上风前1小时PM、两个有效城市数。固定845 TRAIN站/199城池（剔除2个实际STATION角色冲突站），逐目标排本城，全局排25事件站。按300km内最近5外城及既定风角聚合，训练/推理共用features.py，不按事件调邻居。
+与旧特征控制相同43,658行、HGB200迭代/15叶/0.05/L2=10/随机42，仅1次新增拟合。STATE24与原模型不改。TRAIN中位数+缺失标记；238缺B58行不填预测。
+全62,004行：区域PM可用61155，上风PM可用50877，新头可预测61766。50事件/348工业日期已匹配。
+50事件本次TRAIN排除，但早已曝光；原B58历史来源重叠未消除。外城站是冻结TRAIN池，含同预测小时之前的区域监测资料，不能当纯卫星无站点推理。
+归档无发布时刻，前1小时仅延迟代理，不能保证过境时已发布；未来部署需明确资料实际到达时刻。
+
+原分组ALL：
+         group stratum                method     n      RMSE       MAE          bias
+          CITY     ALL                   B58  3106 29.380770 17.471521 -1.620335e+00
+          CITY     ALL        B58_TRAIN_MEAN  3106 29.413170 17.410167 -2.128482e+00
+          CITY     ALL EVENT_RETRAIN_CONTROL  3106 27.318820 16.635058 -1.630979e+00
+          CITY     ALL         EVENT_STATE24  3106 26.350996 15.990112 -1.363672e+00
+          CITY     ALL           EVENT_EXT1H  3106 23.604502 13.967995 -5.515846e-01
+       STATION     ALL                   B58  5083 24.253938 15.919141  4.225074e-01
+       STATION     ALL        B58_TRAIN_MEAN  5083 24.250409 15.838247 -8.563983e-02
+       STATION     ALL EVENT_RETRAIN_CONTROL  5083 22.933128 15.211308  6.028453e-01
+       STATION     ALL         EVENT_STATE24  5083 21.363153 14.217789  3.718999e-01
+       STATION     ALL           EVENT_EXT1H  5083 18.811660 12.184600  9.605195e-02
+          TIME     ALL                   B58  4703 27.953325 16.031701 -1.972725e+00
+          TIME     ALL        B58_TRAIN_MEAN  4703 27.993776 15.974308 -2.480872e+00
+          TIME     ALL EVENT_RETRAIN_CONTROL  4703 28.452805 16.127059 -1.964849e+00
+          TIME     ALL         EVENT_STATE24  4703 27.541032 15.154989 -2.683712e+00
+          TIME     ALL           EVENT_EXT1H  4703 21.509700 12.591466 -1.288991e+00
+TRAIN_EXCLUDED     ALL                   B58  5216 26.281238 17.623490  8.968046e-01
+TRAIN_EXCLUDED     ALL        B58_TRAIN_MEAN  5216 26.268808 17.530593  3.886574e-01
+TRAIN_EXCLUDED     ALL EVENT_RETRAIN_CONTROL  5216 24.070004 16.216642 -7.884127e-02
+TRAIN_EXCLUDED     ALL         EVENT_STATE24  5216 22.485801 15.250109 -1.402738e-01
+TRAIN_EXCLUDED     ALL           EVENT_EXT1H  5216 19.276447 12.917719  2.825431e-01
+    TRAIN_USED     ALL                   B58 43658 28.591785 17.944568  5.081472e-01
+    TRAIN_USED     ALL        B58_TRAIN_MEAN 43658 28.587269 17.860034 -1.166606e-15
+    TRAIN_USED     ALL EVENT_RETRAIN_CONTROL 43658 24.194835 15.855779 -1.402800e-02
+    TRAIN_USED     ALL         EVENT_STATE24 43658 22.479880 14.743609 -1.607211e-02
+    TRAIN_USED     ALL           EVENT_EXT1H 43658 19.753775 12.668600 -9.873198e-03
+
+25事件对：
+                  method  pairs  event_RMSE  event_MAE  mean_observed_delta  mean_predicted_delta  positive_delta_pairs
+                     B58     25   78.041705  51.718877                77.12             29.353791                    23
+          B58_TRAIN_MEAN     25   78.041705  51.718877                77.12             29.353791                    23
+    COMPACT_GRAPH_TENSOR     25   77.420807  50.762716                77.12             30.284489                    23
+     CS_CONSISTENT_STATE     25   77.412001  50.758097                77.12             30.290410                    23
+             EVENT_EXT1H     25   37.267270  29.950349                77.12             57.576779                    24
+          EVENT_EXT1H_CS     25   37.268252  29.947336                77.12             57.569435                    24
+       EVENT_EXT1H_GRAPH     25   37.268314  29.947454                77.12             57.569456                    24
+   EVENT_RETRAIN_CONTROL     25   72.290262  47.129345                77.12             34.220174                    23
+EVENT_RETRAIN_CONTROL_CS     25   72.292045  47.127761                77.12             34.212831                    23
+           EVENT_STATE24     25   77.283079  52.388728                77.12             32.319189                    23
+                     RAW     25   77.404536  50.782722                77.12             30.269368                    23
+相对旧特征控制：改善14对，变差11对。
+
+焦作/阳泉/南通：
+           site_id  observed_delta_external  predicted_delta_control  predicted_delta_external  external_minus_control_abs_error
+ S05_jiaozuo_1829A                     84.0               -10.303219                 44.458063                        -54.761282
+ S09_nantong_1168A                     53.0                10.457476                -29.422985                         39.880461
+S13_yangquan_1742A                    205.0                25.030964                171.394458                       -146.363495
+ S22_jiaozuo_3169A                     99.0               -10.303219                 63.942982                        -74.246200
+S29_yangquan_1738A                    250.0                25.030964                171.394458                       -146.363495
+
+工业348日期：按真实表角色与新TRAIN重叠分别报告，不能把所有行称独立工业真值。AR01–04/QR01–02是工业园/生产区候选；QC01用途未知、AC01住宅外观对照，不称厂房。
+                      industrial_role  new_TRAIN_repeat                method   n      RMSE       MAE      bias
+      曲靖工业候选，厂界身份由industry_inputs独立核验             False                   B58  15 14.209173 12.065071  4.962248
+      曲靖工业候选，厂界身份由industry_inputs独立核验             False        B58_TRAIN_MEAN  15 14.039790 11.895689  4.454101
+      曲靖工业候选，厂界身份由industry_inputs独立核验             False EVENT_RETRAIN_CONTROL  15 16.034186 13.593531  7.271884
+      曲靖工业候选，厂界身份由industry_inputs独立核验             False         EVENT_STATE24  15 13.266093 11.600985  6.003711
+      曲靖工业候选，厂界身份由industry_inputs独立核验             False           EVENT_EXT1H  15  7.910059  6.668809  2.061489
+      曲靖工业候选，厂界身份由industry_inputs独立核验              True                   B58 163 16.564897 11.209926 -3.629419
+      曲靖工业候选，厂界身份由industry_inputs独立核验              True        B58_TRAIN_MEAN 163 16.683603 11.268740 -4.137567
+      曲靖工业候选，厂界身份由industry_inputs独立核验              True EVENT_RETRAIN_CONTROL 163 15.661903 10.860425 -2.450183
+      曲靖工业候选，厂界身份由industry_inputs独立核验              True         EVENT_STATE24 163 15.846863 10.883272 -2.540411
+      曲靖工业候选，厂界身份由industry_inputs独立核验              True           EVENT_EXT1H 163 14.290756  9.325668 -3.396410
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区             False                   B58  16 23.691052 17.801732 -0.176259
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区             False        B58_TRAIN_MEAN  16 23.700280 17.738214 -0.684406
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区             False EVENT_RETRAIN_CONTROL  16 23.970988 17.287517 -2.613297
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区             False         EVENT_STATE24  16 20.605048 14.085709 -3.052883
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区             False           EVENT_EXT1H  16 19.406572 15.804069 -3.960551
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区              True                   B58 154 26.270877 19.410509  4.893733
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区              True        B58_TRAIN_MEAN 154 26.180981 19.264040  4.385585
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区              True EVENT_RETRAIN_CONTROL 154 21.415968 15.879596  0.982873
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区              True         EVENT_STATE24 154 19.041737 14.198355  0.547547
+济南工业邻近低覆盖对照，已查厂界仅约106.95m²相交，不将整窗称工业区              True           EVENT_EXT1H 154 17.274654 12.313129  0.648591
+
+地图：50日期×2纹理=100场。新背景＋CS/GRAPH原支持零均值局地项；逐像元相对差值/动态范围不变，所有25双日图同两日RAW色限。色带饱和不表示数值裁切。该支无新屋顶/道路纹理收益；检验的是区域污染背景和纹理分开工作。

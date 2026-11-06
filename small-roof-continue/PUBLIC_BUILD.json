@@ -1,7 +1,7 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 13304,
-  "MiB": 179.5398063659668,
+  "files": 13338,
+  "MiB": 190.6418218612671,
   "dynamic": {
     "main_cases": 156,
     "main_methods": 37,
@@ -10,9 +10,14 @@
     "event_methods": 28,
     "event_tiles": 1450
   },
-  "local_references": 156,
+  "local_references": 190,
   "missing_references": 0,
   "cleanup_fields": [
+    {
+      "file": "event_ext1h_head/RAW_SOURCE_HOURS.csv",
+      "field": "archive_path",
+      "action": "removed local source-path column"
+    },
     {
       "file": "event_state_head/external_city_diagnostic/RAW_CITY_HOURLY.csv",
       "field": "archive_path",
