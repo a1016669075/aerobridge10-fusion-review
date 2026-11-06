@@ -4,8 +4,8 @@
   "seasonal_cases": 120,
   "fixed_cases": 36,
   "sites": 35,
-  "methods": 42,
-  "tiles": 13260,
-  "seconds": 23.330487966537476,
+  "methods": 43,
+  "tiles": 13572,
+  "seconds": 23.916942596435547,
   "note": "Only rendered tiles and display metadata; no new inference, no changed source arrays."
 }

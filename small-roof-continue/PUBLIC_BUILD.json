@@ -1,18 +1,23 @@
 {
   "status": "STAGED_NOT_PUBLISHED",
-  "files": 15673,
-  "MiB": 401.11714458465576,
+  "files": 16087,
+  "MiB": 424.44948291778564,
   "dynamic": {
     "main_cases": 156,
-    "main_methods": 42,
-    "main_tiles": 13260,
+    "main_methods": 43,
+    "main_tiles": 13572,
     "event_dates": 50,
-    "event_methods": 33,
-    "event_tiles": 1700
+    "event_methods": 34,
+    "event_tiles": 1750
   },
-  "local_references": 807,
+  "local_references": 874,
   "missing_references": 0,
   "cleanup_fields": [
+    {
+      "file": "current_focus/SELECTION.csv",
+      "field": "source_arrays",
+      "action": "removed local source-path column"
+    },
     {
       "file": "event_available_reference/TIELING_SWITCH_DATES.csv",
       "field": "path",
