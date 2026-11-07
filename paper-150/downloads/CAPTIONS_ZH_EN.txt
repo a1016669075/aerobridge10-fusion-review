@@ -1,0 +1,41 @@
+AeroBridge10 正文选图与图注
+日期：2026-11-07
+
+一、建议正文使用
+MAIN_FIVE.pdf：5行×4列完整视野组合图，约188 mm宽，文字为矢量。
+MAIN_FIVE_600dpi.png：同图600 dpi栅格版。
+Main01–Main05：五个案例的独立四列PNG/PDF，保留UTM坐标。
+MAIN_FIVE_DETAIL：相同案例的490 m局部放大备选；沿用全景色限。
+
+从上至下：
+(a) 曲靖，2022-03-07，P124；小亮对象与大亮结构同场对比。
+(b) 吉安，2021-06-08，P015；分散小亮屋顶与周围街区。
+(c) 徐州，2021-10-26，P048；大小亮结构并存及邻近线状结构。
+(d) 淄博，2021-07-13，P067；成组亮屋顶的空间纹理变化。
+(e) 岳阳，2022-12-18，P137；较清楚的道路网络与亮屋顶同时出现。
+
+从左至右：真彩色；原始反演RAW；高斯材料校正B_GAUSSIAN；本日＋历史联合校正CS_NATIVE_CONTEXT_UNION（Proposed）。
+所有结果均直接来自已完成的冻结结果缓存，本轮仅选图与制图，没有重新训练或修改PM科学数组。
+
+二、中文图注草稿
+图 X. 五个选定城市案例中亮地表相关高值的空间变化。各行分别为曲靖（2022年3月7日）、吉安（2021年6月8日）、徐州（2021年10月26日）、淄博（2021年7月13日）和岳阳（2022年12月18日）。各列依次为Sentinel-2真彩色影像、原始PM2.5反演、高斯材料校正以及本日与历史参考联合校正。所有方法采用相同的10 m网格和原始有效像元。同一行三个PM2.5面板共用原始反演第2至第98百分位数确定的色限；不同行色限不同，超出色限的数值仅以饱和颜色显示。灰色表示原无效像元，真彩色用于地物定位。这些案例用于展示亮结构高值的缓解及周围空间纹理，完整150个案例见补充图集。
+
+三、English caption draft
+Figure X. Spatial changes in elevated retrievals associated with bright surfaces in five selected urban scenes: (a) Qujing, 7 March 2022; (b) Ji'an, 8 June 2021; (c) Xuzhou, 26 October 2021; (d) Zibo, 13 July 2021; and (e) Yueyang, 18 December 2022. Columns show Sentinel-2 true-colour imagery, the original PM2.5 retrieval, Gaussian material correction, and the proposed correction combining current-scene and historical references. All methods use the same 10 m grid and original valid-pixel support. The three PM2.5 panels within each row share colour limits defined by the 2nd and 98th percentiles of the original retrieval; limits differ between rows. Values outside the displayed range are colour-saturated without altering the data. Grey indicates originally invalid pixels. True-colour imagery provides spatial context. The scenes illustrate attenuation of bright-structure-associated peaks and the surrounding spatial patterns; all 150 scenes are provided in the supplementary gallery.
+
+局部版附句 / Additional sentence for the detail version:
+各行显示完整场景内490 m×490 m的相同子区，并沿用对应全景的色限。
+Each row shows a matched 490 m × 490 m subset of the full scene using the full-scene colour limits.
+
+四、150例范围和选图说明
+150例由全部120例四季场（30地点×4日期）和30例旧固定日期组成。后者从原36例中按原有效像元覆盖选取30例，不按算法表现淘汰案例。原156例完整方法库继续保留。
+正文五例经过结果展示筛选，综合观察亮屋顶缓解、小对象新增变化、周围结构和场景差异；它们不是独立盲测集，也不是按实测PM误差排序的前五名。
+曲靖原六格小亮对象的改善主要已由CS一致状态校正完成；最新联合方案继承这一改善，不能把这六格的全部变化归因于新历史分支。
+道路保护存在剩余代价。例如吉安、淄博部分道路地图交格也降低，完整全景保留这些变化。地图交格并非纯道路像元真值。
+曲靖具有此前核查的生产环境上下文，但不能据此把全图或每个亮屋顶都当作工业污染真值。其它四场未因城市名称或屋顶外观而赋予具体工厂身份。
+图像中的高值减弱可作为空间纹理改善展示；实测10 m PM误差改善需要另有观测支持，图注不作这一宣称。
+
+五、方法对应（供正文方法部分核对）
+Gaussian是在输入反射率上估计材料项并校正，然后使用原PM模型；不是将PM输出图做高斯模糊。
+Proposed从同一CS状态计算历史参考H与本日10 m紧凑对象参考C，在可见波段取max(H,C)，由原生10 m材料卷积模型的概率p调节：X_new = CS - p × max(H,C)，再输入冻结PM头。
+最新材料模型使用当前四带、历史四带形态残差、历史频率/数量与有效标记共12通道，13×13原生网格窗口；本轮没有再次拟合该模型。

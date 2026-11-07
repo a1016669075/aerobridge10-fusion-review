@@ -1,0 +1,6 @@
+﻿paper_order,figure_id,case,city_label,date,selection_reason_zh,small_mean_drop_B_to_UNION,road_evidence_type,road_drop_mean_B_to_UNION,road_drop_max_B_to_UNION,nonbright_MAE_B_to_UNION
+1,P124,qujing_2022-03-07,曲靖,2022-03-07,熟悉的原六格小亮对象，高斯至后续方案的变化清楚；该点改进主要已由CS完成，UNION未进一步改变这六格。,2.3780500892,LOCKED_RGB_ROAD_CANDIDATE,0.0,0.0,0.0187114652
+2,P015,S04_jian_2368A_2021-06-08,吉安,2021-06-08,经全景审阅，亮屋顶与周围绿地、街区结构对照清楚；所选6格对象显示UNION在CS之上的新增缓解。,3.0647598622,MAP_CENTERLINE_INTERSECTION,0.0147797178,4.1399436968,0.0022219102
+3,P048,S12_xuzhou_1181A_2021-10-26,徐州,2021-10-26,所选3格小亮对象有较明显的UNION新增缓解；保留城市道路与街区背景作直观比较。,2.178535041,MAP_CENTERLINE_INTERSECTION,0.0074253484,1.4249222301,0.0160786407
+4,P067,S17_zibo_1635A_2021-07-13,淄博,2021-07-13,所选13格小亮对象仍有UNION新增缓解；城市纹理可同时审阅，并保留全场地图交格代价指标。,3.1582135057,MAP_CENTERLINE_INTERSECTION,0.020905655,6.6525818505,0.0099088746
+5,P137,yueyang_2022-12-18,岳阳,2022-12-18,冬季场景中小亮对象缓解与道路/树侧候选能同图观察；已有锁定道路核心的改变很小。,2.7604215565,LOCKED_RGB_ROAD_CANDIDATE,0.0001953353,0.0265620843,0.0069578094

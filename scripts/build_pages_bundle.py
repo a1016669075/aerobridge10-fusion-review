@@ -86,7 +86,8 @@ def main():
     downloads = {p for p in refs['href'] - refs['src'] - non_href
                  if Path(p).suffix.lower() in IMAGE_EXT | {'.pdf', '.zip', '.csv'}}
     downloads.update(p for p in files if p.startswith(
-        ('figures/', 'bright-refinement/figures/', 'seasonal-120/figures/')))
+        ('figures/', 'bright-refinement/figures/', 'seasonal-120/figures/',
+         'paper-150/figures/', 'paper-150/downloads/')))
     # These 17 original PNG plots have the same 3200 x 1920 dimensions as their
     # JPEG previews, while using 7 MB instead of 27.5 MB.
     preview_swaps = {p: p[:-4] + '.png' for p in files
@@ -185,6 +186,18 @@ def main():
     app = app.replace('D.asset_base+c.full_figure', 'c.full_figure').replace('D.asset_base+c.crop_figure', 'c.crop_figure')
     rendered['latest-ten/app.js'] = app
     dynamic['index.html'] = {case + '/' + key: path for case, tiles in tile_paths.items() for key, path in tiles.items()}
+
+    # paper-150 uses complete literal URLs, already rewritten above.
+    paper_data = rendered.get('paper-150/DATA.js')
+    if paper_data:
+        paper = json.loads(paper_data[paper_data.index('{'):].strip().rstrip(';'))
+        mapping = {}
+        for case in paper['cases']:
+            mapping[case['id'] + '/RGB'] = case['images']['RGB']
+            for mode in ('DAY', 'SITE'):
+                for method, path in case['images'][mode].items():
+                    mapping[case['id'] + '/' + mode + '_' + method] = path
+        dynamic['paper-150/index.html'] = mapping
 
     out.mkdir(parents=True)
     copied = set()
