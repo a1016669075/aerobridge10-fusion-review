@@ -109,7 +109,7 @@ def main():
     changed = set(git('diff', '--name-only', '-z').split('\0'))
     destinations = {}
     for rel in sorted(kept):
-        if Path(rel).suffix.lower() not in IMAGE_EXT:
+        if rel.startswith('f09-cases/assets/') or Path(rel).suffix.lower() not in IMAGE_EXT:
             destinations[rel] = rel
             continue
         blob = hashes.get(rel)
