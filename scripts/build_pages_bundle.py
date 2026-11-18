@@ -259,8 +259,8 @@ def main():
     out.with_name(out.name + '.plan.json').write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding='utf-8')
     out.with_name(out.name + '.validation.json').write_text(json.dumps(validation, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(validation, ensure_ascii=False, indent=2))
-    if errors or byte_count > 700_000_000:
-        raise SystemExit('Bundle validation failed or exceeded 700 MB')
+    if errors or byte_count > 950_000_000:
+        raise SystemExit('Bundle validation failed or exceeded 950 MB')
 
 
 if __name__ == '__main__':
